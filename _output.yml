@@ -1,13 +1,13 @@
 bookdown::bs4_book:
   theme:
     primary: "#4D6F8D"
-  repo: https://github.com/hadley/mastering-shiny
+  repo: https://github.com/Tptrix29/r-tutorials
   css: styles.css
   split_by: Chapter
   config:
     toc:
       collapse: section
-    edit: https://github.com/hadley/mastering-shiny/edit/main/%s
+    edit: https://github.com/Tptrix29/r-tutorials/edit/main/%s
     download: []
     sharing:
       facebook: no
