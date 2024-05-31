@@ -1,0 +1,24 @@
+bookdown::bs4_book:
+  theme:
+    primary: "#4D6F8D"
+  repo: https://github.com/hadley/mastering-shiny
+  css: styles.css
+  split_by: Chapter
+  config:
+    toc:
+      collapse: section
+    edit: https://github.com/hadley/mastering-shiny/edit/main/%s
+    download: []
+    sharing:
+      facebook: no
+      twitter: no
+      github: yes
+      all: []
+          
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default
