@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+*student-group*
+*.csv
+.DS_Store

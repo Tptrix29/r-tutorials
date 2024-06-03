@@ -13,8 +13,8 @@ git clone https://github.com/Tptrix29/r-tutorials
 
 ## Update
 1. Prepare your document:
-- For lecture documents, please name your `Rmd` file in format `[index_number]-lec-[topic].Rmd` and update it to the root directory.
-- For recitation documents, please name your `Rmd` file in format `[index_number]-rec-[topic].Rmd` and update it to the root directory.
+- For lecture documents, please name your `Rmd` file in format `1-[index_number]-lec-[topic].Rmd` and update it to the root directory.
+- For recitation documents, please name your `Rmd` file in format `2-[index_number]-rec-[topic].Rmd` and update it to the root directory.
 - If you have any static resource to upload, please add it to `_main_files/figure-html/` directory.
 
 2. Update the contents in `index.Rmd` file. 
