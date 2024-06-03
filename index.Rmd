@@ -8,7 +8,7 @@ output: bookdown::bs4_book
 url: https://bookdown.org/janedoe/bookdown-demo
 bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
-# cover-image: path to the social sharing image like images/cover.jpg
+cover-image: _main_files/img/R_logo.png
 description: |
   This is a minimal example of using the bookdown package to write a book.
   The HTML output format for this example is bookdown::gitbook,
