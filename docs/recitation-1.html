@@ -46,7 +46,7 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">About</a></li>
+<li><a class="" href="index.html">Home</a></li>
 <li><a class="active" href="recitation-1.html"><span class="header-section-number">1</span> Recitation 1</a></li>
 </ul>
 
@@ -134,6 +134,20 @@
 <h2>
 <span class="header-section-number">1.3</span> Create Your First Project<a class="anchor" aria-label="anchor" href="#create-your-first-project"><i class="fas fa-link"></i></a>
 </h2>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Open RStudio:</strong> Launch RStudio after installation.</li>
+<li>
+<strong>Create a New Project:</strong>
+<ul>
+<li>Go to <code>File</code> &gt; <code>New Project</code>.</li>
+<li>Choose <code>New Directory</code>, then <code>New Project</code>.</li>
+<li>Select a folder on your computer where you want to save your project.</li>
+<li>Click <code>Create Project</code>.</li>
+</ul>
+</li>
+</ol>
+<p>This sets up a new R project where you can start writing and organizing your R scripts and data files.</p>
 </div>
 <div id="different-files" class="section level2" number="1.4">
 <h2>
@@ -143,62 +157,99 @@
 <h3>
 <span class="header-section-number">1.4.1</span> <code>.R</code> Script<a class="anchor" aria-label="anchor" href="#r-script"><i class="fas fa-link"></i></a>
 </h3>
+<p><code>.R</code> files are simple text files containing R code. They are used for writing and running R scripts, which can include data analysis, data manipulation, and plotting commands.</p>
+<p>Creating an .R Script:
+1. In RStudio, go to <code>File</code> &gt; <code>New File</code> &gt; <code>R Script</code>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Write your R code in the script editor.</p></li>
+<li><p>Save the file with a <code>.R</code> extension.</p></li>
+</ol>
 </div>
-<div id="rmd-notebook" class="section level3" number="1.4.2">
+<div id="rmd-rmarkdown" class="section level3" number="1.4.2">
 <h3>
-<span class="header-section-number">1.4.2</span> <code>.Rmd</code> Notebook<a class="anchor" aria-label="anchor" href="#rmd-notebook"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.4.2</span> <code>.Rmd</code> Rmarkdown<a class="anchor" aria-label="anchor" href="#rmd-rmarkdown"><i class="fas fa-link"></i></a>
 </h3>
+<p><code>.Rmd</code> (R Markdown) files are used for creating dynamic documents that combine code, text, and visualizations. They are ideal for reports, presentations, and reproducible research.</p>
+<p>Creating an <code>.Rmd</code> Notebook:
+1. In RStudio, go to <code>File</code> &gt; <code>New File</code> &gt; <code>R Markdown</code>.
+2. Choose the type of output (e.g., HTML, PDF, Word).
+3. Write your code and narrative text in the R Markdown editor.
+4. Use R code chunks (``<code>{r}) to embed R code. 5. Click the</code>Knit` button to generate the final document.</p>
+</div>
+<div id="numeric" class="section level3" number="1.4.3">
+<h3>
+<span class="header-section-number">1.4.3</span> Numeric<a class="anchor" aria-label="anchor" href="#numeric"><i class="fas fa-link"></i></a>
+</h3>
+<p>Numeric variables store numbers and can be either integers or doubles (floating-point numbers).</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">42</span>  <span class="co"># integer</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">3.14</span>  <span class="co"># double</span></span></code></pre></div>
+</div>
+<div id="string" class="section level3" number="1.4.4">
+<h3>
+<span class="header-section-number">1.4.4</span> String<a class="anchor" aria-label="anchor" href="#string"><i class="fas fa-link"></i></a>
+</h3>
+<p>String variables store text data and are created by enclosing the text in quotes.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"John Doe"</span></span>
+<span><span class="va">message</span> <span class="op">&lt;-</span> <span class="st">"Hello, world!"</span></span></code></pre></div>
 </div>
 </div>
-<div id="variables" class="section level2" number="1.5">
+<div id="r-objects" class="section level2" number="1.5">
 <h2>
-<span class="header-section-number">1.5</span> Variables<a class="anchor" aria-label="anchor" href="#variables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5</span> R Objects<a class="anchor" aria-label="anchor" href="#r-objects"><i class="fas fa-link"></i></a>
 </h2>
-<div id="numeric" class="section level3" number="1.5.1">
+<div id="vector" class="section level3" number="1.5.1">
 <h3>
-<span class="header-section-number">1.5.1</span> Numeric<a class="anchor" aria-label="anchor" href="#numeric"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.1</span> Vector<a class="anchor" aria-label="anchor" href="#vector"><i class="fas fa-link"></i></a>
 </h3>
+<p>Vectors are one-dimensional arrays that can hold numeric, string, or logical data. They are created using the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">num_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">str_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="string" class="section level3" number="1.5.2">
+<div id="list" class="section level3" number="1.5.2">
 <h3>
-<span class="header-section-number">1.5.2</span> String<a class="anchor" aria-label="anchor" href="#string"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.2</span> List<a class="anchor" aria-label="anchor" href="#list"><i class="fas fa-link"></i></a>
 </h3>
+<p>Lists are versatile data structures that can hold different types of data, including other lists.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"John"</span>, age <span class="op">=</span> <span class="fl">30</span>, scores <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">90</span>, <span class="fl">85</span>, <span class="fl">88</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
-</div>
-<div id="r-objects" class="section level2" number="1.6">
-<h2>
-<span class="header-section-number">1.6</span> R Objects<a class="anchor" aria-label="anchor" href="#r-objects"><i class="fas fa-link"></i></a>
-</h2>
-<div id="vector" class="section level3" number="1.6.1">
+<div id="factor" class="section level3" number="1.5.3">
 <h3>
-<span class="header-section-number">1.6.1</span> Vector<a class="anchor" aria-label="anchor" href="#vector"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.3</span> Factor<a class="anchor" aria-label="anchor" href="#factor"><i class="fas fa-link"></i></a>
 </h3>
+<p>Factors are used to represent categorical data and are useful for statistical modeling.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"red"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="list" class="section level3" number="1.6.2">
+<div id="matrix" class="section level3" number="1.5.4">
 <h3>
-<span class="header-section-number">1.6.2</span> List<a class="anchor" aria-label="anchor" href="#list"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.4</span> Matrix<a class="anchor" aria-label="anchor" href="#matrix"><i class="fas fa-link"></i></a>
 </h3>
+<p>Matrices are two-dimensional arrays that hold numeric data. They are created using the <code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code> function.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, nrow <span class="op">=</span> <span class="fl">3</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="factor" class="section level3" number="1.6.3">
+<div id="dataframe" class="section level3" number="1.5.5">
 <h3>
-<span class="header-section-number">1.6.3</span> Factor<a class="anchor" aria-label="anchor" href="#factor"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.5</span> DataFrame<a class="anchor" aria-label="anchor" href="#dataframe"><i class="fas fa-link"></i></a>
 </h3>
-</div>
-<div id="matrix" class="section level3" number="1.6.4">
-<h3>
-<span class="header-section-number">1.6.4</span> Matrix<a class="anchor" aria-label="anchor" href="#matrix"><i class="fas fa-link"></i></a>
-</h3>
-</div>
-<div id="dataframe" class="section level3" number="1.6.5">
-<h3>
-<span class="header-section-number">1.6.5</span> DataFrame<a class="anchor" aria-label="anchor" href="#dataframe"><i class="fas fa-link"></i></a>
-</h3>
+<p>DataFrames are table-like structures that can hold different types of data in columns, making them ideal for datasets.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,</span>
+<span>  name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span><span class="op">)</span>,</span>
+<span>  score <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">85</span>, <span class="fl">90</span>, <span class="fl">88</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>With these basics, you should be able to get started with your first R project, create different types of files, and understand the fundamental data structures in R.</p>
 
 </div>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="index.html">About</a></div>
+<div class="prev"><a href="index.html">Home</a></div>
 <div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
@@ -215,22 +266,18 @@
 <li>
 <a class="nav-link" href="#different-files"><span class="header-section-number">1.4</span> Different Files</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#r-script"><span class="header-section-number">1.4.1</span> .R Script</a></li>
-<li><a class="nav-link" href="#rmd-notebook"><span class="header-section-number">1.4.2</span> .Rmd Notebook</a></li>
+<li><a class="nav-link" href="#rmd-rmarkdown"><span class="header-section-number">1.4.2</span> .Rmd Rmarkdown</a></li>
+<li><a class="nav-link" href="#numeric"><span class="header-section-number">1.4.3</span> Numeric</a></li>
+<li><a class="nav-link" href="#string"><span class="header-section-number">1.4.4</span> String</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#variables"><span class="header-section-number">1.5</span> Variables</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#numeric"><span class="header-section-number">1.5.1</span> Numeric</a></li>
-<li><a class="nav-link" href="#string"><span class="header-section-number">1.5.2</span> String</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#r-objects"><span class="header-section-number">1.6</span> R Objects</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#vector"><span class="header-section-number">1.6.1</span> Vector</a></li>
-<li><a class="nav-link" href="#list"><span class="header-section-number">1.6.2</span> List</a></li>
-<li><a class="nav-link" href="#factor"><span class="header-section-number">1.6.3</span> Factor</a></li>
-<li><a class="nav-link" href="#matrix"><span class="header-section-number">1.6.4</span> Matrix</a></li>
-<li><a class="nav-link" href="#dataframe"><span class="header-section-number">1.6.5</span> DataFrame</a></li>
+<a class="nav-link" href="#r-objects"><span class="header-section-number">1.5</span> R Objects</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#vector"><span class="header-section-number">1.5.1</span> Vector</a></li>
+<li><a class="nav-link" href="#list"><span class="header-section-number">1.5.2</span> List</a></li>
+<li><a class="nav-link" href="#factor"><span class="header-section-number">1.5.3</span> Factor</a></li>
+<li><a class="nav-link" href="#matrix"><span class="header-section-number">1.5.4</span> Matrix</a></li>
+<li><a class="nav-link" href="#dataframe"><span class="header-section-number">1.5.5</span> DataFrame</a></li>
 </ul>
 </li>
 </ul>

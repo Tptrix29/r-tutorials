@@ -18,7 +18,7 @@ github-repo: tptrix29/r-tutorials
 number_sections: false
 ---
 
-# About {-}
+# Home {-}
 
 This is the website for summer course **"Introduction to R for Data Science"** for BEST 2024 program.
 

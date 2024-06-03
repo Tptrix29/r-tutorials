@@ -10,8 +10,7 @@ macos-1
 create-your-first-project
 different-files
 r-script
-rmd-notebook
-variables
+rmd-rmarkdown
 numeric
 string
 r-objects
