@@ -1,6 +1,7 @@
 delete_merged_file: true
 output_dir: "docs"
 book_filename: "Introduction to R"
+number_sections: false
 language:
   ui:
     chapter_name: "Chapter "

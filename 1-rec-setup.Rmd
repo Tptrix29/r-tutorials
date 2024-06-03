@@ -1,0 +1,73 @@
+# Recitation 1 
+
+## Objectives
+- Download `R` and `RStudio`
+- Create R project
+- Get familiar with `.R` script and `.Rmd` notebook
+- Variables
+- R Objects
+
+
+## Download Softwares
+
+### Installing R
+
+#### Windows
+
+1. Go to the [CRAN R Project website](https://cloud.r-project.org/).
+2. Click on the link to download R for Windows.
+3. Click on the "base" link.
+4. Click on the "Download R for Windows" link to download the installer.
+5. Once the installer is downloaded, open it and follow the on-screen instructions to complete the installation.
+
+#### macOS
+
+1. Go to the [CRAN R Project website](https://cloud.r-project.org/).
+2. Click on the link to download R for macOS.
+3. Click on the `.pkg` file link to download the installer.
+4. Once the installer is downloaded, open it and follow the on-screen instructions to complete the installation.
+
+
+### Installing RStudio
+
+#### Windows
+
+1. Go to the [RStudio website](https://posit.co/download/rstudio-desktop/).
+2. Under the "Installers for Supported Platforms" section, click on the link for Windows to download the installer.
+3. Once the installer is downloaded, open it and follow the on-screen instructions to complete the installation.
+
+#### macOS
+
+1. Go to the [RStudio website](https://posit.co/download/rstudio-desktop/).
+2. Under the "Installers for Supported Platforms" section, click on the link for macOS to download the installer.
+3. Once the installer is downloaded, open it and follow the on-screen instructions to complete the installation.
+
+
+## Create Your First Project
+
+
+## Different Files
+### `.R` Script
+
+### `.Rmd` Notebook
+
+
+## Variables
+### Numeric
+
+
+### String
+
+
+## R Objects
+### Vector
+
+### List
+
+### Factor
+
+### Matrix
+
+### DataFrame
+
+
