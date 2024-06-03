@@ -26,7 +26,7 @@ bookdown::render_book()
 ```
 
 4. Push the change to the GitHub repo:
-You could use interface in **R Studio** or use the following command:
+You could use interface in **R Studio** or use the following command in your OS terminal:
 ```bash
 cd path/of/project
 git add .
