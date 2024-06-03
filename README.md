@@ -17,14 +17,16 @@ git clone https://github.com/Tptrix29/r-tutorials
 - For recitation documents, please name your `Rmd` file in format `[index_number]-rec-[topic].Rmd` and update it to the root directory.
 - If you have any static resource to upload, please add it to `_main_files/figure-html/` directory.
 
-2. If you want to update documents, please refer to [Update](#update) part.
+2. Update the contents in `index.Rmd` file. 
 
-3. Run the following code in console of **R Studio**:
+3. If you want to update documents, please refer to [Update](#update) part.
+
+4. Run the following code in console of **R Studio**:
 ```r
 bookdown::render_book()
 ```
 
-4. Push the change to the GitHub repo:
+5. Push the change to the GitHub repo:
 You could use interface in **R Studio** or use the following command in your OS terminal:
 ```bash
 cd path/of/project
