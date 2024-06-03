@@ -9,14 +9,13 @@
 git clone https://github.com/Tptrix29/r-tutorials 
 ```
 
-2. Open the project with **R Studio**
+2. Open the project with **R Studio**.
 
 ## Update
 1. Prepare your document:
 - For lecture documents, please name your `Rmd` file in format `[index_number]-lec-[topic].Rmd` and update it to the root directory.
 - For recitation documents, please name your `Rmd` file in format `[index_number]-rec-[topic].Rmd` and update it to the root directory.
-
-> If you have any static resource to upload, please add it to `_main_files/figure-html/` directory.
+- If you have any static resource to upload, please add it to `_main_files/figure-html/` directory.
 
 2. If you want to update documents, please refer to [Update](#update) part.
 
