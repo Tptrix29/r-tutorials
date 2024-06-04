@@ -175,77 +175,300 @@
 2. Choose the type of output (e.g., HTML, PDF, Word).
 3. Write your code and narrative text in the R Markdown editor.
 4. Use R code chunks (``<code>{r}) to embed R code. 5. Click the</code>Knit` button to generate the final document.</p>
+<p><strong>Keyboard Shortcuts: </strong></p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">Operation</th>
+<th align="center">Windows</th>
+<th align="center">MacOS</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">create code chunk</td>
+<td align="center"><code>Ctrl + Alt + I</code></td>
+<td align="center"><code>Cmd + Opt + I</code></td>
+</tr>
+<tr class="even">
+<td align="center">run code chunk</td>
+<td align="center"><code>Ctrl + Enter</code></td>
+<td align="center"><code>Cmd + Return</code></td>
+</tr>
+</tbody>
+</table></div>
 </div>
-<div id="numeric" class="section level3" number="1.4.3">
+</div>
+<div id="variables" class="section level2" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> Variables<a class="anchor" aria-label="anchor" href="#variables"><i class="fas fa-link"></i></a>
+</h2>
+<div id="coming-up-with-variable-names" class="section level3" number="1.5.1">
 <h3>
-<span class="header-section-number">1.4.3</span> Numeric<a class="anchor" aria-label="anchor" href="#numeric"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.1</span> Coming up with variable names<a class="anchor" aria-label="anchor" href="#coming-up-with-variable-names"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use concise and meaningful names for your variables. Object names must start with a letter and can only contain <strong>letters</strong>, <strong>numbers</strong>, **<em>** and <strong>.</strong>
+Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/contrib.url.html">contrib.url()</a></code>) and class names (ex: <code>data.frame</code>). I recommend the snake_case where you can separate words with </em>.</p>
+</div>
+<div id="numeric" class="section level3" number="1.5.2">
+<h3>
+<span class="header-section-number">1.5.2</span> Numeric<a class="anchor" aria-label="anchor" href="#numeric"><i class="fas fa-link"></i></a>
 </h3>
 <p>Numeric variables store numbers and can be either integers or doubles (floating-point numbers).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">42</span>  <span class="co"># integer</span></span>
-<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">3.14</span>  <span class="co"># double</span></span></code></pre></div>
+<span><span class="va">y</span> <span class="op">=</span> <span class="fl">3.14</span>  <span class="co"># double</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># addition </span></span>
+<span><span class="va">x</span> <span class="op">+</span> <span class="va">y</span></span></code></pre></div>
+<pre><code>## [1] 45.14</code></pre>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># substraction</span></span>
+<span><span class="va">x</span> <span class="op">-</span> <span class="va">y</span></span></code></pre></div>
+<pre><code>## [1] 38.86</code></pre>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># multiplication</span></span>
+<span><span class="va">x</span> <span class="op">*</span> <span class="va">y</span></span></code></pre></div>
+<pre><code>## [1] 131.88</code></pre>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># division</span></span>
+<span><span class="va">x</span> <span class="op">/</span> <span class="va">y</span></span></code></pre></div>
+<pre><code>## [1] 13.3758</code></pre>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># mod</span></span>
+<span><span class="va">x</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">9</span></span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
 </div>
-<div id="string" class="section level3" number="1.4.4">
+<div id="string" class="section level3" number="1.5.3">
 <h3>
-<span class="header-section-number">1.4.4</span> String<a class="anchor" aria-label="anchor" href="#string"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.3</span> String<a class="anchor" aria-label="anchor" href="#string"><i class="fas fa-link"></i></a>
 </h3>
 <p>String variables store text data and are created by enclosing the text in quotes.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"John Doe"</span></span>
 <span><span class="va">message</span> <span class="op">&lt;-</span> <span class="st">"Hello, world!"</span></span></code></pre></div>
 </div>
 </div>
-<div id="r-objects" class="section level2" number="1.5">
+<div id="r-objects" class="section level2" number="1.6">
 <h2>
-<span class="header-section-number">1.5</span> R Objects<a class="anchor" aria-label="anchor" href="#r-objects"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6</span> R Objects<a class="anchor" aria-label="anchor" href="#r-objects"><i class="fas fa-link"></i></a>
 </h2>
-<div id="vector" class="section level3" number="1.5.1">
+<div id="tips" class="section level3" number="1.6.1">
 <h3>
-<span class="header-section-number">1.5.1</span> Vector<a class="anchor" aria-label="anchor" href="#vector"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6.1</span> Tips<a class="anchor" aria-label="anchor" href="#tips"><i class="fas fa-link"></i></a>
+</h3>
+<p>You could know <strong>everything</strong> about R programming with the following command:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># help document for function</span></span>
+<span><span class="op">?</span><span class="va">mean</span></span>
+<span></span>
+<span><span class="co"># help document for package</span></span>
+<span><span class="op">?</span><span class="op">?</span><span class="va">MASS</span></span></code></pre></div>
+</div>
+<div id="vector" class="section level3" number="1.6.2">
+<h3>
+<span class="header-section-number">1.6.2</span> Vector<a class="anchor" aria-label="anchor" href="#vector"><i class="fas fa-link"></i></a>
 </h3>
 <p>Vectors are one-dimensional arrays that can hold numeric, string, or logical data. They are created using the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">num_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="va">str_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="list" class="section level3" number="1.5.2">
+<div id="list" class="section level3" number="1.6.3">
 <h3>
-<span class="header-section-number">1.5.2</span> List<a class="anchor" aria-label="anchor" href="#list"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6.3</span> List<a class="anchor" aria-label="anchor" href="#list"><i class="fas fa-link"></i></a>
 </h3>
 <p>Lists are versatile data structures that can hold different types of data, including other lists.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">my_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"John"</span>, age <span class="op">=</span> <span class="fl">30</span>, scores <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">90</span>, <span class="fl">85</span>, <span class="fl">88</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># definition</span></span>
+<span><span class="va">my_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"John"</span>, age <span class="op">=</span> <span class="fl">30</span>, scores <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">90</span>, <span class="fl">85</span>, <span class="fl">88</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># slice</span></span>
+<span><span class="va">my_list</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></span></code></pre></div>
+<pre><code>## $name
+## [1] "John"
+## 
+## $age
+## [1] 30</code></pre>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># pull out element</span></span>
+<span><span class="va">my_list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
+<pre><code>## [1] "John"</code></pre>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_list</span><span class="op">[[</span><span class="st">"name"</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
+<pre><code>## [1] "John"</code></pre>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_list</span><span class="op">$</span><span class="va">name</span></span></code></pre></div>
+<pre><code>## [1] "John"</code></pre>
 </div>
-<div id="factor" class="section level3" number="1.5.3">
+<div id="factor" class="section level3" number="1.6.4">
 <h3>
-<span class="header-section-number">1.5.3</span> Factor<a class="anchor" aria-label="anchor" href="#factor"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6.4</span> Factor<a class="anchor" aria-label="anchor" href="#factor"><i class="fas fa-link"></i></a>
 </h3>
 <p>Factors are used to represent categorical data and are useful for statistical modeling.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"red"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"red"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">colors</span></span></code></pre></div>
+<pre><code>## [1] red   blue  green blue  red  
+## Levels: blue green red</code></pre>
 </div>
-<div id="matrix" class="section level3" number="1.5.4">
+<div id="matrix" class="section level3" number="1.6.5">
 <h3>
-<span class="header-section-number">1.5.4</span> Matrix<a class="anchor" aria-label="anchor" href="#matrix"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6.5</span> Matrix<a class="anchor" aria-label="anchor" href="#matrix"><i class="fas fa-link"></i></a>
 </h3>
 <p>Matrices are two-dimensional arrays that hold numeric data. They are created using the <code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code> function.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">my_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, nrow <span class="op">=</span> <span class="fl">3</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, nrow <span class="op">=</span> <span class="fl">3</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">my_matrix</span></span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
 </div>
-<div id="dataframe" class="section level3" number="1.5.5">
+<div id="dataframe" class="section level3" number="1.6.6">
 <h3>
-<span class="header-section-number">1.5.5</span> DataFrame<a class="anchor" aria-label="anchor" href="#dataframe"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6.6</span> DataFrame<a class="anchor" aria-label="anchor" href="#dataframe"><i class="fas fa-link"></i></a>
 </h3>
 <p>DataFrames are table-like structures that can hold different types of data in columns, making them ideal for datasets.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
-<span>  id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,</span>
-<span>  name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span><span class="op">)</span>,</span>
-<span>  score <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">85</span>, <span class="fl">90</span>, <span class="fl">88</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"nycflights13"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/nycflights13">nycflights13</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">flights</span></span></code></pre></div>
+<pre><code>## # A tibble: 336,776 × 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
+##  1  2013     1     1      517            515         2      830            819
+##  2  2013     1     1      533            529         4      850            830
+##  3  2013     1     1      542            540         2      923            850
+##  4  2013     1     1      544            545        -1     1004           1022
+##  5  2013     1     1      554            600        -6      812            837
+##  6  2013     1     1      554            558        -4      740            728
+##  7  2013     1     1      555            600        -5      913            854
+##  8  2013     1     1      557            600        -3      709            723
+##  9  2013     1     1      557            600        -3      838            846
+## 10  2013     1     1      558            600        -2      753            745
+## # ℹ 336,766 more rows
+## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># To view the structure of the df</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">flights</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## tibble [336,776 × 19] (S3: tbl_df/tbl/data.frame)
+##  $ year          : int [1:336776] 2013 2013 2013 2013 2013 2013 2013 2013 2013 2013 ...
+##  $ month         : int [1:336776] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ day           : int [1:336776] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ dep_time      : int [1:336776] 517 533 542 544 554 554 555 557 557 558 ...
+##  $ sched_dep_time: int [1:336776] 515 529 540 545 600 558 600 600 600 600 ...
+##  $ dep_delay     : num [1:336776] 2 4 2 -1 -6 -4 -5 -3 -3 -2 ...
+##  $ arr_time      : int [1:336776] 830 850 923 1004 812 740 913 709 838 753 ...
+##  $ sched_arr_time: int [1:336776] 819 830 850 1022 837 728 854 723 846 745 ...
+##  $ arr_delay     : num [1:336776] 11 20 33 -18 -25 12 19 -14 -8 8 ...
+##  $ carrier       : chr [1:336776] "UA" "UA" "AA" "B6" ...
+##  $ flight        : int [1:336776] 1545 1714 1141 725 461 1696 507 5708 79 301 ...
+##  $ tailnum       : chr [1:336776] "N14228" "N24211" "N619AA" "N804JB" ...
+##  $ origin        : chr [1:336776] "EWR" "LGA" "JFK" "JFK" ...
+##  $ dest          : chr [1:336776] "IAH" "IAH" "MIA" "BQN" ...
+##  $ air_time      : num [1:336776] 227 227 160 183 116 150 158 53 140 138 ...
+##  $ distance      : num [1:336776] 1400 1416 1089 1576 762 ...
+##  $ hour          : num [1:336776] 5 5 5 5 6 5 6 6 6 6 ...
+##  $ minute        : num [1:336776] 15 29 40 45 0 58 0 0 0 0 ...
+##  $ time_hour     : POSIXct[1:336776], format: "2013-01-01 05:00:00" "2013-01-01 05:00:00" ...</code></pre>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Summary stats of the numeric variables</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">flights</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##       year          month             day           dep_time    sched_dep_time
+##  Min.   :2013   Min.   : 1.000   Min.   : 1.00   Min.   :   1   Min.   : 106  
+##  1st Qu.:2013   1st Qu.: 4.000   1st Qu.: 8.00   1st Qu.: 907   1st Qu.: 906  
+##  Median :2013   Median : 7.000   Median :16.00   Median :1401   Median :1359  
+##  Mean   :2013   Mean   : 6.549   Mean   :15.71   Mean   :1349   Mean   :1344  
+##  3rd Qu.:2013   3rd Qu.:10.000   3rd Qu.:23.00   3rd Qu.:1744   3rd Qu.:1729  
+##  Max.   :2013   Max.   :12.000   Max.   :31.00   Max.   :2400   Max.   :2359  
+##                                                  NA's   :8255                 
+##    dep_delay          arr_time    sched_arr_time   arr_delay       
+##  Min.   : -43.00   Min.   :   1   Min.   :   1   Min.   : -86.000  
+##  1st Qu.:  -5.00   1st Qu.:1104   1st Qu.:1124   1st Qu.: -17.000  
+##  Median :  -2.00   Median :1535   Median :1556   Median :  -5.000  
+##  Mean   :  12.64   Mean   :1502   Mean   :1536   Mean   :   6.895  
+##  3rd Qu.:  11.00   3rd Qu.:1940   3rd Qu.:1945   3rd Qu.:  14.000  
+##  Max.   :1301.00   Max.   :2400   Max.   :2359   Max.   :1272.000  
+##  NA's   :8255      NA's   :8713                  NA's   :9430      
+##    carrier              flight       tailnum             origin         
+##  Length:336776      Min.   :   1   Length:336776      Length:336776     
+##  Class :character   1st Qu.: 553   Class :character   Class :character  
+##  Mode  :character   Median :1496   Mode  :character   Mode  :character  
+##                     Mean   :1972                                        
+##                     3rd Qu.:3465                                        
+##                     Max.   :8500                                        
+##                                                                         
+##      dest              air_time        distance         hour           minute     
+##  Length:336776      Min.   : 20.0   Min.   :  17   Min.   : 1.00   Min.   : 0.00  
+##  Class :character   1st Qu.: 82.0   1st Qu.: 502   1st Qu.: 9.00   1st Qu.: 8.00  
+##  Mode  :character   Median :129.0   Median : 872   Median :13.00   Median :29.00  
+##                     Mean   :150.7   Mean   :1040   Mean   :13.18   Mean   :26.23  
+##                     3rd Qu.:192.0   3rd Qu.:1389   3rd Qu.:17.00   3rd Qu.:44.00  
+##                     Max.   :695.0   Max.   :4983   Max.   :23.00   Max.   :59.00  
+##                     NA's   :9430                                                  
+##    time_hour                     
+##  Min.   :2013-01-01 05:00:00.00  
+##  1st Qu.:2013-04-04 13:00:00.00  
+##  Median :2013-07-03 10:00:00.00  
+##  Mean   :2013-07-03 05:22:54.64  
+##  3rd Qu.:2013-10-01 07:00:00.00  
+##  Max.   :2013-12-31 23:00:00.00  
+## </code></pre>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Finding the dimensions of the df</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">flights</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 336776     19</code></pre>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Mean calculation</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">flights</span><span class="op">$</span><span class="va">distance</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 1039.913</code></pre>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Mean calculation with NA clean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">flights</span><span class="op">$</span><span class="va">distance</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 1039.913</code></pre>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Max value</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">flights</span><span class="op">$</span><span class="va">air_time</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Max value with NA clean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">flights</span><span class="op">$</span><span class="va">air_time</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 695</code></pre>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Unique value</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">flights</span><span class="op">$</span><span class="va">dest</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##   [1] "IAH" "MIA" "BQN" "ATL" "ORD" "FLL" "IAD" "MCO" "PBI" "TPA" "LAX" "SFO" "DFW"
+##  [14] "BOS" "LAS" "MSP" "DTW" "RSW" "SJU" "PHX" "BWI" "CLT" "BUF" "DEN" "SNA" "MSY"
+##  [27] "SLC" "XNA" "MKE" "SEA" "ROC" "SYR" "SRQ" "RDU" "CMH" "JAX" "CHS" "MEM" "PIT"
+##  [40] "SAN" "DCA" "CLE" "STL" "MYR" "JAC" "MDW" "HNL" "BNA" "AUS" "BTV" "PHL" "STT"
+##  [53] "EGE" "AVL" "PWM" "IND" "SAV" "CAK" "HOU" "LGB" "DAY" "ALB" "BDL" "MHT" "MSN"
+##  [66] "GSO" "CVG" "BUR" "RIC" "GSP" "GRR" "MCI" "ORF" "SAT" "SDF" "PDX" "SJC" "OMA"
+##  [79] "CRW" "OAK" "SMF" "TUL" "TYS" "OKC" "PVD" "DSM" "PSE" "BHM" "CAE" "HDN" "BZN"
+##  [92] "MTJ" "EYW" "PSP" "ACK" "BGR" "ABQ" "ILM" "MVY" "SBN" "LEX" "CHO" "TVC" "ANC"
+## [105] "LGA"</code></pre>
 <p>With these basics, you should be able to get started with your first R project, create different types of files, and understand the fundamental data structures in R.</p>
-
 </div>
+</div>
+<div id="some-spacing-conventions" class="section level2" number="1.7">
+<h2>
+<span class="header-section-number">1.7</span> Some Spacing Conventions<a class="anchor" aria-label="anchor" href="#some-spacing-conventions"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Include spaces before and after +, -, *, /</li>
+<li>Don’t put spaces around ^ (e.g., 3^2)</li>
+<li>Don’t put spaces around : or $</li>
+<li>Include spaces after commas (e.g., c(0, 1, 2))</li>
+</ul>
+</div>
+<div id="other-resource" class="section level2" number="1.8">
+<h2>
+<span class="header-section-number">1.8</span> Other Resource<a class="anchor" aria-label="anchor" href="#other-resource"><i class="fas fa-link"></i></a>
+</h2>
+<p>This page touches on some of the conventions we discussed (if you’re interested): <a href="http://adv-r.had.co.nz/Style.html" class="uri">http://adv-r.had.co.nz/Style.html</a></p>
+<p>More on Basics and Workflow: <a href="https://stat545.com/r-basics.html" class="uri">https://stat545.com/r-basics.html</a></p>
+
 </div>
 </div>
   <div class="chapter-nav">
@@ -267,19 +490,27 @@
 <a class="nav-link" href="#different-files"><span class="header-section-number">1.4</span> Different Files</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#r-script"><span class="header-section-number">1.4.1</span> .R Script</a></li>
 <li><a class="nav-link" href="#rmd-rmarkdown"><span class="header-section-number">1.4.2</span> .Rmd Rmarkdown</a></li>
-<li><a class="nav-link" href="#numeric"><span class="header-section-number">1.4.3</span> Numeric</a></li>
-<li><a class="nav-link" href="#string"><span class="header-section-number">1.4.4</span> String</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#r-objects"><span class="header-section-number">1.5</span> R Objects</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#vector"><span class="header-section-number">1.5.1</span> Vector</a></li>
-<li><a class="nav-link" href="#list"><span class="header-section-number">1.5.2</span> List</a></li>
-<li><a class="nav-link" href="#factor"><span class="header-section-number">1.5.3</span> Factor</a></li>
-<li><a class="nav-link" href="#matrix"><span class="header-section-number">1.5.4</span> Matrix</a></li>
-<li><a class="nav-link" href="#dataframe"><span class="header-section-number">1.5.5</span> DataFrame</a></li>
+<a class="nav-link" href="#variables"><span class="header-section-number">1.5</span> Variables</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#coming-up-with-variable-names"><span class="header-section-number">1.5.1</span> Coming up with variable names</a></li>
+<li><a class="nav-link" href="#numeric"><span class="header-section-number">1.5.2</span> Numeric</a></li>
+<li><a class="nav-link" href="#string"><span class="header-section-number">1.5.3</span> String</a></li>
 </ul>
 </li>
+<li>
+<a class="nav-link" href="#r-objects"><span class="header-section-number">1.6</span> R Objects</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#tips"><span class="header-section-number">1.6.1</span> Tips</a></li>
+<li><a class="nav-link" href="#vector"><span class="header-section-number">1.6.2</span> Vector</a></li>
+<li><a class="nav-link" href="#list"><span class="header-section-number">1.6.3</span> List</a></li>
+<li><a class="nav-link" href="#factor"><span class="header-section-number">1.6.4</span> Factor</a></li>
+<li><a class="nav-link" href="#matrix"><span class="header-section-number">1.6.5</span> Matrix</a></li>
+<li><a class="nav-link" href="#dataframe"><span class="header-section-number">1.6.6</span> DataFrame</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#some-spacing-conventions"><span class="header-section-number">1.7</span> Some Spacing Conventions</a></li>
+<li><a class="nav-link" href="#other-resource"><span class="header-section-number">1.8</span> Other Resource</a></li>
 </ul>
 
       <div class="book-extra">

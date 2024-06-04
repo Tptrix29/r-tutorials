@@ -11,11 +11,16 @@ create-your-first-project
 different-files
 r-script
 rmd-rmarkdown
+variables
+coming-up-with-variable-names
 numeric
 string
 r-objects
+tips
 vector
 list
 factor
 matrix
 dataframe
+some-spacing-conventions
+other-resource

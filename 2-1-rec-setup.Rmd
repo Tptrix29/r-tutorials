@@ -74,13 +74,43 @@ Creating an `.Rmd` Notebook:
 4. Use R code chunks (```{r}) to embed R code.
 5. Click the `Knit` button to generate the final document.
 
+**Keyboard Shortcuts: **
+
+
+|     Operation     |    Windows     |     MacOS     |
+| :---------------: | :------------: | :-----------: |
+| create code chunk | `Ctrl + Alt + I` | `Cmd + Opt + I` |
+|  run code chunk   |  `Ctrl + Enter`  | `Cmd + Return`  |
+
+## Variables
+### Coming up with variable names
+Use concise and meaningful names for your variables. Object names must start with a letter and can only contain **letters**, **numbers**, **_** and **.** 
+Base R uses dots in function names (ex: `contrib.url()`) and class names (ex: `data.frame`). I recommend the snake_case where you can separate words with _.
+
 ### Numeric
 
 Numeric variables store numbers and can be either integers or doubles (floating-point numbers).
 
 ```{r}
 x <- 42  # integer
-y <- 3.14  # double
+y = 3.14  # double
+```
+
+```{r}
+# addition 
+x + y
+
+# substraction
+x - y
+
+# multiplication
+x * y
+
+# division
+x / y
+
+# mod
+x %% 9
 ```
 
 ### String
@@ -93,6 +123,16 @@ message <- "Hello, world!"
 ```
 
 ## R Objects
+
+### Tips
+You could know **everything** about R programming with the following command: 
+```{r eval=FALSE}
+# help document for function
+?mean
+
+# help document for package
+??MASS
+```
 
 ### Vector
 
@@ -108,7 +148,14 @@ str_vector <- c("apple", "banana", "cherry")
 Lists are versatile data structures that can hold different types of data, including other lists.
 
 ```{r}
+# definition
 my_list <- list(name = "John", age = 30, scores = c(90, 85, 88))
+# slice
+my_list[1:2]
+# pull out element
+my_list[[1]]
+my_list[["name"]]
+my_list$name
 ```
 
 ### Factor
@@ -117,6 +164,7 @@ Factors are used to represent categorical data and are useful for statistical mo
 
 ```{r}
 colors <- factor(c("red", "blue", "green", "blue", "red"))
+colors
 ```
 
 ### Matrix
@@ -125,20 +173,56 @@ Matrices are two-dimensional arrays that hold numeric data. They are created usi
 
 ```{r}
 my_matrix <- matrix(1:9, nrow = 3, ncol = 3)
+my_matrix
 ```
 
 ### DataFrame
 
 DataFrames are table-like structures that can hold different types of data in columns, making them ideal for datasets.
-
-```{r}
-df <- data.frame(
-  id = 1:3,
-  name = c("Alice", "Bob", "Charlie"),
-  score = c(85, 90, 88)
-)
+```{r eval=FALSE}
+install.packages("nycflights13")
 ```
 
+```{r}
+library(nycflights13)
+
+flights
+```
+```{r}
+# To view the structure of the df
+str(flights)
+
+# Summary stats of the numeric variables
+summary(flights)
+
+# Finding the dimensions of the df
+dim(flights)
+
+# Mean calculation
+mean(flights$distance)
+# Mean calculation with NA clean
+mean(flights$distance, na.rm = TRUE)
+
+# Max value
+max(flights$air_time)
+# Max value with NA clean
+max(flights$air_time, na.rm = TRUE)
+
+# Unique value
+unique(flights$dest)
+```
 With these basics, you should be able to get started with your first R project, create different types of files, and understand the fundamental data structures in R.
+
+## Some Spacing Conventions
+* Include spaces before and after +, -, *, /
+* Don't put spaces around ^ (e.g., 3^2)
+* Don't put spaces around : or $
+* Include spaces after commas (e.g., c(0, 1, 2))
+
+## Other Resource
+This page touches on some of the conventions we discussed (if you're interested): http://adv-r.had.co.nz/Style.html
+
+More on Basics and Workflow: https://stat545.com/r-basics.html
+
 
 
