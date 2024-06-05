@@ -122,6 +122,16 @@ name <- "John Doe"
 message <- "Hello, world!"
 ```
 
+### Logical 
+
+Logical variable store data as value which is `TRUE` or `FALSE`.
+```{r}
+correct = TRUE
+correct = T
+wrong = FALSE
+wrong = F
+```
+
 ## R Objects
 
 ### Tips

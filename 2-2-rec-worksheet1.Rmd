@@ -1,0 +1,114 @@
+# Recitation 2
+
+__Today you learned...__
+
+* Pipe operators
+* Importing data
+
+Now we'll practice these concepts (and some stuff from Recitation 1).
+
+The first step, which we did together, was setting up a project for this recitation. 
+
+Make sure when you go to your `Files` pane, or the project icon in the top right, to see you are working in the right project/directory.
+
+Next, load any necessary packages in a first chunk of code and name this chunk "setup" with `include = FALSE`. You can learn more about chunk options at this link: https://rmarkdown.rstudio.com/lesson-3.html
+
+```{r}
+
+```
+
+Note: There may be more than one way to code the exercises.
+
+## Part I
+
+1. Create a variable called `numbers` that contains 1 through 10 `as characters` and two
+`NA`s (they may be anywhere in the vector).
+
+```{r p1q1}
+
+```
+
+2. Omit any `NA`’s from `numbers` and convert the character variable to a numeric one. Save
+the new variable as `numbers`. Use the pipe operator: `%>%` or `|>`. 
+
+Mac shortcut: `Shift + Command + M`
+
+PC shortcut: `Ctrl + Shift + M`
+
+```{r p1q2}
+
+```
+
+3. Find the mean of the first 5 elements without typing out the numbers. 
+
+```{r p1q3}
+
+```
+
+4. Find the mean of the first, third and fifth elements without typing out the numbers.
+
+```{r p1q4}
+
+```
+
+## Part II
+
+__Nice! You completed Part I.__ 
+
+Now let's load in the data for part II.
+
+```{r data}
+
+```
+
+1. Data type:
+
+(a) Write out the type for each variable.
+
+* __names__: 
+* __gender__: 
+* __age__: 
+* __height__: 
+* __weight__: 
+* __vaccinated__: 
+
+(b) The `age` variable should be a numeric variable and `vaccinated variable
+should be a logical variable, but there are some typos preventing this. 
+
+Fix the typos and then use `as.numeric()` and `as.logical()` to convert them.
+
+```{r p2q1b}
+
+```
+
+2. Summarize the data using `skimr`
+
+```{r p2q2}
+
+```
+
+3. Using the pipe operator, omit any `NA`s from the `weight` variable and find the mean.
+
+```{r p2q3}
+
+```
+
+4. Challenge! Take the subset of the data for those who are vaccinated and find their
+mean age using `[]`, `$` and `%>%`. 
+
+```{r p2q4}
+
+```
+
+
+## Part III
+
+For this part, install the `MASS` package and call it for use in this session. 
+
+Pull out the `birthwt` data frame and assign it to an object in your personal environment. 
+
+```{r gapminder-set-up}
+
+```
+
+Explore around! Make and answer 2-3 (using pipes and functions you've come across so far) questions of your interest and share your approach with the class! 

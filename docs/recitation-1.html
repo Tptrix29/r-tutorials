@@ -48,6 +48,7 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Home</a></li>
 <li><a class="active" href="recitation-1.html"><span class="header-section-number">1</span> Recitation 1</a></li>
+<li><a class="" href="recitation-2.html"><span class="header-section-number">2</span> Recitation 2</a></li>
 </ul>
 
         <div class="book-extra">
@@ -246,6 +247,17 @@ Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/c
 <code class="sourceCode R"><span><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"John Doe"</span></span>
 <span><span class="va">message</span> <span class="op">&lt;-</span> <span class="st">"Hello, world!"</span></span></code></pre></div>
 </div>
+<div id="logical" class="section level3" number="1.5.4">
+<h3>
+<span class="header-section-number">1.5.4</span> Logical<a class="anchor" aria-label="anchor" href="#logical"><i class="fas fa-link"></i></a>
+</h3>
+<p>Logical variable store data as value which is <code>TRUE</code> or <code>FALSE</code>.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">correct</span> <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="va">correct</span> <span class="op">=</span> <span class="cn">T</span></span>
+<span><span class="va">wrong</span> <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="va">wrong</span> <span class="op">=</span> <span class="cn">F</span></span></code></pre></div>
+</div>
 </div>
 <div id="r-objects" class="section level2" number="1.6">
 <h2>
@@ -256,7 +268,7 @@ Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/c
 <span class="header-section-number">1.6.1</span> Tips<a class="anchor" aria-label="anchor" href="#tips"><i class="fas fa-link"></i></a>
 </h3>
 <p>You could know <strong>everything</strong> about R programming with the following command:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># help document for function</span></span>
 <span><span class="op">?</span><span class="va">mean</span></span>
 <span></span>
@@ -268,7 +280,7 @@ Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/c
 <span class="header-section-number">1.6.2</span> Vector<a class="anchor" aria-label="anchor" href="#vector"><i class="fas fa-link"></i></a>
 </h3>
 <p>Vectors are one-dimensional arrays that can hold numeric, string, or logical data. They are created using the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">num_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="va">str_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -277,7 +289,7 @@ Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/c
 <span class="header-section-number">1.6.3</span> List<a class="anchor" aria-label="anchor" href="#list"><i class="fas fa-link"></i></a>
 </h3>
 <p>Lists are versatile data structures that can hold different types of data, including other lists.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># definition</span></span>
 <span><span class="va">my_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"John"</span>, age <span class="op">=</span> <span class="fl">30</span>, scores <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">90</span>, <span class="fl">85</span>, <span class="fl">88</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co"># slice</span></span>
@@ -287,14 +299,14 @@ Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/c
 ## 
 ## $age
 ## [1] 30</code></pre>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># pull out element</span></span>
 <span><span class="va">my_list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## [1] "John"</code></pre>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_list</span><span class="op">[[</span><span class="st">"name"</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## [1] "John"</code></pre>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_list</span><span class="op">$</span><span class="va">name</span></span></code></pre></div>
 <pre><code>## [1] "John"</code></pre>
 </div>
@@ -303,7 +315,7 @@ Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/c
 <span class="header-section-number">1.6.4</span> Factor<a class="anchor" aria-label="anchor" href="#factor"><i class="fas fa-link"></i></a>
 </h3>
 <p>Factors are used to represent categorical data and are useful for statistical modeling.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"red"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">colors</span></span></code></pre></div>
 <pre><code>## [1] red   blue  green blue  red  
@@ -314,7 +326,7 @@ Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/c
 <span class="header-section-number">1.6.5</span> Matrix<a class="anchor" aria-label="anchor" href="#matrix"><i class="fas fa-link"></i></a>
 </h3>
 <p>Matrices are two-dimensional arrays that hold numeric data. They are created using the <code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code> function.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, nrow <span class="op">=</span> <span class="fl">3</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="va">my_matrix</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
@@ -327,30 +339,29 @@ Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/c
 <span class="header-section-number">1.6.6</span> DataFrame<a class="anchor" aria-label="anchor" href="#dataframe"><i class="fas fa-link"></i></a>
 </h3>
 <p>DataFrames are table-like structures that can hold different types of data in columns, making them ideal for datasets.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"nycflights13"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"nycflights13"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/nycflights13">nycflights13</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">flights</span></span></code></pre></div>
 <pre><code>## # A tibble: 336,776 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013     1     1      517            515         2      830            819
-##  2  2013     1     1      533            529         4      850            830
-##  3  2013     1     1      542            540         2      923            850
-##  4  2013     1     1      544            545        -1     1004           1022
-##  5  2013     1     1      554            600        -6      812            837
-##  6  2013     1     1      554            558        -4      740            728
-##  7  2013     1     1      555            600        -5      913            854
-##  8  2013     1     1      557            600        -3      709            723
-##  9  2013     1     1      557            600        -3      838            846
-## 10  2013     1     1      558            600        -2      753            745
+##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;
+##  1  2013     1     1      517            515         2      830            819        11
+##  2  2013     1     1      533            529         4      850            830        20
+##  3  2013     1     1      542            540         2      923            850        33
+##  4  2013     1     1      544            545        -1     1004           1022       -18
+##  5  2013     1     1      554            600        -6      812            837       -25
+##  6  2013     1     1      554            558        -4      740            728        12
+##  7  2013     1     1      555            600        -5      913            854        19
+##  8  2013     1     1      557            600        -3      709            723       -14
+##  9  2013     1     1      557            600        -3      838            846        -8
+## 10  2013     1     1      558            600        -2      753            745         8
 ## # ℹ 336,766 more rows
-## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
-## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
-## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+## # ℹ 10 more variables: carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
+## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># To view the structure of the df</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">flights</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## tibble [336,776 × 19] (S3: tbl_df/tbl/data.frame)
@@ -372,8 +383,8 @@ Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/c
 ##  $ distance      : num [1:336776] 1400 1416 1089 1576 762 ...
 ##  $ hour          : num [1:336776] 5 5 5 5 6 5 6 6 6 6 ...
 ##  $ minute        : num [1:336776] 15 29 40 45 0 58 0 0 0 0 ...
-##  $ time_hour     : POSIXct[1:336776], format: "2013-01-01 05:00:00" "2013-01-01 05:00:00" ...</code></pre>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+##  $ time_hour     : POSIXct[1:336776], format: "2013-01-01 05:00:00" "2013-01-01 05:00:00" "2013-01-01 05:00:00" ...</code></pre>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Summary stats of the numeric variables</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">flights</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##       year          month             day           dep_time    sched_dep_time
@@ -384,70 +395,61 @@ Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/c
 ##  3rd Qu.:2013   3rd Qu.:10.000   3rd Qu.:23.00   3rd Qu.:1744   3rd Qu.:1729  
 ##  Max.   :2013   Max.   :12.000   Max.   :31.00   Max.   :2400   Max.   :2359  
 ##                                                  NA's   :8255                 
-##    dep_delay          arr_time    sched_arr_time   arr_delay       
-##  Min.   : -43.00   Min.   :   1   Min.   :   1   Min.   : -86.000  
-##  1st Qu.:  -5.00   1st Qu.:1104   1st Qu.:1124   1st Qu.: -17.000  
-##  Median :  -2.00   Median :1535   Median :1556   Median :  -5.000  
-##  Mean   :  12.64   Mean   :1502   Mean   :1536   Mean   :   6.895  
-##  3rd Qu.:  11.00   3rd Qu.:1940   3rd Qu.:1945   3rd Qu.:  14.000  
-##  Max.   :1301.00   Max.   :2400   Max.   :2359   Max.   :1272.000  
-##  NA's   :8255      NA's   :8713                  NA's   :9430      
-##    carrier              flight       tailnum             origin         
-##  Length:336776      Min.   :   1   Length:336776      Length:336776     
-##  Class :character   1st Qu.: 553   Class :character   Class :character  
-##  Mode  :character   Median :1496   Mode  :character   Mode  :character  
-##                     Mean   :1972                                        
-##                     3rd Qu.:3465                                        
-##                     Max.   :8500                                        
-##                                                                         
-##      dest              air_time        distance         hour           minute     
-##  Length:336776      Min.   : 20.0   Min.   :  17   Min.   : 1.00   Min.   : 0.00  
-##  Class :character   1st Qu.: 82.0   1st Qu.: 502   1st Qu.: 9.00   1st Qu.: 8.00  
-##  Mode  :character   Median :129.0   Median : 872   Median :13.00   Median :29.00  
-##                     Mean   :150.7   Mean   :1040   Mean   :13.18   Mean   :26.23  
-##                     3rd Qu.:192.0   3rd Qu.:1389   3rd Qu.:17.00   3rd Qu.:44.00  
-##                     Max.   :695.0   Max.   :4983   Max.   :23.00   Max.   :59.00  
-##                     NA's   :9430                                                  
-##    time_hour                     
-##  Min.   :2013-01-01 05:00:00.00  
-##  1st Qu.:2013-04-04 13:00:00.00  
-##  Median :2013-07-03 10:00:00.00  
-##  Mean   :2013-07-03 05:22:54.64  
-##  3rd Qu.:2013-10-01 07:00:00.00  
-##  Max.   :2013-12-31 23:00:00.00  
+##    dep_delay          arr_time    sched_arr_time   arr_delay          carrier         
+##  Min.   : -43.00   Min.   :   1   Min.   :   1   Min.   : -86.000   Length:336776     
+##  1st Qu.:  -5.00   1st Qu.:1104   1st Qu.:1124   1st Qu.: -17.000   Class :character  
+##  Median :  -2.00   Median :1535   Median :1556   Median :  -5.000   Mode  :character  
+##  Mean   :  12.64   Mean   :1502   Mean   :1536   Mean   :   6.895                     
+##  3rd Qu.:  11.00   3rd Qu.:1940   3rd Qu.:1945   3rd Qu.:  14.000                     
+##  Max.   :1301.00   Max.   :2400   Max.   :2359   Max.   :1272.000                     
+##  NA's   :8255      NA's   :8713                  NA's   :9430                         
+##      flight       tailnum             origin              dest              air_time    
+##  Min.   :   1   Length:336776      Length:336776      Length:336776      Min.   : 20.0  
+##  1st Qu.: 553   Class :character   Class :character   Class :character   1st Qu.: 82.0  
+##  Median :1496   Mode  :character   Mode  :character   Mode  :character   Median :129.0  
+##  Mean   :1972                                                            Mean   :150.7  
+##  3rd Qu.:3465                                                            3rd Qu.:192.0  
+##  Max.   :8500                                                            Max.   :695.0  
+##                                                                          NA's   :9430   
+##     distance         hour           minute        time_hour                     
+##  Min.   :  17   Min.   : 1.00   Min.   : 0.00   Min.   :2013-01-01 05:00:00.00  
+##  1st Qu.: 502   1st Qu.: 9.00   1st Qu.: 8.00   1st Qu.:2013-04-04 13:00:00.00  
+##  Median : 872   Median :13.00   Median :29.00   Median :2013-07-03 10:00:00.00  
+##  Mean   :1040   Mean   :13.18   Mean   :26.23   Mean   :2013-07-03 05:22:54.64  
+##  3rd Qu.:1389   3rd Qu.:17.00   3rd Qu.:44.00   3rd Qu.:2013-10-01 07:00:00.00  
+##  Max.   :4983   Max.   :23.00   Max.   :59.00   Max.   :2013-12-31 23:00:00.00  
 ## </code></pre>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Finding the dimensions of the df</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">flights</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 336776     19</code></pre>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Mean calculation</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">flights</span><span class="op">$</span><span class="va">distance</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 1039.913</code></pre>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Mean calculation with NA clean</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">flights</span><span class="op">$</span><span class="va">distance</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 1039.913</code></pre>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Max value</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">flights</span><span class="op">$</span><span class="va">air_time</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Max value with NA clean</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">flights</span><span class="op">$</span><span class="va">air_time</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 695</code></pre>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Unique value</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">flights</span><span class="op">$</span><span class="va">dest</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##   [1] "IAH" "MIA" "BQN" "ATL" "ORD" "FLL" "IAD" "MCO" "PBI" "TPA" "LAX" "SFO" "DFW"
-##  [14] "BOS" "LAS" "MSP" "DTW" "RSW" "SJU" "PHX" "BWI" "CLT" "BUF" "DEN" "SNA" "MSY"
-##  [27] "SLC" "XNA" "MKE" "SEA" "ROC" "SYR" "SRQ" "RDU" "CMH" "JAX" "CHS" "MEM" "PIT"
-##  [40] "SAN" "DCA" "CLE" "STL" "MYR" "JAC" "MDW" "HNL" "BNA" "AUS" "BTV" "PHL" "STT"
-##  [53] "EGE" "AVL" "PWM" "IND" "SAV" "CAK" "HOU" "LGB" "DAY" "ALB" "BDL" "MHT" "MSN"
-##  [66] "GSO" "CVG" "BUR" "RIC" "GSP" "GRR" "MCI" "ORF" "SAT" "SDF" "PDX" "SJC" "OMA"
-##  [79] "CRW" "OAK" "SMF" "TUL" "TYS" "OKC" "PVD" "DSM" "PSE" "BHM" "CAE" "HDN" "BZN"
-##  [92] "MTJ" "EYW" "PSP" "ACK" "BGR" "ABQ" "ILM" "MVY" "SBN" "LEX" "CHO" "TVC" "ANC"
-## [105] "LGA"</code></pre>
+<pre><code>##   [1] "IAH" "MIA" "BQN" "ATL" "ORD" "FLL" "IAD" "MCO" "PBI" "TPA" "LAX" "SFO" "DFW" "BOS"
+##  [15] "LAS" "MSP" "DTW" "RSW" "SJU" "PHX" "BWI" "CLT" "BUF" "DEN" "SNA" "MSY" "SLC" "XNA"
+##  [29] "MKE" "SEA" "ROC" "SYR" "SRQ" "RDU" "CMH" "JAX" "CHS" "MEM" "PIT" "SAN" "DCA" "CLE"
+##  [43] "STL" "MYR" "JAC" "MDW" "HNL" "BNA" "AUS" "BTV" "PHL" "STT" "EGE" "AVL" "PWM" "IND"
+##  [57] "SAV" "CAK" "HOU" "LGB" "DAY" "ALB" "BDL" "MHT" "MSN" "GSO" "CVG" "BUR" "RIC" "GSP"
+##  [71] "GRR" "MCI" "ORF" "SAT" "SDF" "PDX" "SJC" "OMA" "CRW" "OAK" "SMF" "TUL" "TYS" "OKC"
+##  [85] "PVD" "DSM" "PSE" "BHM" "CAE" "HDN" "BZN" "MTJ" "EYW" "PSP" "ACK" "BGR" "ABQ" "ILM"
+##  [99] "MVY" "SBN" "LEX" "CHO" "TVC" "ANC" "LGA"</code></pre>
 <p>With these basics, you should be able to get started with your first R project, create different types of files, and understand the fundamental data structures in R.</p>
 </div>
 </div>
@@ -473,7 +475,7 @@ Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/c
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="index.html">Home</a></div>
-<div class="empty"></div>
+<div class="next"><a href="recitation-2.html"><span class="header-section-number">2</span> Recitation 2</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -497,6 +499,7 @@ Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/c
 <li><a class="nav-link" href="#coming-up-with-variable-names"><span class="header-section-number">1.5.1</span> Coming up with variable names</a></li>
 <li><a class="nav-link" href="#numeric"><span class="header-section-number">1.5.2</span> Numeric</a></li>
 <li><a class="nav-link" href="#string"><span class="header-section-number">1.5.3</span> String</a></li>
+<li><a class="nav-link" href="#logical"><span class="header-section-number">1.5.4</span> Logical</a></li>
 </ul>
 </li>
 <li>
@@ -528,7 +531,7 @@ Base R uses dots in function names (ex: <code><a href="https://rdrr.io/r/utils/c
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-06-03.</p>
+    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-06-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

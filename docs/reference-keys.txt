@@ -15,6 +15,7 @@ variables
 coming-up-with-variable-names
 numeric
 string
+logical
 r-objects
 tips
 vector
@@ -24,3 +25,7 @@ matrix
 dataframe
 some-spacing-conventions
 other-resource
+recitation-2
+part-i
+part-ii
+part-iii
