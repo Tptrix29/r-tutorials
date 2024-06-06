@@ -75,17 +75,33 @@
 <span class="header-section-number">2.1</span> Part I<a class="anchor" aria-label="anchor" href="#part-i"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
-<li><p>Create a variable called <code>numbers</code> that contains 1 through 10 <code>as characters</code> and two
-<code>NA</code>s (they may be anywhere in the vector).</p></li>
-<li><p>Omit any <code>NA</code>’s from <code>numbers</code> and convert the character variable to a numeric one. Save
-the new variable as <code>numbers</code>. Use the pipe operator: <code>%&gt;%</code> or <code>|&gt;</code>.</p></li>
+<li>Create a variable called <code>numbers</code> that contains 1 through 10 as characters and two
+<code>NA</code>s (they may be anywhere in the vector).</li>
+</ol>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">numbers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"6"</span>, <span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span>, <span class="st">"10"</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Omit any <code>NA</code>’s from <code>numbers</code> and convert the character variable to a numeric one. Save
+the new variable as <code>numbers</code>. Use the pipe operator: <code>%&gt;%</code> or <code>|&gt;</code>.</li>
 </ol>
 <p>Mac shortcut: <code>Shift + Command + M</code></p>
 <p>PC shortcut: <code>Ctrl + Shift + M</code></p>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">numbers</span> <span class="op">&lt;-</span> <span class="va">numbers</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
-<li><p>Find the mean of the first 5 elements without typing out the numbers.</p></li>
-<li><p>Find the mean of the first, third and fifth elements without typing out the numbers.</p></li>
+<li>Find the mean of the first 5 elements without typing out the numbers.</li>
 </ol>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">numbers</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Find the mean of the first, third and fifth elements without typing out the numbers.</li>
+</ol>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">numbers</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">numbers</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">numbers</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
 </div>
 <div id="part-ii" class="section level2" number="2.2">
 <h2>
@@ -93,6 +109,8 @@ the new variable as <code>numbers</code>. Use the pipe operator: <code>%&gt;%</c
 </h2>
 <p><strong>Nice! You completed Part I.</strong></p>
 <p>Now let’s load in the data for part II.</p>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data_vacc</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"path/to/data_vacc.csv"</span><span class="op">)</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Data type:</li>
 </ol>
@@ -118,12 +136,212 @@ the new variable as <code>numbers</code>. Use the pipe operator: <code>%&gt;%</c
 should be a logical variable, but there are some typos preventing this.</li>
 </ol>
 <p>Fix the typos and then use <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code> and <code><a href="https://rdrr.io/r/base/logical.html">as.logical()</a></code> to convert them.</p>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data_vacc</span><span class="op">$</span><span class="va">age</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">57</span></span>
+<span><span class="va">data_vacc</span><span class="op">$</span><span class="va">age</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">data_vacc</span><span class="op">$</span><span class="va">age</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">data_vacc</span><span class="op">$</span><span class="va">vaccinated</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">FALSE</span></span>
+<span><span class="va">data_vacc</span><span class="op">$</span><span class="va">vaccinated</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/logical.html">as.logical</a></span><span class="op">(</span><span class="va">data_vacc</span><span class="op">$</span><span class="va">vaccinated</span><span class="op">)</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Summarize the data using <code>skimr</code></p></li>
-<li><p>Using the pipe operator, omit any <code>NA</code>s from the <code>weight</code> variable and find the mean.</p></li>
-<li><p>Challenge! Take the subset of the data for those who are vaccinated and find their
-mean age using <code>[]</code>, <code>$</code> and <code>%&gt;%</code>.</p></li>
+<li>Summarize the data using <code>skimr</code>
+</li>
 </ol>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">skimr</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim</a></span><span class="op">(</span><span class="va">data_vacc</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:p2q2">Table 2.1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">data_vacc</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">logical</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Variable type: character</strong></p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="19%">
+<col width="13%">
+<col width="19%">
+<col width="5%">
+<col width="5%">
+<col width="8%">
+<col width="12%">
+<col width="15%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">names</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">gender</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Variable type: logical</strong></p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="left">count</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left">vaccinated</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.75</td>
+<td align="left">TRU: 3, FAL: 1</td>
+</tr></tbody>
+</table></div>
+<p><strong>Variable type: numeric</strong></p>
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<colgroup>
+<col width="16%">
+<col width="11%">
+<col width="16%">
+<col width="8%">
+<col width="8%">
+<col width="4%">
+<col width="8%">
+<col width="4%">
+<col width="8%">
+<col width="5%">
+<col width="7%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">age</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">39.75</td>
+<td align="right">12.53</td>
+<td align="right">30</td>
+<td align="right">30.75</td>
+<td align="right">36</td>
+<td align="right">45.00</td>
+<td align="right">57</td>
+<td align="left">▇▁▃▁▃</td>
+</tr>
+<tr class="even">
+<td align="left">height</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">175.00</td>
+<td align="right">17.80</td>
+<td align="right">160</td>
+<td align="right">163.75</td>
+<td align="right">170</td>
+<td align="right">181.25</td>
+<td align="right">200</td>
+<td align="left">▇▃▁▁▃</td>
+</tr>
+<tr class="odd">
+<td align="left">weight</td>
+<td align="right">1</td>
+<td align="right">0.75</td>
+<td align="right">495.00</td>
+<td align="right">610.80</td>
+<td align="right">125</td>
+<td align="right">142.50</td>
+<td align="right">160</td>
+<td align="right">680.00</td>
+<td align="right">1200</td>
+<td align="left">▇▁▁▁▃</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Using the pipe operator, omit any <code>NA</code>s from the <code>weight</code> variable and find the mean.</li>
+</ol>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data_vacc</span><span class="op">$</span><span class="va">weight</span> <span class="op">%&gt;%</span></span>
+<span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 495</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Challenge! Take the subset of the data for those who are vaccinated and find their
+mean age using <code>[]</code>, <code>$</code> and <code>%&gt;%</code>.</li>
+</ol>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data_vacc</span><span class="op">[</span><span class="va">data_vacc</span><span class="op">$</span><span class="va">vaccinated</span> <span class="op">==</span> <span class="cn">TRUE</span>, <span class="op">]</span><span class="op">$</span><span class="va">age</span> <span class="op">%&gt;%</span></span>
+<span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 42.66667</code></pre>
 </div>
 <div id="part-iii" class="section level2" number="2.3">
 <h2>
@@ -131,6 +349,12 @@ mean age using <code>[]</code>, <code>$</code> and <code>%&gt;%</code>.</p></li>
 </h2>
 <p>For this part, install the <code>MASS</code> package and call it for use in this session.</p>
 <p>Pull out the <code>birthwt</code> data frame and assign it to an object in your personal environment.</p>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"MASS"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span></span>
+<span><span class="va">bwt</span> <span class="op">=</span> <span class="va">birthwt</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">bwt</span><span class="op">)</span></span></code></pre></div>
 <p>Explore around! Make and answer 2-3 (using pipes and functions you’ve come across so far) questions of your interest and share your approach with the class!</p>
 
 </div>

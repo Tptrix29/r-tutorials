@@ -1,3 +1,73 @@
+--- 
+title: "Introduction to R"
+author: "Tptrix29"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+output: bookdown::bs4_book
+url: https://bookdown.org/janedoe/bookdown-demo
+bibliography: [book.bib, packages.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+cover-image: _main_files/img/R_logo.png
+description: |
+  This is a minimal example of using the bookdown package to write a book.
+  The HTML output format for this example is bookdown::gitbook,
+  set in the _output.yml file.
+link-citations: yes
+github-repo: tptrix29/r-tutorials
+number_sections: false
+---
+
+# url: your book url like https://bookdown.org/yihui/bookdown
+
+Placeholder
+
+
+## Authors {-}
+### Instructor {-}
+### Teaching Assistant {-}
+## Contents {-}
+### Lectures {-}
+### Recitations {-}
+## Usage {-}
+
+<!--chapter:end:index.Rmd-->
+
+
+# Recitation 1 
+
+Placeholder
+
+
+## Objectives
+## Download Softwares
+### Installing R
+#### Windows
+#### macOS
+### Installing RStudio
+#### Windows
+#### macOS
+## Create Your First Project
+## Different Files
+### `.R` Script
+### `.Rmd` Rmarkdown
+## Variables
+### Coming up with variable names
+### Numeric
+### String
+### Logical 
+## R Objects
+### Tips
+### Vector
+### List
+### Factor
+### Matrix
+### DataFrame
+## Some Spacing Conventions
+## Other Resource
+
+<!--chapter:end:2-1-rec-setup.Rmd-->
+
 # Recitation 2
 
 __Today you learned...__
@@ -132,3 +202,6 @@ View(bwt)
 Explore around! 
 
 Make and answer 2-3 (using pipes and functions you've come across so far) questions of your interest and share your approach with the class! 
+
+<!--chapter:end:2-2-rec-worksheet1.Rmd-->
+
