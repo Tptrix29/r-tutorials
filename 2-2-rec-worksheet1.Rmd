@@ -71,12 +71,12 @@ data_vacc <- read_csv("./dataset/data_vacc.csv")
 
 (a) Write out the type for each variable.
 
-* __names__: 
-* __gender__: 
-* __age__: 
-* __height__: 
-* __weight__: 
-* __vaccinated__: 
+* __names__: `character`
+* __gender__: `character`
+* __age__: `character`
+* __height__: `double`
+* __weight__: `double`
+* __vaccinated__: `character`
 
 (b) The `age` variable should be a numeric variable and `vaccinated variable
 should be a logical variable, but there are some typos preventing this. 
