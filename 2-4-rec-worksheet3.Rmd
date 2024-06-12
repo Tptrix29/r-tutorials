@@ -1,0 +1,141 @@
+# Recitation 4
+__Today you learned...__
+
+* pivots: _pivot_longer()_, _pivot_wider()_
+* joins: _right_join()_, _left_join()_, _inner_join()_, _full_join()_
+
+This worksheet will help you get accustomed to using these functions to manipulate data.
+
+Load any necessary packages in your first chunk of code.
+
+```{r, include=FALSE}
+
+```
+
+Please work out the following exercises sequentially. There may be more than one way to code the exercises.
+
+## Part I
+
+0. Load the data you'll need for Part I by simply running the code below.
+
+```{r }
+year <- paste(2001:2020)
+team <- letters[1:length(year)]
+num <- sample(c(1:100), size = length(year)^2, replace = TRUE)
+
+yr_data <- data.frame(matrix(num, nrow = length(year), ncol = length(year))) %>%
+  set_names(year)
+
+index <- 1:20
+
+tbi_age <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-24/tbi_age.csv")
+```
+
+1. Add `index` to the `yr_data` data frame via binding. Call the index column in the resulting data frame `idx`. Make sure to have `idx` positioned as the first column.
+
+```{r }
+
+```
+
+2. Is the data currently in wide or long format? Justify your answer with a complete sentence.
+
+[YOUR ANSWER HERE]
+
+3. Create one `year` column and put all data currently stored in columns 2001 to 2020 into a column called `points`. Save this updated data frame as `yr_data_long`.
+
+```{r}
+
+```
+
+4. View the `tbi_age` data and decide what format it's in. Justify your answer.
+
+[YOUR ANSWER HERE]
+
+5. Transform this data so that we can see `number_est` for each age group along with `type` and `injury_mechanism`, like below. Save this data frame as `tbi_wide`. 
+
+```{r}
+
+```
+
+## Part II
+
+In this example, we have a data frame with head counts for grain feeding producers and another data frame with head counts from grass feeding producers; there is potentially overlap between the producers that have both grain and grass fed animals and we want to merge them into one data frame. Note that producer number is not unique, but it is unique within state, so we need to merge on both state and producer number together.
+
+0. Load the data for Part II by simply running the code below. 
+
+```{r}
+grass <- tibble(
+  producer = c(1, 2, 3, 1),
+  state = c("NSW", "NSW", "QLD", "QLD"),
+  count = c(59, 82, 37, 28)
+  )
+
+grain <-  tibble(
+  producer = c(1, 1, 2, 4),
+  state = c("NSW", "QLD", "NSW", "QLD"),
+  count = c(192, 21, 37, 81),
+  post_code = c("2680", "4700", "2650", "4715")
+  )
+```
+
+1. Keep all the observations that are present in the `grass` data frame and join it with the `grain` data frame using the code below. What does the argument `by = c("producer","state")` do?
+
+```{r}
+gg_lj <- left_join(grass, grain, by = c("producer", "state"))
+```
+
+[YOUR ANSWER HERE]
+
+2. Add the argument `suffix = c("_grass", "_grain")` to the line of code below. What does this argument do?
+
+```{r}
+gg_lj2 <- left_join(grass, grain, by = c("producer", "state"))
+```
+
+[YOUR ANSWER HERE]
+
+3. Join the data frames by writing code that keeps all the observations that are present in `grain`. 
+
+```{r}
+
+```
+
+4. Are there any missing data? Why does this happen?
+
+[YOUR ANSWER HERE]
+
+5. Use a join that keeps any observations that occur in either of the two data frames.
+
+```{r}
+
+```
+
+6. Looking at this merged data frame, can you tell whether producer 3 is a grass or grain feeding producer? How?
+
+[YOUR ANSWER HERE]
+
+7. Use a join that keeps only observations that are present in both data frames.
+
+```{r}
+
+```
+
+8. What are the dimensions of this merged data? Why do we see what we see?
+
+[YOUR ANSWER HERE]
+
+## Part III (Bonus Questions)
+
+1. Clean the `tbi_wide` data so that it contains the following age groups: 0-4, 5-17, 18-24, 25-34, 35-44, 45-54, 55-64, 65-74, 75+, and Total. Keep the data in wide format. Save your new data frame as `tbi_clean`.
+
+```{r}
+
+```
+
+2. Start with the farming data frame you created in Part II Q5. Add in the latitude and longitude associated with each post code in the data set. The code below will load in a file with lat and long info for each post code.
+
+```{r}
+pcodes <- read_csv("http://garthtarr.com/data/aus_postcode_lat_long.csv")
+
+
+```

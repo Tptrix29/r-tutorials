@@ -67,6 +67,7 @@ data_vacc <- read_csv("path/to/data_vacc.csv")
 data_vacc <- read_csv("./dataset/data_vacc.csv")
 ```
 
+
 1. Data type:
 
 (a) Write out the type for each variable.

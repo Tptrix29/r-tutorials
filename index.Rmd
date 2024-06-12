@@ -38,7 +38,9 @@ Pei Tian, pt2632@cumc.columbia.edu
 
 ### Recitations {-}
 1. Recitation 1 - Basic Setup
-2. TBD
+2. Recitation 2 - Pipe Operator
+3. Recitation 3 - Data Manipulation I
+4. Recitation 4 - Data Mainpulation II
 
 ## Usage {-}
 Open the lecture notes and follow the steps to complete the objectives.

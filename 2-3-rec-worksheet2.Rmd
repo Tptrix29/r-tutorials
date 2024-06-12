@@ -1,0 +1,87 @@
+# Recitation 3
+
+__Today you learned...__
+
+* dplyr functions: _select_, _filter_, _mutate_, _arrange_, _rename_
+
+Now we'll practice using these functions and refresh ourselves on a few basics from last week. 
+
+Chunk Options: https://rmarkdown.rstudio.com/lesson-3.html
+
+Load any necessary packages in your first chunk of code (name this chunk `setup` with `include = FALSE`).
+
+```{r}
+
+```
+
+Note: There may be more than one way to code the exercises!
+
+## Part I
+
+0. Print your working directory to show that you are located in an appropriate place on your device.
+
+```{r }
+
+```
+
+1. (Review) Create a character vector called numbers, with the numbers 1 to 5 and one NA. Then, use the pipe operator to convert this to a numeric vector, omit any `NA`’s, and find the mean. Do not save the mean (i.e. do not use "<-" to save the operations on the numbers variable).
+
+```{r }
+
+```
+
+2. (Review) Save the `diamonds.csv` file from Courseworks into a `data` folder in your current working directory. Load in this data frame and save it as `dat_diamond`.
+
+```{r }
+
+```
+
+3. Remove the first column using one of the functions from class. Make sure this column is gone when you view the data frame.
+
+```{r }
+
+```
+
+4. Find three unique ways to select the carat column (do not save the column to the environment).
+
+```{r }
+
+```
+
+5. Find the mean of the carat column (do not save).
+
+```{r }
+
+```
+
+6. Create a variable called `data_prem` that only contains diamonds with a Premium cut. Also, rename the "col" variable to "color" and create a new column called "expensive" that is `TRUE` if the price is more than $5,000 and `FALSE` otherwise.
+
+```{r }
+
+```
+
+7. Take your `dat_prem` data set and arrange it by price in descending order. Use the function `head(5)` to print only the first 5 elements.
+
+```{r }
+
+```
+
+## Part II (bonus)
+
+1. Find the average price of Premium diamonds with color G. [Hint: last line of code that finds the mean should be `summarize(avg_price = mean(price))`.]
+
+```{r}
+
+```
+
+2. For diamonds with Good or Fair cut, create a new column called ‘discounted’ that shows the price after a 10% discount and find the mean and standard deviation of the discounted prices. [Hint: last line of code that finds the mean and sd should be `summarize(avg_discount = mean(discounted), sd_discount = sd(discounted))`.]
+
+```{r }
+
+```
+
+3. For diamonds with clarity VS1 and carat greater than 0.8, count the number of observations that belong to each type of cut and arrange them in increasing order. [Hint: to count the frequencies of a categorical variable like cut, use `count(cut)`. For arranging, use `arrange(n)`.]
+
+```{r }
+
+```
