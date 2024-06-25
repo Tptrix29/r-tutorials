@@ -39,9 +39,5 @@ part-i-2
 part-ii-1
 part-iii-bonus-questions
 recitation-5
-part-i-3
-part-ii-2
-part-iii-bonus-questions-1
-recitation-6
 part-i-strings
 part-ii-factors
