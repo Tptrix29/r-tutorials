@@ -1,4 +1,4 @@
-# Recitation 1 
+# Recitation 1
 
 ## Objectives
 - Download `R` and `RStudio`

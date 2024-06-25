@@ -4,84 +4,180 @@ __Today you learned...__
 
 * dplyr functions: _select_, _filter_, _mutate_, _arrange_, _rename_
 
-Now we'll practice using these functions and refresh ourselves on a few basics from last week. 
-
-Chunk Options: https://rmarkdown.rstudio.com/lesson-3.html
+Now we'll practice using these functions and refresh ourselves on a few basics from last week.
 
 Load any necessary packages in your first chunk of code (name this chunk `setup` with `include = FALSE`).
 
-```{r}
-
+```{r setup, include=FALSE}
+detach(package:MASS, unload = T)
+library(tidyverse)
 ```
 
-Note: There may be more than one way to code the exercises!
+Now, with your partner, please work out the following exercises sequentially. There may be more than one way to code the exercises.
 
 ## Part I
 
 0. Print your working directory to show that you are located in an appropriate place on your device.
 
-```{r }
-
+```{r p1q0}
+getwd()
 ```
 
 1. (Review) Create a character vector called numbers, with the numbers 1 to 5 and one NA. Then, use the pipe operator to convert this to a numeric vector, omit any `NA`’s, and find the mean. Do not save the mean (i.e. do not use "<-" to save the operations on the numbers variable).
 
-```{r }
+```{r p1q1}
+numbers <- c("1", "2", "3", "4", "5", NA)
 
+numbers %>% 
+  as.numeric() %>% 
+  na.omit() %>% 
+  mean()
 ```
 
 2. (Review) Save the `diamonds.csv` file from Courseworks into a `data` folder in your current working directory. Load in this data frame and save it as `dat_diamond`.
 
-```{r }
-
+```{r p1q2}
+dat_diamond <- read_csv("dataset/diamonds.csv")
 ```
 
 3. Remove the first column using one of the functions from class. Make sure this column is gone when you view the data frame.
 
-```{r }
+```{r p1q3}
+dat_diamond <- dat_diamond %>% select(-1)
 
+dat_diamond <- dat_diamond %>% select(carat:z)
 ```
 
 4. Find three unique ways to select the carat column (do not save the column to the environment).
 
-```{r }
+```{r p1q4}
+# Method 1
+dat_diamond %>% select("carat")
+  
+# Method 2
+dat_diamond %>% select(carat)
+  
+# Method 3
+dat_diamond %>% select(1)
 
+# Method 4
+dat_diamond[, 1]
 ```
 
 5. Find the mean of the carat column (do not save).
 
-```{r }
+```{r p1q5}
+mean(dat_diamond$carat)
 
+# OR
+
+dat_diamond %>% 
+  pull(carat) %>% 
+  mean(na.rm = TRUE)
+
+# OR
+
+dat_diamond %>% 
+  select(carat) %>% 
+  summarise(mean_carat = mean(carat))
+
+# OR
+
+dat_diamond %>% 
+  summarise(mean_carat = mean(carat))
 ```
 
 6. Create a variable called `data_prem` that only contains diamonds with a Premium cut. Also, rename the "col" variable to "color" and create a new column called "expensive" that is `TRUE` if the price is more than $5,000 and `FALSE` otherwise.
 
-```{r }
+```{r p1q6}
+dat_prem <- dat_diamond %>% 
+  filter(cut == "Premium") %>% 
+  rename(color = col) %>% 
+  mutate(expensive = if_else(price > 5000, TRUE, FALSE))
 
+# OR
+
+data_prem = dat_diamond %>% 
+  filter(cut == "Premium") %>% 
+  rename(color = col) %>% 
+  mutate(expensive = case_when(price > 5000 ~ TRUE, 
+                               price <= 5000 ~ FALSE))
 ```
 
 7. Take your `dat_prem` data set and arrange it by price in descending order. Use the function `head(5)` to print only the first 5 elements.
 
-```{r }
-
+```{r p1q7}
+dat_prem %>% 
+  arrange(desc(price)) %>% 
+  head(5)
 ```
 
 ## Part II (bonus)
 
 1. Find the average price of Premium diamonds with color G. [Hint: last line of code that finds the mean should be `summarize(avg_price = mean(price))`.]
 
-```{r}
-
+```{r p2q1}
+dat_prem %>% 
+  filter(color == "G") %>% 
+  summarize(avg_price = mean(price))
 ```
 
-2. For diamonds with Good or Fair cut, create a new column called ‘discounted’ that shows the price after a 10% discount and find the mean and standard deviation of the discounted prices. [Hint: last line of code that finds the mean and sd should be `summarize(avg_discount = mean(discounted), sd_discount = sd(discounted))`.]
+2. For diamonds with Good or Fair cut, create a new column called ‘discounted’ that shows the price after a 10% discount and find the mean and standard deviation of the discounted prices. [Hint: last line of code that finds the mean and sd should be `summarize(avg_discount = mean(price), sd_discount = sd(price))`.]
 
-```{r }
+```{r p2q2}
+dat_diamond %>% 
+  filter(cut %in% c("Good", "Fair")) %>% 
+  mutate(discounted = price * 0.9) %>% 
+  summarize(avg_discount = mean(discounted),
+            sd_discount = sd(discounted))
 
+# OR
+
+dat_diamond %>% 
+  filter(cut == "Good" | cut == "Fair") %>% 
+  mutate(discounted = 0.9*price) %>% 
+  summarize(avg_discount = mean(discounted), 
+            sd_discount = sd(discounted))
 ```
 
 3. For diamonds with clarity VS1 and carat greater than 0.8, count the number of observations that belong to each type of cut and arrange them in increasing order. [Hint: to count the frequencies of a categorical variable like cut, use `count(cut)`. For arranging, use `arrange(n)`.]
 
-```{r }
+```{r p2q3}
+dat_diamond %>% 
+  filter(clarity == "VS1" & carat > 0.8) %>% 
+  count(cut) %>% 
+  arrange(n)
 
+# OR
+
+dat_diamond %>% 
+  filter(clarity == "VS1" & carat > 0.8) %>% 
+  group_by(cut) %>% 
+  summarise(counts = n())
 ```
+
+### Additional notes
+
+In class, we talked about methods to return a single column as a data frame (aka, tibble) versus methods to return a single column as a vector of values. 
+
+To return a data frame:
+
+```{r, results=FALSE}
+# Method 1
+dat_diamond %>% select(carat)
+
+# Method 2
+dat_diamond[, 1]
+```
+
+To return a vector:
+
+```{r, results=FALSE}
+# Method 1
+dat_diamond %>% pull(carat)
+
+# Method 2
+dat_diamond$carat
+```
+
+In order to use some functions, like `mean()` you will need to use `pull()` or the "$". Keep this in mind for future coding!

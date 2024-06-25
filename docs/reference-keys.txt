@@ -1,4 +1,4 @@
-tab:p2q2
+tab:unnamed-chunk-21
 recitation-1
 objectives
 download-softwares
@@ -33,7 +33,15 @@ part-iii
 recitation-3
 part-i-1
 part-ii-bonus
+additional-notes
 recitation-4
 part-i-2
 part-ii-1
 part-iii-bonus-questions
+recitation-5
+part-i-3
+part-ii-2
+part-iii-bonus-questions-1
+recitation-6
+part-i-strings
+part-ii-factors

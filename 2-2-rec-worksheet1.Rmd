@@ -13,7 +13,7 @@ Make sure when you go to your `Files` pane, or the project icon in the top right
 
 Next, load any necessary packages in a first chunk of code and name this chunk "setup" with `include = FALSE`. You can learn more about chunk options at this link: https://rmarkdown.rstudio.com/lesson-3.html
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 library(tidyverse)
 ```
 
@@ -24,7 +24,7 @@ Note: There may be more than one way to code the exercises.
 1. Create a variable called `numbers` that contains 1 through 10 as characters and two
 `NA`s (they may be anywhere in the vector).
 
-```{r p1q1}
+```{r  }
 numbers <- c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", rep(NA, 2))
 ```
 
@@ -35,7 +35,7 @@ Mac shortcut: `Shift + Command + M`
 
 PC shortcut: `Ctrl + Shift + M`
 
-```{r p1q2}
+```{r }
 numbers <- numbers |> 
   na.omit() |>
   as.numeric()
@@ -43,13 +43,13 @@ numbers <- numbers |>
 
 3. Find the mean of the first 5 elements without typing out the numbers. 
 
-```{r p1q3}
+```{r  }
 mean(numbers[1:5])
 ```
 
 4. Find the mean of the first, third and fifth elements without typing out the numbers.
 
-```{r p1q4}
+```{r }
 mean(c(numbers[1], numbers[3], numbers[5]))
 ```
 
@@ -59,11 +59,11 @@ __Nice! You completed Part I.__
 
 Now let's load in the data for part II.
 
-```{r data, eval=FALSE}
+```{r , eval=FALSE}
 data_vacc <- read_csv("path/to/data_vacc.csv")
 ```
 
-```{r data-true, include=FALSE}
+```{r , include=FALSE}
 data_vacc <- read_csv("./dataset/data_vacc.csv")
 ```
 
@@ -84,7 +84,7 @@ should be a logical variable, but there are some typos preventing this.
 
 Fix the typos and then use `as.numeric()` and `as.logical()` to convert them.
 
-```{r p2q1b}
+```{r  }
 data_vacc$age[1] <- 57
 data_vacc$age <- as.numeric(data_vacc$age)
 
@@ -94,13 +94,13 @@ data_vacc$vaccinated <- as.logical(data_vacc$vaccinated)
 
 2. Summarize the data using `skimr`
 
-```{r p2q2}
+```{r }
 skimr::skim(data_vacc)
 ```
 
 3. Using the pipe operator, omit any `NA`s from the `weight` variable and find the mean.
 
-```{r p2q3}
+```{r  }
 data_vacc$weight %>%
  na.omit() %>%
  mean()
@@ -109,7 +109,7 @@ data_vacc$weight %>%
 4. Challenge! Take the subset of the data for those who are vaccinated and find their
 mean age using `[]`, `$` and `%>%`. 
 
-```{r p2q4}
+```{r }
 data_vacc[data_vacc$vaccinated == TRUE, ]$age %>%
  mean()
 ```
@@ -120,11 +120,11 @@ data_vacc[data_vacc$vaccinated == TRUE, ]$age %>%
 For this part, install the `MASS` package and call it for use in this session. 
 
 Pull out the `birthwt` data frame and assign it to an object in your personal environment. 
-```{r install-MASS, eval=FALSE}
+```{r , eval=FALSE}
 install.packages("MASS")
 ```
 
-```{r gapminder-set-up, message=FALSE}
+```{r , message=FALSE, echo=FALSE}
 library(MASS)
 bwt = birthwt
 View(bwt)

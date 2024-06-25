@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 4 Recitation 4 | Introduction to R</title>
+<title>Chapter 5 Recitation 5 | Introduction to R</title>
 <meta name="author" content="Tptrix29">
 <meta name="description" content="Today you learned… pivots: pivot_longer(), pivot_wider() joins: right_join(), left_join(), inner_join(), full_join() This worksheet will help you get accustomed to using these functions to...">
 <meta name="generator" content="bookdown 0.39 with bs4_book()">
-<meta property="og:title" content="Chapter 4 Recitation 4 | Introduction to R">
+<meta property="og:title" content="Chapter 5 Recitation 5 | Introduction to R">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://bookdown.org/janedoe/bookdown-demo/recitation-4.html">
+<meta property="og:url" content="https://bookdown.org/janedoe/bookdown-demo/recitation-5.html">
 <meta property="og:image" content="https://bookdown.org/janedoe/bookdown-demo/_main_files/img/R_logo.png">
 <meta property="og:description" content="Today you learned… pivots: pivot_longer(), pivot_wider() joins: right_join(), left_join(), inner_join(), full_join() This worksheet will help you get accustomed to using these functions to...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 4 Recitation 4 | Introduction to R">
+<meta name="twitter:title" content="Chapter 5 Recitation 5 | Introduction to R">
 <meta name="twitter:description" content="Today you learned… pivots: pivot_longer(), pivot_wider() joins: right_join(), left_join(), inner_join(), full_join() This worksheet will help you get accustomed to using these functions to...">
 <meta name="twitter:image" content="https://bookdown.org/janedoe/bookdown-demo/_main_files/img/R_logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,8 +50,8 @@
 <li><a class="" href="recitation-1.html"><span class="header-section-number">1</span> Recitation 1</a></li>
 <li><a class="" href="recitation-2.html"><span class="header-section-number">2</span> Recitation 2</a></li>
 <li><a class="" href="recitation-3.html"><span class="header-section-number">3</span> Recitation 3</a></li>
-<li><a class="active" href="recitation-4.html"><span class="header-section-number">4</span> Recitation 4</a></li>
-<li><a class="" href="recitation-5.html"><span class="header-section-number">5</span> Recitation 5</a></li>
+<li><a class="" href="recitation-4.html"><span class="header-section-number">4</span> Recitation 4</a></li>
+<li><a class="active" href="recitation-5.html"><span class="header-section-number">5</span> Recitation 5</a></li>
 <li><a class="" href="recitation-6.html"><span class="header-section-number">6</span> Recitation 6</a></li>
 </ul>
 
@@ -60,9 +60,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="recitation-4" class="section level1" number="4">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="recitation-5" class="section level1" number="5">
 <h1>
-<span class="header-section-number">4</span> Recitation 4<a class="anchor" aria-label="anchor" href="#recitation-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5</span> Recitation 5<a class="anchor" aria-label="anchor" href="#recitation-5"><i class="fas fa-link"></i></a>
 </h1>
 <p><strong>Today you learned…</strong></p>
 <ul>
@@ -74,14 +74,14 @@
 <p>This worksheet will help you get accustomed to using these functions to manipulate data.</p>
 <p>Load any necessary packages in your first chunk of code.</p>
 <p>Now, with your partner, please work out the following exercises sequentially. There may be more than one way to code the exercises.</p>
-<div id="part-i-2" class="section level2" number="4.1">
+<div id="part-i-3" class="section level2" number="5.1">
 <h2>
-<span class="header-section-number">4.1</span> Part I<a class="anchor" aria-label="anchor" href="#part-i-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.1</span> Part I<a class="anchor" aria-label="anchor" href="#part-i-3"><i class="fas fa-link"></i></a>
 </h2>
 <ol start="0" style="list-style-type: decimal">
 <li>Load the data you’ll need for Part I by simply running the code below.</li>
 </ol>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">2001</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span>
 <span><span class="va">team</span> <span class="op">&lt;-</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="va">num</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span>, size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -103,7 +103,7 @@
 <ol style="list-style-type: decimal">
 <li>Add <code>index</code> to the <code>yr_data</code> data frame via binding. Call the index column in the resulting data frame <code>idx</code>.</li>
 </ol>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">yr_data</span> <span class="op">&lt;-</span> <span class="fu">bind_cols</span><span class="op">(</span>idx <span class="op">=</span> <span class="va">index</span>, <span class="va">yr_data</span><span class="op">)</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Is the data currently in wide or long format? Justify your answer with a complete sentence.</li>
@@ -112,7 +112,7 @@
 <ol start="3" style="list-style-type: decimal">
 <li>Create one <code>year</code> column and put all data currently stored in columns 2001 to 2020 into a column called <code>points</code>. Save this updated data frame as <code>yr_data_long</code>.</li>
 </ol>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">yr_data_long</span> <span class="op">&lt;-</span> <span class="fu">pivot_longer</span><span class="op">(</span><span class="va">yr_data</span>,</span>
 <span>                            cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">2001</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span>,</span>
 <span>                            names_to <span class="op">=</span> <span class="st">"year"</span>,</span>
@@ -124,21 +124,22 @@
 <ol start="5" style="list-style-type: decimal">
 <li>Transform this data so that we can see <code>number_est</code> for each age group along with <code>type</code> and <code>injury_mechanism</code>, like below. Save this data frame as <code>tbi_wide</code>.</li>
 </ol>
-<pre><code>## # A tibble: 21 x 13
-##    type  injury_mechanism  0-17   0-4&lt;code&gt;   5-14&lt;/code&gt;   15-24   25-34   35-44   45-54
-##    &lt;chr&gt; &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1 Emer~ Motor Vehicle C~  47138   5464  19785  103892   71641   44108   40020
-##  2 Emer~ Unintentional F~ 397190 230776 133084   96568   70210   68830   95127
-##  3 Emer~ Unintentionally~ 229236  53436 120839  106679   44404   32479   30495
-##  4 Emer~ Other unintenti~  55785  12007  30656   37118   22360   17541   17808
-##  5 Emer~ Intentional sel~     NA     NA     NA     870     650     421     247
-##  6 Emer~ Assault           24360    674   9690   65399   57213   34100   27682
-##  7 Emer~ Other or no mec~  57983  19360  26022   33395   20974   16503   15962
-##  8 Hosp~ Motor Vehicle C~   5830    870   2395   12925   11050    7305    8490
-##  9 Hosp~ Unintentional F~   7935   4700   2270    3910    4470    5640   12010
-## 10 Hosp~ Unintentionally~   1985    510    980    1070     635     610     685
-## # ... with 11 more rows, and 4 more variables</code></pre>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## # A tibble: 21 x 13</span></span>
+<span><span class="co">##    type  injury_mechanism  0-17   0-4&lt;code&gt;   5-14&lt;/code&gt;   15-24   25-34   35-44   45-54</span></span>
+<span><span class="co">##    &lt;chr&gt; &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span><span class="co">##  1 Emer~ Motor Vehicle C~  47138   5464  19785  103892   71641   44108   40020</span></span>
+<span><span class="co">##  2 Emer~ Unintentional F~ 397190 230776 133084   96568   70210   68830   95127</span></span>
+<span><span class="co">##  3 Emer~ Unintentionally~ 229236  53436 120839  106679   44404   32479   30495</span></span>
+<span><span class="co">##  4 Emer~ Other unintenti~  55785  12007  30656   37118   22360   17541   17808</span></span>
+<span><span class="co">##  5 Emer~ Intentional sel~     NA     NA     NA     870     650     421     247</span></span>
+<span><span class="co">##  6 Emer~ Assault           24360    674   9690   65399   57213   34100   27682</span></span>
+<span><span class="co">##  7 Emer~ Other or no mec~  57983  19360  26022   33395   20974   16503   15962</span></span>
+<span><span class="co">##  8 Hosp~ Motor Vehicle C~   5830    870   2395   12925   11050    7305    8490</span></span>
+<span><span class="co">##  9 Hosp~ Unintentional F~   7935   4700   2270    3910    4470    5640   12010</span></span>
+<span><span class="co">## 10 Hosp~ Unintentionally~   1985    510    980    1070     635     610     685</span></span>
+<span><span class="co">## # ... with 11 more rows, and 4 more variables</span></span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tbi_wide</span> <span class="op">&lt;-</span> <span class="va">tbi_age</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">pivot_wider</span><span class="op">(</span></span>
 <span>    id_cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, </span>
@@ -160,15 +161,15 @@
 ## 10 Hosp… Unintentionally…   1985    510    980    1070     635     610     685     765     790   1045 7.09e3
 ## # ℹ 11 more rows</code></pre>
 </div>
-<div id="part-ii-1" class="section level2" number="4.2">
+<div id="part-ii-2" class="section level2" number="5.2">
 <h2>
-<span class="header-section-number">4.2</span> Part II<a class="anchor" aria-label="anchor" href="#part-ii-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2</span> Part II<a class="anchor" aria-label="anchor" href="#part-ii-2"><i class="fas fa-link"></i></a>
 </h2>
 <p>In this example, we have a data frame with head counts for grain feeding producers and another data frame with head counts from grass feeding producers; there is potentially overlap between the producers that have both grain and grass fed animals and we want to merge them into one data frame. Note that producer number is not unique, but it is unique within state, so we need to merge on both state and producer number together.</p>
 <ol start="0" style="list-style-type: decimal">
 <li>Load the data for Part II by simply running the code below.</li>
 </ol>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">grass</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span></span>
 <span>  producer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>,</span>
 <span>  state <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"NSW"</span>, <span class="st">"NSW"</span>, <span class="st">"QLD"</span>, <span class="st">"QLD"</span><span class="op">)</span>,</span>
@@ -184,20 +185,20 @@
 <ol style="list-style-type: decimal">
 <li>Keep all the observations that are present in the <code>grass</code> data frame and join it with the <code>grain</code> data frame using the code below. What does the argument <code>by = c("producer","state")</code> do?</li>
 </ol>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gg_lj</span> <span class="op">&lt;-</span> <span class="fu">left_join</span><span class="op">(</span><span class="va">grass</span>, <span class="va">grain</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"producer"</span>, <span class="st">"state"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>[YOUR ANSWER HERE]</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Add the argument <code>suffix = c("_grass", "_grain")</code> to the line of code below. What does this argument do?</li>
 </ol>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gg_lj2</span> <span class="op">&lt;-</span> <span class="fu">left_join</span><span class="op">(</span><span class="va">grass</span>, <span class="va">grain</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"producer"</span>, <span class="st">"state"</span><span class="op">)</span>, </span>
 <span>                    suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"_grass"</span>, <span class="st">"_grain"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>[YOUR ANSWER HERE]</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Join the data frames by writing code that keeps all the observations that are present in <code>grain</code>.</li>
 </ol>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gg_rj</span> <span class="op">&lt;-</span> <span class="fu">right_join</span><span class="op">(</span><span class="va">grass</span>, <span class="va">grain</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"producer"</span>, <span class="st">"state"</span><span class="op">)</span>, </span>
 <span>                    suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"_grass"</span>, <span class="st">"_grain"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -212,7 +213,7 @@
 <ol start="5" style="list-style-type: decimal">
 <li>Use a join that keeps any observations that occur in either of the two data frames.</li>
 </ol>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gg_fj</span> <span class="op">&lt;-</span> <span class="fu">full_join</span><span class="op">(</span><span class="va">grass</span>, <span class="va">grain</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"producer"</span>, <span class="st">"state"</span><span class="op">)</span>, </span>
 <span>                    suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"_grass"</span>, <span class="st">"_grain"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
@@ -222,7 +223,7 @@
 <ol start="7" style="list-style-type: decimal">
 <li>Use a join that keeps only observations that are present in both data frames.</li>
 </ol>
-<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gg_ij</span> <span class="op">&lt;-</span> <span class="fu">inner_join</span><span class="op">(</span><span class="va">grass</span>, <span class="va">grain</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"producer"</span>, <span class="st">"state"</span><span class="op">)</span>, </span>
 <span>                    suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"_grass"</span>, <span class="st">"_grain"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <ol start="8" style="list-style-type: decimal">
@@ -230,18 +231,18 @@
 </ol>
 <p>The dimension of merged data is 3, 5. We see such a result because <code>inner_join</code> function only output the data item occurring in both left and right dataframe.</p>
 </div>
-<div id="part-iii-bonus-questions" class="section level2" number="4.3">
+<div id="part-iii-bonus-questions-1" class="section level2" number="5.3">
 <h2>
-<span class="header-section-number">4.3</span> Part III (Bonus Questions)<a class="anchor" aria-label="anchor" href="#part-iii-bonus-questions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3</span> Part III (Bonus Questions)<a class="anchor" aria-label="anchor" href="#part-iii-bonus-questions-1"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li>Clean the <code>tbi</code> data so that it contains the following age groups: 0-4, 5-17, 18-24, 25-34, 35-44, 45-54, 55-64, 65-74, 75+, and Total. Keep the data in wide format. Save your new data frame as <code>tbi_clean</code>.</li>
 </ol>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tbi_clean</span> <span class="op">&lt;-</span> <span class="va">tbi_wide</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">mutate</span><span class="op">(</span>`5-17` <span class="op">=</span> <span class="va">`0-17`</span> <span class="op">-</span> <span class="va">`0-4`</span>,</span>
 <span>         `18-24` <span class="op">=</span> <span class="va">Total</span> <span class="op">-</span> <span class="op">(</span><span class="va">`0-17`</span> <span class="op">+</span> <span class="va">`25-34`</span> <span class="op">+</span> <span class="va">`35-44`</span> <span class="op">+</span> </span>
-<span>                              <span class="va">`45-54`</span> <span class="op">+</span> <span class="va">`55-64`</span> <span class="op">+</span> <span class="va">`65-74`</span> <span class="op">+</span> <span class="va">`75+`</span><span class="op">)</span> </span>
+<span>                            <span class="va">`45-54`</span> <span class="op">+</span> <span class="va">`55-64`</span> <span class="op">+</span> <span class="va">`65-74`</span> <span class="op">+</span> <span class="va">`75+`</span><span class="op">)</span> </span>
 <span>  <span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">select</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">type</span>, <span class="va">injury_mechanism</span>, <span class="va">`0-4`</span>, <span class="va">`5-17`</span>, <span class="va">`18-24`</span>, <span class="va">`25-34`</span><span class="op">:</span><span class="va">Total</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -266,7 +267,7 @@
 <ol start="2" style="list-style-type: decimal">
 <li>Start with the farming data frame you created in Part II Q5. Add in the latitude and longitude associated with each post code in the data set. The code below will load in a file with lat and long info for each post code.</li>
 </ol>
-<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pcodes</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"http://garthtarr.com/data/aus_postcode_lat_long.csv"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">rename</span><span class="op">(</span>post_code <span class="op">=</span> <span class="va">postcode</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Rows: 3312 Columns: 3
@@ -277,27 +278,27 @@
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gg_location</span> <span class="op">&lt;-</span> <span class="fu">left_join</span><span class="op">(</span><span class="va">gg_fj</span>, <span class="va">pcodes</span>, by <span class="op">=</span> <span class="st">"post_code"</span><span class="op">)</span></span></code></pre></div>
 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="recitation-3.html"><span class="header-section-number">3</span> Recitation 3</a></div>
-<div class="next"><a href="recitation-5.html"><span class="header-section-number">5</span> Recitation 5</a></div>
+<div class="prev"><a href="recitation-4.html"><span class="header-section-number">4</span> Recitation 4</a></div>
+<div class="next"><a href="recitation-6.html"><span class="header-section-number">6</span> Recitation 6</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#recitation-4"><span class="header-section-number">4</span> Recitation 4</a></li>
-<li><a class="nav-link" href="#part-i-2"><span class="header-section-number">4.1</span> Part I</a></li>
-<li><a class="nav-link" href="#part-ii-1"><span class="header-section-number">4.2</span> Part II</a></li>
-<li><a class="nav-link" href="#part-iii-bonus-questions"><span class="header-section-number">4.3</span> Part III (Bonus Questions)</a></li>
+<li><a class="nav-link" href="#recitation-5"><span class="header-section-number">5</span> Recitation 5</a></li>
+<li><a class="nav-link" href="#part-i-3"><span class="header-section-number">5.1</span> Part I</a></li>
+<li><a class="nav-link" href="#part-ii-2"><span class="header-section-number">5.2</span> Part II</a></li>
+<li><a class="nav-link" href="#part-iii-bonus-questions-1"><span class="header-section-number">5.3</span> Part III (Bonus Questions)</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/Tptrix29/r-tutorials/blob/master/2-4-rec-worksheet3.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/Tptrix29/r-tutorials/edit/master/2-4-rec-worksheet3.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/Tptrix29/r-tutorials/blob/master/2-5-rec-worksheet4.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Tptrix29/r-tutorials/edit/master/2-5-rec-worksheet4.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 3 Recitation 3 | Introduction to R</title>
 <meta name="author" content="Tptrix29">
-<meta name="description" content="Today you learned… dplyr functions: select, filter, mutate, arrange, rename Now we’ll practice using these functions and refresh ourselves on a few basics from last week. Chunk Options:...">
+<meta name="description" content="Today you learned… dplyr functions: select, filter, mutate, arrange, rename Now we’ll practice using these functions and refresh ourselves on a few basics from last week. Load any necessary...">
 <meta name="generator" content="bookdown 0.39 with bs4_book()">
 <meta property="og:title" content="Chapter 3 Recitation 3 | Introduction to R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://bookdown.org/janedoe/bookdown-demo/recitation-3.html">
 <meta property="og:image" content="https://bookdown.org/janedoe/bookdown-demo/_main_files/img/R_logo.png">
-<meta property="og:description" content="Today you learned… dplyr functions: select, filter, mutate, arrange, rename Now we’ll practice using these functions and refresh ourselves on a few basics from last week. Chunk Options:...">
+<meta property="og:description" content="Today you learned… dplyr functions: select, filter, mutate, arrange, rename Now we’ll practice using these functions and refresh ourselves on a few basics from last week. Load any necessary...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 3 Recitation 3 | Introduction to R">
-<meta name="twitter:description" content="Today you learned… dplyr functions: select, filter, mutate, arrange, rename Now we’ll practice using these functions and refresh ourselves on a few basics from last week. Chunk Options:...">
+<meta name="twitter:description" content="Today you learned… dplyr functions: select, filter, mutate, arrange, rename Now we’ll practice using these functions and refresh ourselves on a few basics from last week. Load any necessary...">
 <meta name="twitter:image" content="https://bookdown.org/janedoe/bookdown-demo/_main_files/img/R_logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -51,6 +51,8 @@
 <li><a class="" href="recitation-2.html"><span class="header-section-number">2</span> Recitation 2</a></li>
 <li><a class="active" href="recitation-3.html"><span class="header-section-number">3</span> Recitation 3</a></li>
 <li><a class="" href="recitation-4.html"><span class="header-section-number">4</span> Recitation 4</a></li>
+<li><a class="" href="recitation-5.html"><span class="header-section-number">5</span> Recitation 5</a></li>
+<li><a class="" href="recitation-6.html"><span class="header-section-number">6</span> Recitation 6</a></li>
 </ul>
 
         <div class="book-extra">
@@ -68,33 +70,277 @@
 </li>
 </ul>
 <p>Now we’ll practice using these functions and refresh ourselves on a few basics from last week.</p>
-<p>Chunk Options: <a href="https://rmarkdown.rstudio.com/lesson-3.html" class="uri">https://rmarkdown.rstudio.com/lesson-3.html</a></p>
 <p>Load any necessary packages in your first chunk of code (name this chunk <code>setup</code> with <code>include = FALSE</code>).</p>
-<p>Note: There may be more than one way to code the exercises!</p>
+<p>Now, with your partner, please work out the following exercises sequentially. There may be more than one way to code the exercises.</p>
 <div id="part-i-1" class="section level2" number="3.1">
 <h2>
 <span class="header-section-number">3.1</span> Part I<a class="anchor" aria-label="anchor" href="#part-i-1"><i class="fas fa-link"></i></a>
 </h2>
 <ol start="0" style="list-style-type: decimal">
-<li><p>Print your working directory to show that you are located in an appropriate place on your device.</p></li>
-<li><p>(Review) Create a character vector called numbers, with the numbers 1 to 5 and one NA. Then, use the pipe operator to convert this to a numeric vector, omit any <code>NA</code>’s, and find the mean. Do not save the mean (i.e. do not use “&lt;-” to save the operations on the numbers variable).</p></li>
-<li><p>(Review) Save the <code>diamonds.csv</code> file from Courseworks into a <code>data</code> folder in your current working directory. Load in this data frame and save it as <code>dat_diamond</code>.</p></li>
-<li><p>Remove the first column using one of the functions from class. Make sure this column is gone when you view the data frame.</p></li>
-<li><p>Find three unique ways to select the carat column (do not save the column to the environment).</p></li>
-<li><p>Find the mean of the carat column (do not save).</p></li>
-<li><p>Create a variable called <code>data_prem</code> that only contains diamonds with a Premium cut. Also, rename the “col” variable to “color” and create a new column called “expensive” that is <code>TRUE</code> if the price is more than $5,000 and <code>FALSE</code> otherwise.</p></li>
-<li><p>Take your <code>dat_prem</code> data set and arrange it by price in descending order. Use the function <code>head(5)</code> to print only the first 5 elements.</p></li>
+<li>Print your working directory to show that you are located in an appropriate place on your device.</li>
 </ol>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "/Users/tptrix29/Developer/r-tutorials"</code></pre>
+<ol style="list-style-type: decimal">
+<li>(Review) Create a character vector called numbers, with the numbers 1 to 5 and one NA. Then, use the pipe operator to convert this to a numeric vector, omit any <code>NA</code>’s, and find the mean. Do not save the mean (i.e. do not use “&lt;-” to save the operations on the numbers variable).</li>
+</ol>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">numbers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="cn">NA</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">numbers</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>(Review) Save the <code>diamonds.csv</code> file from Courseworks into a <code>data</code> folder in your current working directory. Load in this data frame and save it as <code>dat_diamond</code>.</li>
+</ol>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dat_diamond</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"dataset/diamonds.csv"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## New names:
+## Rows: 53940 Columns: 11
+## ── Column specification
+## ──────────────────────────────────────────────────────────────────────────────────── Delimiter: "," chr
+## (3): cut, col, clarity dbl (8): ...1, carat, depth, table, price, x, y, z
+## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ Specify the column types or set
+## `show_col_types = FALSE` to quiet this message.
+## • `` -&gt; `...1`</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Remove the first column using one of the functions from class. Make sure this column is gone when you view the data frame.</li>
+</ol>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dat_diamond</span> <span class="op">&lt;-</span> <span class="va">dat_diamond</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">dat_diamond</span> <span class="op">&lt;-</span> <span class="va">dat_diamond</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">carat</span><span class="op">:</span><span class="va">z</span><span class="op">)</span></span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Find three unique ways to select the carat column (do not save the column to the environment).</li>
+</ol>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Method 1</span></span>
+<span><span class="va">dat_diamond</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="st">"carat"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 53,940 × 1
+##    carat
+##    &lt;dbl&gt;
+##  1  0.23
+##  2  0.21
+##  3  0.23
+##  4  0.29
+##  5  0.31
+##  6  0.24
+##  7  0.24
+##  8  0.26
+##  9  0.22
+## 10  0.23
+## # ℹ 53,930 more rows</code></pre>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Method 2</span></span>
+<span><span class="va">dat_diamond</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">carat</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 53,940 × 1
+##    carat
+##    &lt;dbl&gt;
+##  1  0.23
+##  2  0.21
+##  3  0.23
+##  4  0.29
+##  5  0.31
+##  6  0.24
+##  7  0.24
+##  8  0.26
+##  9  0.22
+## 10  0.23
+## # ℹ 53,930 more rows</code></pre>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Method 3</span></span>
+<span><span class="va">dat_diamond</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 53,940 × 1
+##    carat
+##    &lt;dbl&gt;
+##  1  0.23
+##  2  0.21
+##  3  0.23
+##  4  0.29
+##  5  0.31
+##  6  0.24
+##  7  0.24
+##  8  0.26
+##  9  0.22
+## 10  0.23
+## # ℹ 53,930 more rows</code></pre>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Method 4</span></span>
+<span><span class="va">dat_diamond</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span></span></code></pre></div>
+<pre><code>## # A tibble: 53,940 × 1
+##    carat
+##    &lt;dbl&gt;
+##  1  0.23
+##  2  0.21
+##  3  0.23
+##  4  0.29
+##  5  0.31
+##  6  0.24
+##  7  0.24
+##  8  0.26
+##  9  0.22
+## 10  0.23
+## # ℹ 53,930 more rows</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Find the mean of the carat column (do not save).</li>
+</ol>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">dat_diamond</span><span class="op">$</span><span class="va">carat</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 0.7979397</code></pre>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># OR</span></span>
+<span></span>
+<span><span class="va">dat_diamond</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">pull</span><span class="op">(</span><span class="va">carat</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span>na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 0.7979397</code></pre>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># OR</span></span>
+<span></span>
+<span><span class="va">dat_diamond</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">carat</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarise</span><span class="op">(</span>mean_carat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">carat</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   mean_carat
+##        &lt;dbl&gt;
+## 1      0.798</code></pre>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># OR</span></span>
+<span></span>
+<span><span class="va">dat_diamond</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarise</span><span class="op">(</span>mean_carat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">carat</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   mean_carat
+##        &lt;dbl&gt;
+## 1      0.798</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Create a variable called <code>data_prem</code> that only contains diamonds with a Premium cut. Also, rename the “col” variable to “color” and create a new column called “expensive” that is <code>TRUE</code> if the price is more than $5,000 and <code>FALSE</code> otherwise.</li>
+</ol>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dat_prem</span> <span class="op">&lt;-</span> <span class="va">dat_diamond</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">cut</span> <span class="op">==</span> <span class="st">"Premium"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">rename</span><span class="op">(</span>color <span class="op">=</span> <span class="va">col</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>expensive <span class="op">=</span> <span class="fu">if_else</span><span class="op">(</span><span class="va">price</span> <span class="op">&gt;</span> <span class="fl">5000</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># OR</span></span>
+<span></span>
+<span><span class="va">data_prem</span> <span class="op">=</span> <span class="va">dat_diamond</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">cut</span> <span class="op">==</span> <span class="st">"Premium"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">rename</span><span class="op">(</span>color <span class="op">=</span> <span class="va">col</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>expensive <span class="op">=</span> <span class="fu">case_when</span><span class="op">(</span><span class="va">price</span> <span class="op">&gt;</span> <span class="fl">5000</span> <span class="op">~</span> <span class="cn">TRUE</span>, </span>
+<span>                               <span class="va">price</span> <span class="op">&lt;=</span> <span class="fl">5000</span> <span class="op">~</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<ol start="7" style="list-style-type: decimal">
+<li>Take your <code>dat_prem</code> data set and arrange it by price in descending order. Use the function <code>head(5)</code> to print only the first 5 elements.</li>
+</ol>
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dat_prem</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 5 × 11
+##   carat cut     color clarity depth table price     x     y     z expensive
+##   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;    
+## 1  2.29 Premium I     VS2      60.8    60 18823  8.5   8.47  5.16 TRUE     
+## 2  2.29 Premium I     SI1      61.8    59 18797  8.52  8.45  5.24 TRUE     
+## 3  2.04 Premium H     SI1      58.1    60 18795  8.37  8.28  4.84 TRUE     
+## 4  2    Premium I     VS1      60.8    59 18795  8.13  8.02  4.91 TRUE     
+## 5  1.71 Premium F     VS2      62.3    59 18791  7.57  7.53  4.7  TRUE</code></pre>
 </div>
 <div id="part-ii-bonus" class="section level2" number="3.2">
 <h2>
 <span class="header-section-number">3.2</span> Part II (bonus)<a class="anchor" aria-label="anchor" href="#part-ii-bonus"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
-<li><p>Find the average price of Premium diamonds with color G. [Hint: last line of code that finds the mean should be <code>summarize(avg_price = mean(price))</code>.]</p></li>
-<li><p>For diamonds with Good or Fair cut, create a new column called ‘discounted’ that shows the price after a 10% discount and find the mean and standard deviation of the discounted prices. [Hint: last line of code that finds the mean and sd should be <code>summarize(avg_discount = mean(discounted), sd_discount = sd(discounted))</code>.]</p></li>
-<li><p>For diamonds with clarity VS1 and carat greater than 0.8, count the number of observations that belong to each type of cut and arrange them in increasing order. [Hint: to count the frequencies of a categorical variable like cut, use <code>count(cut)</code>. For arranging, use <code>arrange(n)</code>.]</p></li>
+<li>Find the average price of Premium diamonds with color G. [Hint: last line of code that finds the mean should be <code>summarize(avg_price = mean(price))</code>.]</li>
 </ol>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dat_prem</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">color</span> <span class="op">==</span> <span class="st">"G"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span>avg_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   avg_price
+##       &lt;dbl&gt;
+## 1     4501.</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>For diamonds with Good or Fair cut, create a new column called ‘discounted’ that shows the price after a 10% discount and find the mean and standard deviation of the discounted prices. [Hint: last line of code that finds the mean and sd should be <code>summarize(avg_discount = mean(price), sd_discount = sd(price))</code>.]</li>
+</ol>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dat_diamond</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">cut</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Good"</span>, <span class="st">"Fair"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>discounted <span class="op">=</span> <span class="va">price</span> <span class="op">*</span> <span class="fl">0.9</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span>avg_discount <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">discounted</span><span class="op">)</span>,</span>
+<span>            sd_discount <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">discounted</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
+##   avg_discount sd_discount
+##          &lt;dbl&gt;       &lt;dbl&gt;
+## 1        3632.       3291.</code></pre>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># OR</span></span>
+<span></span>
+<span><span class="va">dat_diamond</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">cut</span> <span class="op">==</span> <span class="st">"Good"</span> <span class="op">|</span> <span class="va">cut</span> <span class="op">==</span> <span class="st">"Fair"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>discounted <span class="op">=</span> <span class="fl">0.9</span><span class="op">*</span><span class="va">price</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span>avg_discount <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">discounted</span><span class="op">)</span>, </span>
+<span>            sd_discount <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">discounted</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
+##   avg_discount sd_discount
+##          &lt;dbl&gt;       &lt;dbl&gt;
+## 1        3632.       3291.</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>For diamonds with clarity VS1 and carat greater than 0.8, count the number of observations that belong to each type of cut and arrange them in increasing order. [Hint: to count the frequencies of a categorical variable like cut, use <code>count(cut)</code>. For arranging, use <code>arrange(n)</code>.]</li>
+</ol>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dat_diamond</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">clarity</span> <span class="op">==</span> <span class="st">"VS1"</span> <span class="op">&amp;</span> <span class="va">carat</span> <span class="op">&gt;</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">count</span><span class="op">(</span><span class="va">cut</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##   cut           n
+##   &lt;chr&gt;     &lt;int&gt;
+## 1 Fair         82
+## 2 Good        255
+## 3 Very Good   629
+## 4 Premium     826
+## 5 Ideal       977</code></pre>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># OR</span></span>
+<span></span>
+<span><span class="va">dat_diamond</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">clarity</span> <span class="op">==</span> <span class="st">"VS1"</span> <span class="op">&amp;</span> <span class="va">carat</span> <span class="op">&gt;</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">cut</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarise</span><span class="op">(</span>counts <span class="op">=</span> <span class="fu">n</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##   cut       counts
+##   &lt;chr&gt;      &lt;int&gt;
+## 1 Fair          82
+## 2 Good         255
+## 3 Ideal        977
+## 4 Premium      826
+## 5 Very Good    629</code></pre>
+<div id="additional-notes" class="section level3" number="3.2.1">
+<h3>
+<span class="header-section-number">3.2.1</span> Additional notes<a class="anchor" aria-label="anchor" href="#additional-notes"><i class="fas fa-link"></i></a>
+</h3>
+<p>In class, we talked about methods to return a single column as a data frame (aka, tibble) versus methods to return a single column as a vector of values.</p>
+<p>To return a data frame:</p>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Method 1</span></span>
+<span><span class="va">dat_diamond</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">carat</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Method 2</span></span>
+<span><span class="va">dat_diamond</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span></span></code></pre></div>
+<p>To return a vector:</p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Method 1</span></span>
+<span><span class="va">dat_diamond</span> <span class="op">%&gt;%</span> <span class="fu">pull</span><span class="op">(</span><span class="va">carat</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Method 2</span></span>
+<span><span class="va">dat_diamond</span><span class="op">$</span><span class="va">carat</span></span></code></pre></div>
+<p>In order to use some functions, like <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> you will need to use <code>pull()</code> or the “$”. Keep this in mind for future coding!</p>
+
+</div>
 </div>
 </div>
   <div class="chapter-nav">
@@ -105,7 +351,9 @@
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#recitation-3"><span class="header-section-number">3</span> Recitation 3</a></li>
 <li><a class="nav-link" href="#part-i-1"><span class="header-section-number">3.1</span> Part I</a></li>
-<li><a class="nav-link" href="#part-ii-bonus"><span class="header-section-number">3.2</span> Part II (bonus)</a></li>
+<li>
+<a class="nav-link" href="#part-ii-bonus"><span class="header-section-number">3.2</span> Part II (bonus)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#additional-notes"><span class="header-section-number">3.2.1</span> Additional notes</a></li></ul>
+</li>
 </ul>
 
       <div class="book-extra">
@@ -123,7 +371,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-06-11.</p>
+    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-06-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

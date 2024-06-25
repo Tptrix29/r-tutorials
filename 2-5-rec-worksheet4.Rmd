@@ -1,4 +1,5 @@
-# Recitation 4
+# Recitation 5
+
 
 __Today you learned...__
 
@@ -19,7 +20,7 @@ Now, with your partner, please work out the following exercises sequentially. Th
 
 0. Load the data you'll need for Part I by simply running the code below.
 
-```{r }
+```{r}
 year <- paste(2001:2020)
 team <- letters[1:length(year)]
 num <- sample(c(1:100), size = length(year)^2, replace = TRUE)
@@ -44,7 +45,7 @@ yr_data <- bind_cols(idx = index, yr_data)
 
 3. Create one `year` column and put all data currently stored in columns 2001 to 2020 into a column called `points`. Save this updated data frame as `yr_data_long`.
 
-```{r }
+```{r}
 yr_data_long <- pivot_longer(yr_data,
                             cols = paste(2001:2020),
                             names_to = "year",
@@ -57,7 +58,7 @@ yr_data_long <- pivot_longer(yr_data,
 
 5. Transform this data so that we can see `number_est` for each age group along with `type` and `injury_mechanism`, like below. Save this data frame as `tbi_wide`. 
 
-```{}
+```{r, eval=FALSE}
 ## # A tibble: 21 x 13
 ##    type  injury_mechanism  0-17   0-4<code>   5-14</code>   15-24   25-34   35-44   45-54
 ##    <chr> <chr>             <dbl>  <dbl>  <dbl>   <dbl>   <dbl>   <dbl>   <dbl>
@@ -74,7 +75,7 @@ yr_data_long <- pivot_longer(yr_data,
 ## # ... with 11 more rows, and 4 more variables
 ```
 
-```{r }
+```{r}
 tbi_wide <- tbi_age %>% 
   pivot_wider(
     id_cols = c(1, 2), 
@@ -89,7 +90,7 @@ In this example, we have a data frame with head counts for grain feeding produce
 
 0. Load the data for Part II by simply running the code below. 
 
-```{r }
+```{r}
 grass <- tibble(
   producer = c(1, 2, 3, 1),
   state = c("NSW", "NSW", "QLD", "QLD"),
@@ -106,7 +107,7 @@ grain <-  tibble(
 
 1. Keep all the observations that are present in the `grass` data frame and join it with the `grain` data frame using the code below. What does the argument `by = c("producer","state")` do?
 
-```{r}
+```{r }
 gg_lj <- left_join(grass, grain, by = c("producer", "state"))
 ```
 
@@ -114,7 +115,7 @@ gg_lj <- left_join(grass, grain, by = c("producer", "state"))
 
 2. Add the argument `suffix = c("_grass", "_grain")` to the line of code below. What does this argument do?
 
-```{r }
+```{r}
 gg_lj2 <- left_join(grass, grain, by = c("producer", "state"), 
                     suffix = c("_grass", "_grain"))
 ```
@@ -150,7 +151,7 @@ Producer 3 belongs to grass feeding produce. Because there is no grain-feeding c
 
 7. Use a join that keeps only observations that are present in both data frames.
 
-```{r}
+```{r p2q7}
 gg_ij <- inner_join(grass, grain, by = c("producer", "state"), 
                     suffix = c("_grass", "_grain"))
 ```
@@ -167,7 +168,7 @@ The dimension of merged data is `r dim(gg_ij)`. We see such a result because `in
 tbi_clean <- tbi_wide %>% 
   mutate(`5-17` = `0-17` - `0-4`,
          `18-24` = Total - (`0-17` + `25-34` + `35-44` + 
-                              `45-54` + `55-64` + `65-74` + `75+`) 
+                            `45-54` + `55-64` + `65-74` + `75+`) 
   ) %>% 
   select(c(type, injury_mechanism, `0-4`, `5-17`, `18-24`, `25-34`:Total))
 
