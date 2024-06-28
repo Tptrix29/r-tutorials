@@ -1,0 +1,135 @@
+# Recitation 6
+
+__Today you learned...__
+
+* Useful functions for exploratory data analysis (EDA) like _case_when()_, _group_by()_, and _summarize()_. 
+
+Now we'll practice using the functions we learned in class.
+
+Load any necessary packages in your first chunk of code.
+
+```{r, include=FALSE}
+library(tidyverse)
+```
+
+Please work out the following exercises sequentially. There may be more than one way to code the exercises.
+
+## Part I
+
+1. Import the Airbnb data set as `bnb_data` and apply `clean_names()`.
+
+```{r}
+bnb_data <- read_csv("dataset/nyc_airbnb.csv") %>% 
+  janitor::clean_names()
+```
+
+2. Arrange the data (and save it) in decreasing order by price. 
+
+```{r }
+bnb_data <- bnb_data %>% arrange(desc(price))
+```
+
+3. Use `if_else()` to create a new variable called `price_bin` that equals 1 if the Airbnb is no less than average, and 0 if it is cheaper than average.
+
+```{r p1q3}
+bnb_data <- bnb_data %>% 
+  mutate(price_bin = ifelse(price >= mean(price), 1, 0))
+```
+
+4. Use `case_when()` to do the same thing. 
+
+```{r}
+bnb_data <- bnb_data %>% 
+  mutate(price_bin = case_when(price >= mean(price) ~ 1,
+                               price < mean(price) ~ 0)
+  )
+
+# another version
+bnb_data <- bnb_data %>% 
+  mutate(price_bin = case_when(price > mean(price) ~ 1,
+                               TRUE ~ 0)
+  )
+```
+
+5. Find the mean, median, sd, min, and max of the price variable for each neighborhood (`neighborhood_group`). Use `group_by()` and `summarize()`.
+
+```{r}
+bnb_data %>% 
+  group_by(neighbourhood_group) %>% 
+  summarize(mean = mean(price),
+            sd = sd(price),
+            min = min(price),
+            max = max(price))
+```
+
+6. How many listings contain the word "cozy" (or "Cozy" or "COZY") in their names? 
+
+```{r}
+bnb_data %>% 
+  filter(str_detect(name, 'cozy|Cozy|COZY')) %>% 
+  nrow()
+```
+
+There are 4234 listings that contain the word "cozy", "Cozy", or "COZY". 
+
+7. For each neighborhood, find the average price of listings containing the word "cozy", "Cozy", or "COZY" in their names.
+
+```{r }
+bnb_data %>% 
+  filter(str_detect(name, 'cozy|Cozy|COZY')) %>% 
+  group_by(neighbourhood_group) %>% 
+  summarize(mean = mean(price))
+```
+
+8. Show the name and number of listings of the 5 hosts with the most listings containing the words "cozy", "Cozy", or "COZY". 
+
+```{r}
+bnb_data %>% 
+  filter(str_detect(name, 'cozy|Cozy|COZY')) %>% 
+  arrange(desc(calculated_host_listings_count)) %>% 
+  select(host_name, calculated_host_listings_count) %>% 
+  unique() %>% 
+  head(5)
+
+# Danielle's Version
+bnb_data %>% 
+  filter(str_detect(name, "cozy|Cozy|COZY")) %>% 
+  group_by(host_id) %>% 
+  reframe(name = host_name,
+          cozy_count = n()) %>% 
+  distinct() %>% 
+  arrange(desc(cozy_count)) %>% 
+  head(5)
+
+# Lidio's Version
+bnb_data %>% 
+  filter(str_detect(name, "cozy|Cozy|COZY")) %>% 
+  group_by(host_id, host_name) %>% 
+  count(host_id) %>% 
+  arrange(desc(n)) %>% 
+  head(5)
+```
+
+9. Use `str()` to see the data types of all the variables. Change the `minimum_nights` variable to a factor variable. 
+
+```{r}
+str(bnb_data)
+
+bnb_data <- bnb_data %>% 
+  mutate(minimum_nights = as_factor(minimum_nights))
+```
+
+10. Group by room type and count the number of Airbnbs in each level of `minimum_nights`. 
+
+```{r}
+bnb_data %>% 
+  group_by(room_type) %>% 
+  select(minimum_nights) %>% 
+  count(minimum_nights)
+
+bnb_data |>
+  group_by(room_type, minimum_nights) |>
+  summarise(
+    count = n()
+  )
+```

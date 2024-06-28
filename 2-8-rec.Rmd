@@ -1,0 +1,140 @@
+# Recitation 8
+
+__Today you learned...__
+
+* How to create histograms, density plots, scatter plots, box plots, and more with _ggplot2_.
+
+Now we'll practice using the functions we learned in class.
+
+Load any necessary packages in your first chunk of code.
+
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+Now, with your partner, please work out the following exercises sequentially. There may be more than one way to code the exercises.
+
+## Part I
+
+1. For this worksheet, we will use the `mpg` data set (in ggplot2). Use the command `?mpg` in the console to learn more about it. What type of variable is `drv`? How many rows and columns are in the data set?
+
+```{r}
+# May or may not need to write any code for this Q
+head(mpg)
+```
+
+`drv` is a character variable. There are 234 rows and 11 columns in the data set.
+
+2. Create a histogram for the engine displacement for all cars in the `mpg` data set. Set the number of bins to 20. What do you notice about the shape of the histogram?
+
+```{r}
+mpg %>% 
+  ggplot() +
+  geom_histogram(aes(x = displ), bins = 20, fill = "steelblue", color = "black") + 
+  labs(
+    title = "Barplot of displ"
+  ) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+3. Create a (stratified) density plot that shows the distribution of city mpg for Hyundais and for Jeeps. Set alpha to 0.5. Write a sentence describing your results.
+
+```{r}
+mpg %>% 
+  filter(manufacturer %in% c("hyundai", "jeep")) %>% 
+  ggplot() +
+  geom_density(aes(x = cty,  fill = manufacturer), alpha = 0.5) + 
+  labs(
+    title = "Density plot of cty"
+  ) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+4. Create a boxplot that shows the distribution of highway mileage for each distinct number of cylinders. For fun, make the outlines of all of the boxes blue.
+
+```{r}
+mpg %>% 
+  mutate(cyl_fct = cyl %>% as.factor()) %>%
+  ggplot() +
+  geom_boxplot(aes(x = cyl, y = hwy, group = cyl, fill = cyl_fct),
+               color = "steelblue") + 
+  labs(
+    title = "Boxplot of cyl"
+  ) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+5. Create a scatter plot that shows the relationship between city mileage and highway mileage. Color your points by class, shape your points by year, and set the size of your points using the cylinder variable. Set alpha to 0.5 for all points. Write a couple sentences about your plot. 
+
+```{r}
+mpg %>% 
+  mutate(year = as_factor(year)) %>% 
+  ggplot() +
+  geom_point(aes(x = cty, y = hwy, color = class,
+                 shape = year, size = cyl), alpha = 0.5) + 
+  labs(
+    title = "Point plot of cty"
+  ) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+## Part II
+
+1. Take your plot from Part I problem 4 and make it so the only values on the x-axis are 4, 5, 6, and 8 (i.e., remove cylinder 7 from the plot).
+
+```{r}
+mpg %>% 
+  mutate(cyl = as_factor(cyl)) %>% 
+  ggplot() +
+  geom_boxplot(aes(x = cyl, y = hwy, group = cyl, fill = cyl),
+               color = "steelblue") + 
+  labs(
+    title = "Boxplot of cyl"
+  ) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))
+
+# change color map to virdis
+mpg %>% 
+  mutate(cyl = as_factor(cyl)) %>% 
+  ggplot() +
+  geom_boxplot(aes(x = cyl, y = hwy, group = cyl, fill = cyl),
+               color = "steelblue") + 
+  labs(
+    title = "Boxplot of cyl"
+  ) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_fill_viridis_d()
+
+# customize the color map
+mpg %>% 
+  mutate(cyl = as_factor(cyl)) %>% 
+  ggplot() +
+  geom_boxplot(aes(x = cyl, y = hwy, group = cyl, fill = cyl),
+               color = "steelblue") + 
+  labs(
+    title = "Boxplot of cyl"
+  ) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = c("tomato", "limegreen", "aquamarine", "orange")) 
+```
+
+2. Let's take your plot from Part I problem 5 and make it more readable. Again, create a scatter plot that again shows the relationship between city mileage and highway mileage. Color by class again, but this time, facet by year and number of cylinders.
+
+```{r}
+mpg %>% 
+  ggplot() +
+  geom_point(aes(x = cty, y = hwy, color = class)) +
+  facet_grid(year ~ cyl) + 
+  labs(
+    title = "Point plot of cyt in sub-figures"
+  ) + 
+  theme_bw() + 
+  theme(plot.title = element_text(hjust = 0.5))
+```

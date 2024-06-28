@@ -52,6 +52,9 @@
 <li><a class="" href="recitation-3.html"><span class="header-section-number">3</span> Recitation 3</a></li>
 <li><a class="active" href="recitation-4.html"><span class="header-section-number">4</span> Recitation 4</a></li>
 <li><a class="" href="recitation-5.html"><span class="header-section-number">5</span> Recitation 5</a></li>
+<li><a class="" href="recitation-6.html"><span class="header-section-number">6</span> Recitation 6</a></li>
+<li><a class="" href="recitation-7.html"><span class="header-section-number">7</span> Recitation 7</a></li>
+<li><a class="" href="recitation-8.html"><span class="header-section-number">8</span> Recitation 8</a></li>
 </ul>
 
         <div class="book-extra">
@@ -92,7 +95,7 @@
 <span></span>
 <span><span class="va">tbi_age</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-24/tbi_age.csv"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Rows: 231 Columns: 5
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (3): age_group, type, injury_mechanism
 ## dbl (2): number_est, rate_est
@@ -145,19 +148,20 @@
 <span>    values_from <span class="op">=</span> <span class="va">number_est</span><span class="op">)</span></span>
 <span><span class="va">tbi_wide</span></span></code></pre></div>
 <pre><code>## # A tibble: 21 × 13
-##    type  injury_mechanism `0-17`  `0-4` `5-14` `15-24` `25-34` `35-44` `45-54` `55-64` `65-74`  `75+`  Total
-##    &lt;chr&gt; &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-##  1 Emer… Motor Vehicle C…  47138   5464  19785  103892   71641   44108   40020   27193   13829   8176 3.34e5
-##  2 Emer… Unintentional F… 397190 230776 133084   96568   70210   68830   95127  112460  120327 286031 1.21e6
-##  3 Emer… Unintentionally… 229236  53436 120839  106679   44404   32479   30495   20408   11937  13270 4.34e5
-##  4 Emer… Other unintenti…  55785  12007  30656   37118   22360   17541   17808   12928    7077   7440 1.65e5
-##  5 Emer… Intentional sel…     NA     NA     NA     870     650     421     247     105      NA     NA 2.57e3
-##  6 Emer… Assault           24360    674   9690   65399   57213   34100   27682   11538    2893   1260 2.10e5
-##  7 Emer… Other or no mec…  57983  19360  26022   33395   20974   16503   15962   13387   10051  17318 1.73e5
-##  8 Hosp… Motor Vehicle C…   5830    870   2395   12925   11050    7305    8490    7280    4485   3965 5.88e4
-##  9 Hosp… Unintentional F…   7935   4700   2270    3910    4470    5640   12010   18490   25235  74005 1.51e5
-## 10 Hosp… Unintentionally…   1985    510    980    1070     635     610     685     765     790   1045 7.09e3
-## # ℹ 11 more rows</code></pre>
+##    type        injury_mechanism `0-17`  `0-4` `5-14` `15-24` `25-34` `35-44` `45-54`
+##    &lt;chr&gt;       &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Emergency … Motor Vehicle C…  47138   5464  19785  103892   71641   44108   40020
+##  2 Emergency … Unintentional F… 397190 230776 133084   96568   70210   68830   95127
+##  3 Emergency … Unintentionally… 229236  53436 120839  106679   44404   32479   30495
+##  4 Emergency … Other unintenti…  55785  12007  30656   37118   22360   17541   17808
+##  5 Emergency … Intentional sel…     NA     NA     NA     870     650     421     247
+##  6 Emergency … Assault           24360    674   9690   65399   57213   34100   27682
+##  7 Emergency … Other or no mec…  57983  19360  26022   33395   20974   16503   15962
+##  8 Hospitaliz… Motor Vehicle C…   5830    870   2395   12925   11050    7305    8490
+##  9 Hospitaliz… Unintentional F…   7935   4700   2270    3910    4470    5640   12010
+## 10 Hospitaliz… Unintentionally…   1985    510    980    1070     635     610     685
+## # ℹ 11 more rows
+## # ℹ 4 more variables: `55-64` &lt;dbl&gt;, `65-74` &lt;dbl&gt;, `75+` &lt;dbl&gt;, Total &lt;dbl&gt;</code></pre>
 </div>
 <div id="part-ii-1" class="section level2" number="4.2">
 <h2>
@@ -269,7 +273,7 @@
 <code class="sourceCode R"><span><span class="va">pcodes</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"http://garthtarr.com/data/aus_postcode_lat_long.csv"</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">rename</span><span class="op">(</span>post_code <span class="op">=</span> <span class="va">postcode</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Rows: 3312 Columns: 3
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr (1): postcode
 ## dbl (2): lat, long
@@ -295,8 +299,8 @@
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/Tptrix29/r-tutorials/blob/master/2-4-rec-worksheet3.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/Tptrix29/r-tutorials/edit/master/2-4-rec-worksheet3.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/Tptrix29/r-tutorials/blob/master/2-4-rec.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Tptrix29/r-tutorials/edit/master/2-4-rec.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -308,7 +312,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-06-25.</p>
+    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-06-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

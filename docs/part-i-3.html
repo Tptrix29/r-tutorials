@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 6 Recitation 6 | Introduction to R</title>
+<title>Chapter 7 Part I | Introduction to R</title>
 <meta name="author" content="Tptrix29">
-<meta name="description" content="Today you learned… Useful functions for exploratory data analysis (EDA) like case_when(), group_by(), and summarize(). Now we’ll practice using the functions we learned in class. Load any...">
+<meta name="description" content='Import the Airbnb data set as bnb_data and apply clean_names(). bnb_data &lt;- read_csv("dataset/nyc_airbnb.csv") %&gt;%  janitor::clean_names() ## Rows: 40753 Columns: 17 ## ── Column specification...'>
 <meta name="generator" content="bookdown 0.39 with bs4_book()">
-<meta property="og:title" content="Chapter 6 Recitation 6 | Introduction to R">
+<meta property="og:title" content="Chapter 7 Part I | Introduction to R">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://bookdown.org/janedoe/bookdown-demo/recitation-6.html">
+<meta property="og:url" content="https://bookdown.org/janedoe/bookdown-demo/part-i-3.html">
 <meta property="og:image" content="https://bookdown.org/janedoe/bookdown-demo/_main_files/img/R_logo.png">
-<meta property="og:description" content="Today you learned… Useful functions for exploratory data analysis (EDA) like case_when(), group_by(), and summarize(). Now we’ll practice using the functions we learned in class. Load any...">
+<meta property="og:description" content='Import the Airbnb data set as bnb_data and apply clean_names(). bnb_data &lt;- read_csv("dataset/nyc_airbnb.csv") %&gt;%  janitor::clean_names() ## Rows: 40753 Columns: 17 ## ── Column specification...'>
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 6 Recitation 6 | Introduction to R">
-<meta name="twitter:description" content="Today you learned… Useful functions for exploratory data analysis (EDA) like case_when(), group_by(), and summarize(). Now we’ll practice using the functions we learned in class. Load any...">
+<meta name="twitter:title" content="Chapter 7 Part I | Introduction to R">
+<meta name="twitter:description" content='Import the Airbnb data set as bnb_data and apply clean_names(). bnb_data &lt;- read_csv("dataset/nyc_airbnb.csv") %&gt;%  janitor::clean_names() ## Rows: 40753 Columns: 17 ## ── Column specification...'>
 <meta name="twitter:image" content="https://bookdown.org/janedoe/bookdown-demo/_main_files/img/R_logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -52,9 +52,10 @@
 <li><a class="" href="recitation-3.html"><span class="header-section-number">3</span> Recitation 3</a></li>
 <li><a class="" href="recitation-4.html"><span class="header-section-number">4</span> Recitation 4</a></li>
 <li><a class="" href="recitation-5.html"><span class="header-section-number">5</span> Recitation 5</a></li>
-<li><a class="active" href="recitation-6.html"><span class="header-section-number">6</span> Recitation 6</a></li>
-<li><a class="" href="recitation-7.html"><span class="header-section-number">7</span> Recitation 7</a></li>
-<li><a class="" href="recitation-8.html"><span class="header-section-number">8</span> Recitation 8</a></li>
+<li><a class="" href="recitation-6.html"><span class="header-section-number">6</span> Recitation 6</a></li>
+<li><a class="active" href="part-i-3.html"><span class="header-section-number">7</span> Part I</a></li>
+<li><a class="" href="recitation-7.html"><span class="header-section-number">8</span> Recitation 7</a></li>
+<li><a class="" href="recitation-8.html"><span class="header-section-number">9</span> Recitation 8</a></li>
 </ul>
 
         <div class="book-extra">
@@ -62,21 +63,10 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="recitation-6" class="section level1" number="6">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="part-i-3" class="section level1" number="7">
 <h1>
-<span class="header-section-number">6</span> Recitation 6<a class="anchor" aria-label="anchor" href="#recitation-6"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7</span> Part I<a class="anchor" aria-label="anchor" href="#part-i-3"><i class="fas fa-link"></i></a>
 </h1>
-<p><strong>Today you learned…</strong></p>
-<ul>
-<li>Useful functions for exploratory data analysis (EDA) like <em>case_when()</em>, <em>group_by()</em>, and <em>summarize()</em>.</li>
-</ul>
-<p>Now we’ll practice using the functions we learned in class.</p>
-<p>Load any necessary packages in your first chunk of code.</p>
-<p>Please work out the following exercises sequentially. There may be more than one way to code the exercises.</p>
-<div id="part-i-3" class="section level2" number="6.1">
-<h2>
-<span class="header-section-number">6.1</span> Part I<a class="anchor" aria-label="anchor" href="#part-i-3"><i class="fas fa-link"></i></a>
-</h2>
 <ol style="list-style-type: decimal">
 <li>Import the Airbnb data set as <code>bnb_data</code> and apply <code>clean_names()</code>.</li>
 </ol>
@@ -289,16 +279,12 @@
 ## # ℹ 115 more rows</code></pre>
 
 </div>
-</div>
   <div class="chapter-nav">
-<div class="prev"><a href="recitation-5.html"><span class="header-section-number">5</span> Recitation 5</a></div>
-<div class="next"><a href="recitation-7.html"><span class="header-section-number">7</span> Recitation 7</a></div>
+<div class="prev"><a href="recitation-6.html"><span class="header-section-number">6</span> Recitation 6</a></div>
+<div class="next"><a href="recitation-7.html"><span class="header-section-number">8</span> Recitation 7</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#recitation-6"><span class="header-section-number">6</span> Recitation 6</a></li>
-<li><a class="nav-link" href="#part-i-3"><span class="header-section-number">6.1</span> Part I</a></li>
-</ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#part-i-3"><span class="header-section-number">7</span> Part I</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">

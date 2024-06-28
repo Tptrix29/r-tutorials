@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 8 Recitation 8 | Introduction to R</title>
+<meta name="author" content="Tptrix29">
+<meta name="description" content="Today you learned… How to create histograms, density plots, scatter plots, box plots, and more with ggplot2. Now we’ll practice using the functions we learned in class. Load any necessary packages...">
+<meta name="generator" content="bookdown 0.39 with bs4_book()">
+<meta property="og:title" content="Chapter 8 Recitation 8 | Introduction to R">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/janedoe/bookdown-demo/recitation-8.html">
+<meta property="og:image" content="https://bookdown.org/janedoe/bookdown-demo/_main_files/img/R_logo.png">
+<meta property="og:description" content="Today you learned… How to create histograms, density plots, scatter plots, box plots, and more with ggplot2. Now we’ll practice using the functions we learned in class. Load any necessary packages...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 8 Recitation 8 | Introduction to R">
+<meta name="twitter:description" content="Today you learned… How to create histograms, density plots, scatter plots, box plots, and more with ggplot2. Now we’ll practice using the functions we learned in class. Load any necessary packages...">
+<meta name="twitter:image" content="https://bookdown.org/janedoe/bookdown-demo/_main_files/img/R_logo.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Introduction to R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Home</a></li>
+<li><a class="" href="recitation-1.html"><span class="header-section-number">1</span> Recitation 1</a></li>
+<li><a class="" href="recitation-2.html"><span class="header-section-number">2</span> Recitation 2</a></li>
+<li><a class="" href="recitation-3.html"><span class="header-section-number">3</span> Recitation 3</a></li>
+<li><a class="" href="recitation-4.html"><span class="header-section-number">4</span> Recitation 4</a></li>
+<li><a class="" href="recitation-5.html"><span class="header-section-number">5</span> Recitation 5</a></li>
+<li><a class="" href="recitation-6.html"><span class="header-section-number">6</span> Recitation 6</a></li>
+<li><a class="" href="recitation-7.html"><span class="header-section-number">7</span> Recitation 7</a></li>
+<li><a class="active" href="recitation-8.html"><span class="header-section-number">8</span> Recitation 8</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/Tptrix29/r-tutorials">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="recitation-8" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> Recitation 8<a class="anchor" aria-label="anchor" href="#recitation-8"><i class="fas fa-link"></i></a>
+</h1>
+<p><strong>Today you learned…</strong></p>
+<ul>
+<li>How to create histograms, density plots, scatter plots, box plots, and more with <em>ggplot2</em>.</li>
+</ul>
+<p>Now we’ll practice using the functions we learned in class.</p>
+<p>Load any necessary packages in your first chunk of code.</p>
+<p>Now, with your partner, please work out the following exercises sequentially. There may be more than one way to code the exercises.</p>
+<div id="part-i-5" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> Part I<a class="anchor" aria-label="anchor" href="#part-i-5"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>For this worksheet, we will use the <code>mpg</code> data set (in ggplot2). Use the command <code>?mpg</code> in the console to learn more about it. What type of variable is <code>drv</code>? How many rows and columns are in the data set?</li>
+</ol>
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># May or may not need to write any code for this Q</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 11
+##   manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class  
+##   &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  
+## 1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compact
+## 2 audi         a4      1.8  1999     4 manual(m5) f        21    29 p     compact
+## 3 audi         a4      2    2008     4 manual(m6) f        20    31 p     compact
+## 4 audi         a4      2    2008     4 auto(av)   f        21    30 p     compact
+## 5 audi         a4      2.8  1999     6 auto(l5)   f        16    26 p     compact
+## 6 audi         a4      2.8  1999     6 manual(m5) f        18    26 p     compact</code></pre>
+<p><code>drv</code> is a character variable. There are 234 rows and 11 columns in the data set.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Create a histogram for the engine displacement for all cars in the <code>mpg</code> data set. Set the number of bins to 20. What do you notice about the shape of the histogram?</li>
+</ol>
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_histogram</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span><span class="op">)</span>, bins <span class="op">=</span> <span class="fl">20</span>, fill <span class="op">=</span> <span class="st">"steelblue"</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Barplot of displ"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-89-1.png" width="672"></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Create a (stratified) density plot that shows the distribution of city mpg for Hyundais and for Jeeps. Set alpha to 0.5. Write a sentence describing your results.</li>
+</ol>
+<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">manufacturer</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hyundai"</span>, <span class="st">"jeep"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_density</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">cty</span>,  fill <span class="op">=</span> <span class="va">manufacturer</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Density plot of cty"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-90-1.png" width="672"></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Create a boxplot that shows the distribution of highway mileage for each distinct number of cylinders. For fun, make the outlines of all of the boxes blue.</li>
+</ol>
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>cyl_fct <span class="op">=</span> <span class="va">cyl</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">cyl</span>, y <span class="op">=</span> <span class="va">hwy</span>, group <span class="op">=</span> <span class="va">cyl</span>, fill <span class="op">=</span> <span class="va">cyl_fct</span><span class="op">)</span>,</span>
+<span>               color <span class="op">=</span> <span class="st">"steelblue"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Boxplot of cyl"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-91-1.png" width="672"></div>
+<ol start="5" style="list-style-type: decimal">
+<li>Create a scatter plot that shows the relationship between city mileage and highway mileage. Color your points by class, shape your points by year, and set the size of your points using the cylinder variable. Set alpha to 0.5 for all points. Write a couple sentences about your plot.</li>
+</ol>
+<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>year <span class="op">=</span> <span class="fu">as_factor</span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">cty</span>, y <span class="op">=</span> <span class="va">hwy</span>, color <span class="op">=</span> <span class="va">class</span>,</span>
+<span>                 shape <span class="op">=</span> <span class="va">year</span>, size <span class="op">=</span> <span class="va">cyl</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Point plot of cty"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-92-1.png" width="672"></div>
+</div>
+<div id="part-ii-3" class="section level2" number="8.2">
+<h2>
+<span class="header-section-number">8.2</span> Part II<a class="anchor" aria-label="anchor" href="#part-ii-3"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>Take your plot from Part I problem 4 and make it so the only values on the x-axis are 4, 5, 6, and 8 (i.e., remove cylinder 7 from the plot).</li>
+</ol>
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>cyl <span class="op">=</span> <span class="fu">as_factor</span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">cyl</span>, y <span class="op">=</span> <span class="va">hwy</span>, group <span class="op">=</span> <span class="va">cyl</span>, fill <span class="op">=</span> <span class="va">cyl</span><span class="op">)</span>,</span>
+<span>               color <span class="op">=</span> <span class="st">"steelblue"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Boxplot of cyl"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-93-1.png" width="672"></div>
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># change color map to virdis</span></span>
+<span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>cyl <span class="op">=</span> <span class="fu">as_factor</span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">cyl</span>, y <span class="op">=</span> <span class="va">hwy</span>, group <span class="op">=</span> <span class="va">cyl</span>, fill <span class="op">=</span> <span class="va">cyl</span><span class="op">)</span>,</span>
+<span>               color <span class="op">=</span> <span class="st">"steelblue"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Boxplot of cyl"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_fill_viridis_d</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-93-2.png" width="672"></div>
+<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># customize the color map</span></span>
+<span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>cyl <span class="op">=</span> <span class="fu">as_factor</span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">cyl</span>, y <span class="op">=</span> <span class="va">hwy</span>, group <span class="op">=</span> <span class="va">cyl</span>, fill <span class="op">=</span> <span class="va">cyl</span><span class="op">)</span>,</span>
+<span>               color <span class="op">=</span> <span class="st">"steelblue"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Boxplot of cyl"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_fill_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tomato"</span>, <span class="st">"limegreen"</span>, <span class="st">"aquamarine"</span>, <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-93-3.png" width="672"></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Let’s take your plot from Part I problem 5 and make it more readable. Again, create a scatter plot that again shows the relationship between city mileage and highway mileage. Color by class again, but this time, facet by year and number of cylinders.</li>
+</ol>
+<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">cty</span>, y <span class="op">=</span> <span class="va">hwy</span>, color <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">facet_grid</span><span class="op">(</span><span class="va">year</span> <span class="op">~</span> <span class="va">cyl</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Point plot of cyt in sub-figures"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-94-1.png" width="672"></div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="recitation-7.html"><span class="header-section-number">7</span> Recitation 7</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#recitation-8"><span class="header-section-number">8</span> Recitation 8</a></li>
+<li><a class="nav-link" href="#part-i-5"><span class="header-section-number">8.1</span> Part I</a></li>
+<li><a class="nav-link" href="#part-ii-3"><span class="header-section-number">8.2</span> Part II</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/Tptrix29/r-tutorials/blob/master/2-8-rec.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Tptrix29/r-tutorials/edit/master/2-8-rec.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-06-28.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

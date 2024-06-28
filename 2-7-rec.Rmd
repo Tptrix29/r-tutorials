@@ -1,0 +1,90 @@
+# Recitation 7
+
+__Today you learned...__
+
+* How to create nice summary tables with the _gtsummary_ package. 
+
+Now we'll practice using the functions we learned in class.
+
+Load any necessary packages in your first chunk of code.
+
+```{r , include=FALSE}
+library(tidyverse)
+library(gtsummary)
+```
+
+Please work out the following exercises sequentially. There may be more than one way to code the exercises.
+
+## Part I
+
+1. Load in the built-in `trial` data set (in gtsummary). It contains data from 200 patients who received one of two types of chemotherapy (Drug A or Drug B). The outcomes are tumor response and death.
+
+Apply `tbl_summary` to the trial data. Describe the results in a few sentences.
+
+```{r}
+trial %>% tbl_summary()
+```
+
+2. Use `tbl_summary` to summarize continuous variables of the trial data by treatment. Show up to two decimals.
+
+```{r }
+trial %>% 
+  select(trt, age, marker, ttdeath) %>% 
+  tbl_summary(by = trt, digits = all_continuous() ~ 2)
+```
+
+3. Now compare the two groups using the add_p() function. What do you see?
+
+```{r }
+trial %>% 
+  select(trt, age, marker, ttdeath) %>% 
+  tbl_summary(by = trt, digits = all_continuous() ~ 2) %>% 
+  add_p()
+```
+
+4. Add a column with overall summary statistics (not separated by drug type).
+
+```{r }
+trial %>% 
+  select(trt, age, marker, ttdeath) %>% 
+  tbl_summary(by = trt, digits = all_continuous() ~ 2) %>% 
+  add_p() %>%
+  add_overall()
+```
+
+5. Add a column with N (or N missing) for each variable.
+
+```{r }
+trial %>% 
+  select(trt, age, marker, ttdeath) %>% 
+  tbl_summary(by = trt, digits = all_continuous() ~ 2) %>% 
+  add_p() %>%
+  add_overall() %>% 
+  add_n()
+```
+
+6. Add labels for the summary statistics in each row rather than as a footnote. Also, change the statistics so that they show "Mean (SD)".
+
+```{r}
+trial %>% 
+  select(trt, age, marker, ttdeath) %>% 
+  tbl_summary(by = trt, 
+              statistic = all_continuous() ~ "{mean} ({sd})",
+              digits = all_continuous() ~ 2) %>% 
+  add_p() %>%
+  add_overall() %>% 
+  add_n() %>% 
+  add_stat_label()
+```
+
+## Part II
+
+Formulate an interesting question using this data set and use any functions you've learned so far to answer it. If you can, create a table of your results using gtsummary. Some groups will present their questions and code!
+
+```{r }
+#Answering Kaylinn's Question
+trial %>% 
+  select(age, response, trt) %>% 
+  mutate(response = ifelse(response == 1, "Tumor Observed", "No Tumor")) %>%
+  tbl_summary(by = trt)
+```

@@ -52,6 +52,9 @@
 <li><a class="" href="recitation-3.html"><span class="header-section-number">3</span> Recitation 3</a></li>
 <li><a class="" href="recitation-4.html"><span class="header-section-number">4</span> Recitation 4</a></li>
 <li><a class="active" href="recitation-5.html"><span class="header-section-number">5</span> Recitation 5</a></li>
+<li><a class="" href="recitation-6.html"><span class="header-section-number">6</span> Recitation 6</a></li>
+<li><a class="" href="recitation-7.html"><span class="header-section-number">7</span> Recitation 7</a></li>
+<li><a class="" href="recitation-8.html"><span class="header-section-number">8</span> Recitation 8</a></li>
 </ul>
 
         <div class="book-extra">
@@ -136,21 +139,25 @@
 <p>Hint: What are the outputs for letters[-1] and letters[-26]?</p>
 <div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">str_c</span><span class="op">(</span><span class="va">letters</span><span class="op">[</span><span class="op">-</span><span class="fl">26</span><span class="op">]</span>, <span class="st">" comes before "</span>, <span class="va">letters</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##  [1] "a comes before b" "b comes before c" "c comes before d" "d comes before e" "e comes before f"
-##  [6] "f comes before g" "g comes before h" "h comes before i" "i comes before j" "j comes before k"
-## [11] "k comes before l" "l comes before m" "m comes before n" "n comes before o" "o comes before p"
-## [16] "p comes before q" "q comes before r" "r comes before s" "s comes before t" "t comes before u"
-## [21] "u comes before v" "v comes before w" "w comes before x" "x comes before y" "y comes before z"</code></pre>
+<pre><code>##  [1] "a comes before b" "b comes before c" "c comes before d" "d comes before e"
+##  [5] "e comes before f" "f comes before g" "g comes before h" "h comes before i"
+##  [9] "i comes before j" "j comes before k" "k comes before l" "l comes before m"
+## [13] "m comes before n" "n comes before o" "o comes before p" "p comes before q"
+## [17] "q comes before r" "r comes before s" "s comes before t" "t comes before u"
+## [21] "u comes before v" "v comes before w" "w comes before x" "x comes before y"
+## [25] "y comes before z"</code></pre>
 <ol start="8" style="list-style-type: decimal">
 <li>Use the <code>paste0</code> function to get the same output as in 7.</li>
 </ol>
 <div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">letters</span><span class="op">[</span><span class="op">-</span><span class="fl">26</span><span class="op">]</span>, <span class="st">" comes before "</span>, <span class="va">letters</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##  [1] "a comes before b" "b comes before c" "c comes before d" "d comes before e" "e comes before f"
-##  [6] "f comes before g" "g comes before h" "h comes before i" "i comes before j" "j comes before k"
-## [11] "k comes before l" "l comes before m" "m comes before n" "n comes before o" "o comes before p"
-## [16] "p comes before q" "q comes before r" "r comes before s" "s comes before t" "t comes before u"
-## [21] "u comes before v" "v comes before w" "w comes before x" "x comes before y" "y comes before z"</code></pre>
+<pre><code>##  [1] "a comes before b" "b comes before c" "c comes before d" "d comes before e"
+##  [5] "e comes before f" "f comes before g" "g comes before h" "h comes before i"
+##  [9] "i comes before j" "j comes before k" "k comes before l" "l comes before m"
+## [13] "m comes before n" "n comes before o" "o comes before p" "p comes before q"
+## [17] "q comes before r" "r comes before s" "s comes before t" "t comes before u"
+## [21] "u comes before v" "v comes before w" "w comes before x" "x comes before y"
+## [25] "y comes before z"</code></pre>
 </div>
 <div id="part-ii-factors" class="section level2" number="5.2">
 <h2>
@@ -190,103 +197,76 @@
 <div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">10</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="fu">fct_count</span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## # A tibble: 20 × 2
+<pre><code>## # A tibble: 22 × 2
 ##    f         n
 ##    &lt;fct&gt; &lt;int&gt;
-##  1 a         3
-##  2 b        20
-##  3 c        13
-##  4 e        31
-##  5 f       129
-##  6 g        78
-##  7 j         4
-##  8 k         3
-##  9 l        88
-## 10 m        54
-## 11 n        11
-## 12 o       117
-## 13 p        11
-## 14 r       113
-## 15 s        30
-## 16 t         1
-## 17 v        68
-## 18 w        68
-## 19 x       132
-## 20 z        26</code></pre>
+##  1 a         1
+##  2 b       128
+##  3 c        55
+##  4 d         5
+##  5 f         5
+##  6 h        20
+##  7 i         1
+##  8 j        36
+##  9 k        89
+## 10 l       130
+## # ℹ 12 more rows</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Count how many of each letter was sampled and show them in decreasing order.</li>
 </ol>
 <div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">f</span> <span class="op">%&gt;%</span> <span class="fu">fct_count</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## # A tibble: 20 × 2
+<pre><code>## # A tibble: 22 × 2
 ##    f         n
 ##    &lt;fct&gt; &lt;int&gt;
-##  1 x       132
-##  2 f       129
-##  3 o       117
-##  4 r       113
-##  5 l        88
-##  6 g        78
-##  7 v        68
-##  8 w        68
-##  9 m        54
-## 10 e        31
-## 11 s        30
-## 12 z        26
-## 13 b        20
-## 14 c        13
-## 15 n        11
-## 16 p        11
-## 17 j         4
-## 18 a         3
-## 19 k         3
-## 20 t         1</code></pre>
+##  1 l       130
+##  2 b       128
+##  3 z       127
+##  4 m       116
+##  5 k        89
+##  6 s        89
+##  7 p        62
+##  8 c        55
+##  9 q        54
+## 10 w        40
+## # ℹ 12 more rows</code></pre>
 <div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">fct_count</span><span class="op">(</span><span class="va">f</span>, sort <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## # A tibble: 20 × 2
+<pre><code>## # A tibble: 22 × 2
 ##    f         n
 ##    &lt;fct&gt; &lt;int&gt;
-##  1 x       132
-##  2 f       129
-##  3 o       117
-##  4 r       113
-##  5 l        88
-##  6 g        78
-##  7 v        68
-##  8 w        68
-##  9 m        54
-## 10 e        31
-## 11 s        30
-## 12 z        26
-## 13 b        20
-## 14 c        13
-## 15 n        11
-## 16 p        11
-## 17 j         4
-## 18 a         3
-## 19 k         3
-## 20 t         1</code></pre>
+##  1 l       130
+##  2 b       128
+##  3 z       127
+##  4 m       116
+##  5 k        89
+##  6 s        89
+##  7 p        62
+##  8 c        55
+##  9 q        54
+## 10 w        40
+## # ℹ 12 more rows</code></pre>
 <ol start="6" style="list-style-type: decimal">
 <li>Use the <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> function in base R to show the unique letters that were sampled in <code>f</code>.</li>
 </ol>
 <div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##  [1] o g x l e v f p r w s m b z c a n t j k
-## Levels: a b c e f g j k l m n o p r s t v w x z</code></pre>
+<pre><code>##  [1] z s b k q c l x p m w o j h d r f a v n u i
+## Levels: a b c d f h i j k l m n o p q r s u v w x z</code></pre>
 <ol start="7" style="list-style-type: decimal">
 <li>Use a function in the <code>forcats</code> packages that shows the unique letters that were sampled in <code>f</code>. How is this function different from the base R function?</li>
 </ol>
 <div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">fct_unique</span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##  [1] a b c e f g j k l m n o p r s t v w x z
-## Levels: a b c e f g j k l m n o p r s t v w x z</code></pre>
+<pre><code>##  [1] a b c d f h i j k l m n o p q r s u v w x z
+## Levels: a b c d f h i j k l m n o p q r s u v w x z</code></pre>
 <p><code>fct_unique</code> function is specified for the factor variable. It will sort the unique values according to the levels of factor.</p>
 
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="recitation-4.html"><span class="header-section-number">4</span> Recitation 4</a></div>
-<div class="empty"></div>
+<div class="next"><a href="recitation-6.html"><span class="header-section-number">6</span> Recitation 6</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -297,8 +277,8 @@
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/Tptrix29/r-tutorials/blob/master/2-5-rec-worksheet4.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/Tptrix29/r-tutorials/edit/master/2-5-rec-worksheet4.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/Tptrix29/r-tutorials/blob/master/2-5-rec.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Tptrix29/r-tutorials/edit/master/2-5-rec.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -310,7 +290,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-06-25.</p>
+    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-06-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

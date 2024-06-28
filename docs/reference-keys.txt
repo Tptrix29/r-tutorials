@@ -41,3 +41,11 @@ part-iii-bonus-questions
 recitation-5
 part-i-strings
 part-ii-factors
+recitation-6
+part-i-3
+recitation-7
+part-i-4
+part-ii-2
+recitation-8
+part-i-5
+part-ii-3
