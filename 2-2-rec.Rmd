@@ -14,6 +14,7 @@ Make sure when you go to your `Files` pane, or the project icon in the top right
 Next, load any necessary packages in a first chunk of code and name this chunk "setup" with `include = FALSE`. You can learn more about chunk options at this link: https://rmarkdown.rstudio.com/lesson-3.html
 
 ```{r, include=FALSE}
+knitr::opts_chunk$set(warning = F, message = F)
 library(tidyverse)
 ```
 

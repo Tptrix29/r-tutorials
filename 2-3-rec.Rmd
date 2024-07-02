@@ -9,6 +9,7 @@ Now we'll practice using these functions and refresh ourselves on a few basics f
 Load any necessary packages in your first chunk of code (name this chunk `setup` with `include = FALSE`).
 
 ```{r, include=FALSE}
+knitr::opts_chunk$set(warning = F, message = F)
 detach(package:MASS, unload = T)
 library(tidyverse)
 ```

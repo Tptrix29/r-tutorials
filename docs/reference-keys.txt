@@ -1,4 +1,4 @@
-tab:unnamed-chunk-21
+tab:unnamed-chunk-22
 recitation-1
 objectives
 download-softwares
@@ -49,3 +49,6 @@ part-ii-2
 recitation-8
 part-i-5
 part-ii-3
+recitation-9
+part-i-6
+part-ii-4

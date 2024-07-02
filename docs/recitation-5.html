@@ -55,6 +55,7 @@
 <li><a class="" href="recitation-6.html"><span class="header-section-number">6</span> Recitation 6</a></li>
 <li><a class="" href="recitation-7.html"><span class="header-section-number">7</span> Recitation 7</a></li>
 <li><a class="" href="recitation-8.html"><span class="header-section-number">8</span> Recitation 8</a></li>
+<li><a class="" href="recitation-9.html"><span class="header-section-number">9</span> Recitation 9</a></li>
 </ul>
 
         <div class="book-extra">
@@ -81,33 +82,33 @@
 <ol style="list-style-type: decimal">
 <li>Find the length of each of the following using a <code>stringr</code> function: ‘i’, ‘like’, ‘programming’, and <code>NA</code>.</li>
 </ol>
-<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">str_length</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"i"</span>, <span class="st">"like"</span>, <span class="st">"programming"</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1]  1  4 11 NA</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Write code that returns a logical (TRUE, FALSE) vector indicating whether ‘apple’, ‘banana’, ‘kiwi’ and ‘pineapple’ each contain the letter ‘a’.</li>
 </ol>
-<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fruit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"kiwi"</span>, <span class="st">"pineapple"</span><span class="op">)</span></span>
 <span><span class="fu">str_detect</span><span class="op">(</span><span class="va">fruit</span>, <span class="st">"a"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE  TRUE</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Write code that returns a logical (TRUE, FALSE) vector indicating whether ‘apple’, ‘banana’, ‘kiwi’ and ‘pineapple’ each contain any vowels, a,e,i,o,u.</li>
 </ol>
-<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">str_detect</span><span class="op">(</span><span class="va">fruit</span>, <span class="st">"[aeiou]"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] TRUE TRUE TRUE TRUE</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Write code that replaces the first vowel in the given ‘fruits’ variable with a ‘-’.</li>
 </ol>
-<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"one apple"</span>, <span class="st">"two pears"</span>, <span class="st">"three bananas"</span><span class="op">)</span></span>
 <span><span class="fu">str_replace</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">"[aeiou]"</span>, <span class="st">"-"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "-ne apple"     "tw- pears"     "thr-e bananas"</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Write code that replaces all vowels in the given ‘fruits’ variable with a ‘-’.</li>
 </ol>
-<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">str_replace_all</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">"[aeiou]"</span>, <span class="st">"-"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "-n- -ppl-"     "tw- p--rs"     "thr-- b-n-n-s"</code></pre>
 <ol start="6" style="list-style-type: decimal">
@@ -115,18 +116,18 @@
 <code>letters</code> is a built-in character vector in R that contains all 26 letters of the alphabet. Write a single line of code to get the following output:</li>
 </ol>
 <p>“a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z”</p>
-<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Method 1</span></span>
 <span><span class="fu">str_flatten</span><span class="op">(</span><span class="va">letters</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z"</code></pre>
-<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Method 2</span></span>
 <span><span class="fu">str_c</span><span class="op">(</span><span class="va">letters</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z"</code></pre>
 <ol start="7" style="list-style-type: decimal">
 <li>Write a single line of code using a <code>stringr</code> function to get the following output:</li>
 </ol>
-<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#&gt;  [1] "a comes before b" "b comes before c" "c comes before d"</span></span>
 <span><span class="co">#&gt;  [4] "d comes before e" "e comes before f" "f comes before g"</span></span>
 <span><span class="co">#&gt;  [7] "g comes before h" "h comes before i" "i comes before j"</span></span>
@@ -137,7 +138,7 @@
 <span><span class="co">#&gt; [22] "v comes before w" "w comes before x" "x comes before y" </span></span>
 <span><span class="co">#&gt; [25] "y comes before z"</span></span></code></pre></div>
 <p>Hint: What are the outputs for letters[-1] and letters[-26]?</p>
-<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">str_c</span><span class="op">(</span><span class="va">letters</span><span class="op">[</span><span class="op">-</span><span class="fl">26</span><span class="op">]</span>, <span class="st">" comes before "</span>, <span class="va">letters</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##  [1] "a comes before b" "b comes before c" "c comes before d" "d comes before e"
 ##  [5] "e comes before f" "f comes before g" "g comes before h" "h comes before i"
@@ -149,7 +150,7 @@
 <ol start="8" style="list-style-type: decimal">
 <li>Use the <code>paste0</code> function to get the same output as in 7.</li>
 </ol>
-<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">letters</span><span class="op">[</span><span class="op">-</span><span class="fl">26</span><span class="op">]</span>, <span class="st">" comes before "</span>, <span class="va">letters</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##  [1] "a comes before b" "b comes before c" "c comes before d" "d comes before e"
 ##  [5] "e comes before f" "f comes before g" "g comes before h" "h comes before i"
@@ -166,20 +167,20 @@
 <ol style="list-style-type: decimal">
 <li>The <code>bdays</code> variable contains some months of the year. Apply the sort function to it. What does it do? Does it sort in a meaningful way?</li>
 </ol>
-<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bdays</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">bdays</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "Apr" "Dec" "Jan" "Mar"</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Create a vector called <code>month_levels</code> that lists all months of the year in order (i.e., Jan, Feb, …).</li>
 </ol>
-<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">month_levels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>,</span>
 <span>                   <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span><span class="op">)</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Create a factor variable using the <code>bdays</code> variable with <code>month_levels</code> as the levels. Now sort your new variable. What has changed?</li>
 </ol>
-<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Method 1: base R method</span></span>
 <span><span class="va">bdays_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">bdays</span>, levels <span class="op">=</span> <span class="va">month_levels</span><span class="op">)</span></span>
 <span></span>
@@ -194,72 +195,72 @@
 <li>
 <code>f</code> is a vector containing 1000 samples from the alphabet following a Poisson distribution with lambda = 10. Count how many of each letter was sampled.</li>
 </ol>
-<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">10</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="fu">fct_count</span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## # A tibble: 22 × 2
+<pre><code>## # A tibble: 21 × 2
 ##    f         n
 ##    &lt;fct&gt; &lt;int&gt;
 ##  1 a         1
-##  2 b       128
-##  3 c        55
-##  4 d         5
-##  5 f         5
-##  6 h        20
-##  7 i         1
-##  8 j        36
-##  9 k        89
-## 10 l       130
-## # ℹ 12 more rows</code></pre>
+##  2 b         6
+##  3 c         4
+##  4 d        69
+##  5 e        14
+##  6 f        55
+##  7 g         2
+##  8 h         1
+##  9 i        72
+## 10 j         7
+## # ℹ 11 more rows</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Count how many of each letter was sampled and show them in decreasing order.</li>
 </ol>
-<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">f</span> <span class="op">%&gt;%</span> <span class="fu">fct_count</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## # A tibble: 22 × 2
+<pre><code>## # A tibble: 21 × 2
 ##    f         n
 ##    &lt;fct&gt; &lt;int&gt;
-##  1 l       130
-##  2 b       128
-##  3 z       127
-##  4 m       116
-##  5 k        89
-##  6 s        89
-##  7 p        62
-##  8 c        55
-##  9 q        54
-## 10 w        40
-## # ℹ 12 more rows</code></pre>
-<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
+##  1 z       146
+##  2 p       124
+##  3 y       117
+##  4 o       105
+##  5 l        90
+##  6 i        72
+##  7 v        72
+##  8 d        69
+##  9 f        55
+## 10 m        42
+## # ℹ 11 more rows</code></pre>
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">fct_count</span><span class="op">(</span><span class="va">f</span>, sort <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## # A tibble: 22 × 2
+<pre><code>## # A tibble: 21 × 2
 ##    f         n
 ##    &lt;fct&gt; &lt;int&gt;
-##  1 l       130
-##  2 b       128
-##  3 z       127
-##  4 m       116
-##  5 k        89
-##  6 s        89
-##  7 p        62
-##  8 c        55
-##  9 q        54
-## 10 w        40
-## # ℹ 12 more rows</code></pre>
+##  1 z       146
+##  2 p       124
+##  3 y       117
+##  4 o       105
+##  5 l        90
+##  6 i        72
+##  7 v        72
+##  8 d        69
+##  9 f        55
+## 10 m        42
+## # ℹ 11 more rows</code></pre>
 <ol start="6" style="list-style-type: decimal">
 <li>Use the <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> function in base R to show the unique letters that were sampled in <code>f</code>.</li>
 </ol>
-<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##  [1] z s b k q c l x p m w o j h d r f a v n u i
-## Levels: a b c d f h i j k l m n o p q r s u v w x z</code></pre>
+<pre><code>##  [1] v d i e z l m p f o u w y g b j s c x h a
+## Levels: a b c d e f g h i j l m o p s u v w x y z</code></pre>
 <ol start="7" style="list-style-type: decimal">
 <li>Use a function in the <code>forcats</code> packages that shows the unique letters that were sampled in <code>f</code>. How is this function different from the base R function?</li>
 </ol>
-<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">fct_unique</span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##  [1] a b c d f h i j k l m n o p q r s u v w x z
-## Levels: a b c d f h i j k l m n o p q r s u v w x z</code></pre>
+<pre><code>##  [1] a b c d e f g h i j l m o p s u v w x y z
+## Levels: a b c d e f g h i j l m o p s u v w x y z</code></pre>
 <p><code>fct_unique</code> function is specified for the factor variable. It will sort the unique values according to the levels of factor.</p>
 
 </div>
@@ -290,7 +291,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-06-28.</p>
+    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-07-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

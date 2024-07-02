@@ -55,6 +55,7 @@
 <li><a class="" href="recitation-6.html"><span class="header-section-number">6</span> Recitation 6</a></li>
 <li><a class="" href="recitation-7.html"><span class="header-section-number">7</span> Recitation 7</a></li>
 <li><a class="active" href="recitation-8.html"><span class="header-section-number">8</span> Recitation 8</a></li>
+<li><a class="" href="recitation-9.html"><span class="header-section-number">9</span> Recitation 9</a></li>
 </ul>
 
         <div class="book-extra">
@@ -80,7 +81,7 @@
 <ol style="list-style-type: decimal">
 <li>For this worksheet, we will use the <code>mpg</code> data set (in ggplot2). Use the command <code>?mpg</code> in the console to learn more about it. What type of variable is <code>drv</code>? How many rows and columns are in the data set?</li>
 </ol>
-<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># May or may not need to write any code for this Q</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 11
@@ -96,7 +97,7 @@
 <ol start="2" style="list-style-type: decimal">
 <li>Create a histogram for the engine displacement for all cars in the <code>mpg</code> data set. Set the number of bins to 20. What do you notice about the shape of the histogram?</li>
 </ol>
-<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_histogram</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span><span class="op">)</span>, bins <span class="op">=</span> <span class="fl">20</span>, fill <span class="op">=</span> <span class="st">"steelblue"</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -105,11 +106,11 @@
 <span>  <span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-89-1.png" width="672"></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-90-1.png" width="672"></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Create a (stratified) density plot that shows the distribution of city mpg for Hyundais and for Jeeps. Set alpha to 0.5. Write a sentence describing your results.</li>
 </ol>
-<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">manufacturer</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hyundai"</span>, <span class="st">"jeep"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -119,11 +120,11 @@
 <span>  <span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-90-1.png" width="672"></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-91-1.png" width="672"></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Create a boxplot that shows the distribution of highway mileage for each distinct number of cylinders. For fun, make the outlines of all of the boxes blue.</li>
 </ol>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">mutate</span><span class="op">(</span>cyl_fct <span class="op">=</span> <span class="va">cyl</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -134,11 +135,11 @@
 <span>  <span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-91-1.png" width="672"></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-92-1.png" width="672"></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Create a scatter plot that shows the relationship between city mileage and highway mileage. Color your points by class, shape your points by year, and set the size of your points using the cylinder variable. Set alpha to 0.5 for all points. Write a couple sentences about your plot.</li>
 </ol>
-<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">mutate</span><span class="op">(</span>year <span class="op">=</span> <span class="fu">as_factor</span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -149,7 +150,7 @@
 <span>  <span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-92-1.png" width="672"></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-93-1.png" width="672"></div>
 </div>
 <div id="part-ii-3" class="section level2" number="8.2">
 <h2>
@@ -158,7 +159,7 @@
 <ol style="list-style-type: decimal">
 <li>Take your plot from Part I problem 4 and make it so the only values on the x-axis are 4, 5, 6, and 8 (i.e., remove cylinder 7 from the plot).</li>
 </ol>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">mutate</span><span class="op">(</span>cyl <span class="op">=</span> <span class="fu">as_factor</span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -169,8 +170,8 @@
 <span>  <span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-93-1.png" width="672"></div>
-<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-94-1.png" width="672"></div>
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># change color map to virdis</span></span>
 <span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">mutate</span><span class="op">(</span>cyl <span class="op">=</span> <span class="fu">as_factor</span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -183,8 +184,8 @@
 <span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">scale_fill_viridis_d</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-93-2.png" width="672"></div>
-<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-94-2.png" width="672"></div>
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># customize the color map</span></span>
 <span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">mutate</span><span class="op">(</span>cyl <span class="op">=</span> <span class="fu">as_factor</span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -197,11 +198,11 @@
 <span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">scale_fill_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tomato"</span>, <span class="st">"limegreen"</span>, <span class="st">"aquamarine"</span>, <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
-<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-93-3.png" width="672"></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-94-3.png" width="672"></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Let’s take your plot from Part I problem 5 and make it more readable. Again, create a scatter plot that again shows the relationship between city mileage and highway mileage. Color by class again, but this time, facet by year and number of cylinders.</li>
 </ol>
-<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mpg</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">cty</span>, y <span class="op">=</span> <span class="va">hwy</span>, color <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -211,13 +212,13 @@
 <span>  <span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-94-1.png" width="672"></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/unnamed-chunk-95-1.png" width="672"></div>
 
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="recitation-7.html"><span class="header-section-number">7</span> Recitation 7</a></div>
-<div class="empty"></div>
+<div class="next"><a href="recitation-9.html"><span class="header-section-number">9</span> Recitation 9</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -241,7 +242,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-06-28.</p>
+    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-07-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

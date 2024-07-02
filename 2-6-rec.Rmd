@@ -9,6 +9,7 @@ Now we'll practice using the functions we learned in class.
 Load any necessary packages in your first chunk of code.
 
 ```{r, include=FALSE}
+knitr::opts_chunk$set(warning = F, message = F)
 library(tidyverse)
 ```
 

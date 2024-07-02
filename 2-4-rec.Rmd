@@ -10,6 +10,7 @@ This worksheet will help you get accustomed to using these functions to manipula
 Load any necessary packages in your first chunk of code.
 
 ```{r, include=FALSE}
+knitr::opts_chunk$set(warning = F, message = F)
 library(tidyverse)
 ```
 
