@@ -1,0 +1,48 @@
+# Recitation 10
+
+__Today you learned...__
+
+* How to write functions.
+
+We'll practice this concept with a couple questions.
+
+Please work out the following exercises sequentially. There may be more than one way to code the exercises.
+
+## Part I: Functions
+
+1. Create a function called `drivingTest` that internally saves a variable called `status`. `status` is "You can drive!" if age is >= 17, "You are almost old enough to drive!" if age is >= 16 and "You are not old enough to drive.", otherwise. The function should then return an output that says something like "You are 18 years old. You can drive!" (the output will differ depending on the input).
+
+```{r}
+drivingTest <- function(age){
+  if(age >= 17){
+    status = "You can drive!"
+  } else if(age >= 16){
+    status = "You are almost old enough to drive!"
+  } else{
+    status = "You are not old enough to drive."
+  }
+  return(paste0("You are ", age, " years old. ", status))
+}
+# Check
+drivingTest(0)
+drivingTest(15)
+drivingTest(16)
+drivingTest(17)
+drivingTest(18)
+drivingTest(-1)
+```
+
+2. Write a function called `stdev` that computes the sample standard deviation. Do not use the built-in R function `sd`. Then, find the sd of 10 randomly generated numbers from a Uniform(0, 1) distribution (call this `z`). You can generate `z` using `runif(10)`.
+
+```{r }
+stdev <- function(arr){
+  m <- mean(arr)
+  sqrt(sum((arr - m) ^ 2) / (length(arr) - 1))
+}
+
+z = runif(10)
+# Check: These two should produce the same output
+stdev(z) 
+sd(z) 
+```
+

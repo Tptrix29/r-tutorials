@@ -56,6 +56,9 @@
 <li><a class="" href="recitation-7.html"><span class="header-section-number">7</span> Recitation 7</a></li>
 <li><a class="" href="recitation-8.html"><span class="header-section-number">8</span> Recitation 8</a></li>
 <li><a class="" href="recitation-9.html"><span class="header-section-number">9</span> Recitation 9</a></li>
+<li><a class="" href="recitation-10.html"><span class="header-section-number">10</span> Recitation 10</a></li>
+<li><a class="" href="recitation-11.html"><span class="header-section-number">11</span> Recitation 11</a></li>
+<li><a class="" href="final-review.html"><span class="header-section-number">12</span> Final Review</a></li>
 </ul>
 
         <div class="book-extra">
@@ -117,7 +120,7 @@ the new variable as <code>numbers</code>. Use the pipe operator: <code>%&gt;%</c
 <p><strong>Nice! You completed Part I.</strong></p>
 <p>Now let’s load in the data for part II.</p>
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">data_vacc</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"path/to/data_vacc.csv"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">data_vacc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"path/to/data_vacc.csv"</span><span class="op">)</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Data type:</li>
 </ol>
@@ -163,7 +166,7 @@ should be a logical variable, but there are some typos preventing this.</li>
 <code class="sourceCode R"><span><span class="fu">skimr</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim</a></span><span class="op">(</span><span class="va">data_vacc</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:unnamed-chunk-22">Table 2.1: </span>Data summary</caption>
+<span id="tab:unnamed-chunk-21">Table 2.1: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -343,8 +346,8 @@ should be a logical variable, but there are some typos preventing this.</li>
 <li>Using the pipe operator, omit any <code>NA</code>s from the <code>weight</code> variable and find the mean.</li>
 </ol>
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">data_vacc</span><span class="op">$</span><span class="va">weight</span> <span class="op">%&gt;%</span></span>
-<span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<code class="sourceCode R"><span><span class="va">data_vacc</span><span class="op">$</span><span class="va">weight</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 495</code></pre>
 <ol start="4" style="list-style-type: decimal">
@@ -352,7 +355,7 @@ should be a logical variable, but there are some typos preventing this.</li>
 mean age using <code>[]</code>, <code>$</code> and <code>%&gt;%</code>.</li>
 </ol>
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">data_vacc</span><span class="op">[</span><span class="va">data_vacc</span><span class="op">$</span><span class="va">vaccinated</span> <span class="op">==</span> <span class="cn">TRUE</span>, <span class="op">]</span><span class="op">$</span><span class="va">age</span> <span class="op">%&gt;%</span></span>
+<code class="sourceCode R"><span><span class="va">data_vacc</span><span class="op">[</span><span class="va">data_vacc</span><span class="op">$</span><span class="va">vaccinated</span> <span class="op">==</span> <span class="cn">TRUE</span>, <span class="op">]</span><span class="op">$</span><span class="va">age</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 42.66667</code></pre>
 </div>
@@ -383,8 +386,8 @@ mean age using <code>[]</code>, <code>$</code> and <code>%&gt;%</code>.</li>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/Tptrix29/r-tutorials/blob/master/2-2-rec.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/Tptrix29/r-tutorials/edit/master/2-2-rec.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/Tptrix29/r-tutorials/blob/master/2_rec.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Tptrix29/r-tutorials/edit/master/2_rec.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -396,7 +399,7 @@ mean age using <code>[]</code>, <code>$</code> and <code>%&gt;%</code>.</li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-07-02.</p>
+    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-07-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

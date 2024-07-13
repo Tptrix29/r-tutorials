@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 14 Final Review | Introduction to R</title>
+<meta name="author" content="Tptrix29">
+<meta name="description" content="14.1 Data Loading  read_csv: load csv data table locally janitor::clean_names(): tidy up the column names of dataframe, it converts names to snake_case, removes special characters, and handles...">
+<meta name="generator" content="bookdown 0.39 with bs4_book()">
+<meta property="og:title" content="Chapter 14 Final Review | Introduction to R">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/janedoe/bookdown-demo/final-review-1.html">
+<meta property="og:image" content="https://bookdown.org/janedoe/bookdown-demo/_main_files/img/R_logo.png">
+<meta property="og:description" content="14.1 Data Loading  read_csv: load csv data table locally janitor::clean_names(): tidy up the column names of dataframe, it converts names to snake_case, removes special characters, and handles...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 14 Final Review | Introduction to R">
+<meta name="twitter:description" content="14.1 Data Loading  read_csv: load csv data table locally janitor::clean_names(): tidy up the column names of dataframe, it converts names to snake_case, removes special characters, and handles...">
+<meta name="twitter:image" content="https://bookdown.org/janedoe/bookdown-demo/_main_files/img/R_logo.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Introduction to R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Home</a></li>
+<li><a class="" href="recitation-1.html"><span class="header-section-number">1</span> Recitation 1</a></li>
+<li><a class="" href="recitation-10.html"><span class="header-section-number">2</span> Recitation 10</a></li>
+<li><a class="" href="part-i-functions.html"><span class="header-section-number">3</span> Part I: Functions</a></li>
+<li><a class="" href="recitation-11.html"><span class="header-section-number">4</span> Recitation 11</a></li>
+<li><a class="" href="recitation-2.html"><span class="header-section-number">5</span> Recitation 2</a></li>
+<li><a class="" href="recitation-3.html"><span class="header-section-number">6</span> Recitation 3</a></li>
+<li><a class="" href="recitation-4.html"><span class="header-section-number">7</span> Recitation 4</a></li>
+<li><a class="" href="recitation-5.html"><span class="header-section-number">8</span> Recitation 5</a></li>
+<li><a class="" href="recitation-6.html"><span class="header-section-number">9</span> Recitation 6</a></li>
+<li><a class="" href="recitation-7.html"><span class="header-section-number">10</span> Recitation 7</a></li>
+<li><a class="" href="recitation-8.html"><span class="header-section-number">11</span> Recitation 8</a></li>
+<li><a class="" href="recitation-9.html"><span class="header-section-number">12</span> Recitation 9</a></li>
+<li><a class="" href="final-review.html"><span class="header-section-number">13</span> Final Review</a></li>
+<li><a class="active" href="final-review-1.html"><span class="header-section-number">14</span> Final Review</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/Tptrix29/r-tutorials">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="final-review-1" class="section level1" number="14">
+<h1>
+<span class="header-section-number">14</span> Final Review<a class="anchor" aria-label="anchor" href="#final-review-1"><i class="fas fa-link"></i></a>
+</h1>
+<div id="data-loading" class="section level2" number="14.1">
+<h2>
+<span class="header-section-number">14.1</span> Data Loading<a class="anchor" aria-label="anchor" href="#data-loading"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<code>read_csv</code>: load <code>csv</code> data table locally</li>
+<li>
+<code><a href="https://sfirke.github.io/janitor/reference/clean_names.html">janitor::clean_names()</a></code>: tidy up the column names of dataframe, it converts names to snake_case, removes special characters, and handles duplicated names.</li>
+</ul>
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">airbnb</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"./dataset/nyc_airbnb.csv"</span><span class="op">)</span> </span>
+<span><span class="va">airbnb</span> <span class="op">=</span> <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">airbnb</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">airbnb</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##  [1] "id"                             "review_scores_location"        
+##  [3] "name"                           "host_id"                       
+##  [5] "host_name"                      "neighbourhood_group"           
+##  [7] "neighbourhood"                  "lat"                           
+##  [9] "long"                           "room_type"                     
+## [11] "price"                          "minimum_nights"                
+## [13] "number_of_reviews"              "last_review"                   
+## [15] "reviews_per_month"              "calculated_host_listings_count"
+## [17] "availability_365"</code></pre>
+</div>
+<div id="pipe-operator" class="section level2" number="14.2">
+<h2>
+<span class="header-section-number">14.2</span> Pipe Operator<a class="anchor" aria-label="anchor" href="#pipe-operator"><i class="fas fa-link"></i></a>
+</h2>
+<p>The pipe operator (<code>%&gt;%</code> or <code>|&gt;</code>) allows for cleaner and more readable code by chaining together a sequence of operations. Instead of nesting functions, the pipe operator allows for a left-to-right flow of data transformations.</p>
+<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">airbnb</span> <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"./dataset/nyc_airbnb.csv"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">airbnb</span> <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"./dataset/nyc_airbnb.csv"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">airbnb</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 10 × 17
+##          id review_scores_location name    host_id host_name neighbourhood_group
+##       &lt;dbl&gt;                  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;              
+##  1  7949480                     10 City I…  1.19e5 Linda &amp; … Bronx              
+##  2 16042478                     NA WATERF…  9.12e6 Collins   Bronx              
+##  3  1886820                     NA Quaint…  9.82e6 Steve     Bronx              
+##  4  6627449                     10 Large …  1.39e7 Arlene    Bronx              
+##  5  5557381                     10 Quaint…  2.88e7 Phoebe    Bronx              
+##  6  9147025                     10 Cozy C…  4.03e5 Diane     Bronx              
+##  7 11675715                     10 Cozy 1…  5.67e7 Josue     Bronx              
+##  8   715270                      9 2 Beds…  3.68e6 Enrique   Bronx              
+##  9 17876530                     10 Spacio…  1.13e7 Yahaira   Bronx              
+## 10   182177                      9 PRIVAT…  8.73e5 Christia… Bronx              
+## # ℹ 11 more variables: neighbourhood &lt;chr&gt;, lat &lt;dbl&gt;, long &lt;dbl&gt;,
+## #   room_type &lt;chr&gt;, price &lt;dbl&gt;, minimum_nights &lt;dbl&gt;,
+## #   number_of_reviews &lt;dbl&gt;, last_review &lt;date&gt;, reviews_per_month &lt;dbl&gt;,
+## #   calculated_host_listings_count &lt;dbl&gt;, availability_365 &lt;dbl&gt;</code></pre>
+</div>
+<div id="tidyverse" class="section level2" number="14.3">
+<h2>
+<span class="header-section-number">14.3</span> <code>tidyverse</code><a class="anchor" aria-label="anchor" href="#tidyverse"><i class="fas fa-link"></i></a>
+</h2>
+<div id="dplyr-functions" class="section level3" number="14.3.1">
+<h3>
+<span class="header-section-number">14.3.1</span> <code>dplyr</code> functions<a class="anchor" aria-label="anchor" href="#dplyr-functions"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>: Selects columns from a data frame.</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>: Filters rows based on specified conditions.</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>: Adds new variables or transforms existing ones.</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code>: Orders rows by specified variables.</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code>: Renames columns in a data frame.</li>
+</ul>
+<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">airbnb</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">neighbourhood_group</span> <span class="op">==</span> <span class="st">"Queens"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">name</span><span class="op">:</span><span class="va">price</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>price_level <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">price</span> <span class="op">&gt;=</span> <span class="fl">500</span>, <span class="st">"Expensive"</span>, <span class="st">"Not expensive"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>host <span class="op">=</span> <span class="va">host_name</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 10 × 10
+##    name    host_id host  neighbourhood_group neighbourhood   lat  long room_type
+##    &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;               &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    
+##  1 Room i…  1.20e8 Sonia Queens              East Elmhurst -73.9  40.8 Private …
+##  2 One la…  6.53e7 Bobn… Queens              Briarwood     -73.8  40.7 Private …
+##  3 Magnif…  1.25e8 Sean  Queens              Briarwood     -73.8  40.7 Entire h…
+##  4 very n…  6.91e7 Julio Queens              Flushing      -73.8  40.8 Private …
+##  5 Beauti…  1.81e7 Fred… Queens              Flushing      -73.8  40.8 Entire h…
+##  6 Family…  1.23e7 Silv… Queens              Flushing      -73.8  40.7 Entire h…
+##  7 Huge 9…  7.32e7 Siqu… Queens              Astoria       -73.9  40.8 Entire h…
+##  8 3 bedr…  4.65e7 Jack… Queens              Jamaica Esta… -73.8  40.7 Private …
+##  9 RIDGEW…  1.64e6 Anna  Queens              Ridgewood     -73.9  40.7 Entire h…
+## 10 Nice a…  4.55e7 Maria Queens              East Elmhurst -73.9  40.8 Private …
+## # ℹ 2 more variables: price &lt;dbl&gt;, price_level &lt;chr&gt;</code></pre>
+</div>
+<div id="pivots" class="section level3" number="14.3.2">
+<h3>
+<span class="header-section-number">14.3.2</span> pivots<a class="anchor" aria-label="anchor" href="#pivots"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code>: Converts data from wide to long format.</li>
+<li>
+<code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code>: Converts data from long to wide format.</li>
+</ul>
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">2001</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span>
+<span><span class="va">team</span> <span class="op">&lt;-</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="va">num</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span>, size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">yr_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">num</span>, nrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rlang.r-lib.org/reference/set_names.html">set_names</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/row_number.html">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">yr_data</span></span></code></pre></div>
+<pre><code>##    2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015
+## 1    59   30   52   30   73    9   56   62   71   42   23   78   86   58   52
+## 2    79   73   10   48   55   85   19   53   78   17   81   76   11   85   23
+## 3    50   20   82  100   34    8   21   10   37   39   10    7   11   90   48
+## 4    67    2   39   99   17   13   90   51   39   11   23   45   84   42   73
+## 5     7   11   36   37   47   46   52   68    7   51   84   12   98    6   68
+## 6    21   33   58   52   44   16   92   70   88   61   61   54   58   80   71
+## 7    53   33    9    1   41   14   28   80   59   11   41   46   54   48   82
+## 8    66   57   81   38   49   16    5   79   32    3   67   63    5    5   52
+## 9     2   94   62   95   96   21   56   32   85    4   19   61   71   15   56
+## 10   40    4   57   35   18   28   40   66   33   22   64   68   27   17   33
+## 11   13   17   28   27   49    7   15   13   82   44   24    3   67   35   47
+## 12   63   37   17   94   42   99   32   89   37   93   80   66   28   38   25
+## 13   37   34   40   64   46   24   78   87   77   72   86   48   56   12   54
+## 14   48   51   87   76   88   85   53   21   46   21   70   70   24   65   88
+## 15   38   78   44   48   19   63   86   15   69    5   50   70   28   20   20
+## 16   67   76   11   93   90   11    1   30   82   63   33   67   10   95   18
+## 17    9   83   29   71   75   92   81   85   65   51   22   94   93   83   85
+## 18   35   84   25   87   69    9   32   26  100   16   12   13   88   94   92
+## 19   30   42   77   96   82   18   86   52   56   68   10   88   32   29   50
+## 20   93   65   75   70   44   25   51   80   21   84   58   94   48   64  100
+##    2016 2017 2018 2019 2020 id
+## 1    57   96    2   30   97  1
+## 2    39   23   71   58   83  2
+## 3    26   51  100   52   84  3
+## 4    85   35   81    3   62  4
+## 5    59    5   28   62   34  5
+## 6    58   63   27   69   54  6
+## 7    90   58   62   18    1  7
+## 8    22   13   37   12   45  8
+## 9    53   21   40   38   48  9
+## 10   34   84   49   61   29 10
+## 11   76   98   41   76   94 11
+## 12   16   20   32   33   93 12
+## 13   12    1   96   37   12 13
+## 14   42   18   38    1   63 14
+## 15   32   71   63   51   76 15
+## 16   50   68    5   89   30 16
+## 17   97   67   79   39   33 17
+## 18   64   20   44   76   15 18
+## 19   14   20   95   48   72 19
+## 20   52   93   88   54   98 20</code></pre>
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">yr_data_long</span> <span class="op">=</span> <span class="va">yr_data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fl">2001</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span>, </span>
+<span>                                       names_to <span class="op">=</span> <span class="st">"year"</span>, </span>
+<span>                                       values_to <span class="op">=</span> <span class="st">"points"</span><span class="op">)</span></span>
+<span><span class="va">yr_data_long</span></span></code></pre></div>
+<pre><code>## # A tibble: 400 × 3
+##       id year  points
+##    &lt;int&gt; &lt;chr&gt;  &lt;int&gt;
+##  1     1 2001      59
+##  2     1 2002      30
+##  3     1 2003      52
+##  4     1 2004      30
+##  5     1 2005      73
+##  6     1 2006       9
+##  7     1 2007      56
+##  8     1 2008      62
+##  9     1 2009      71
+## 10     1 2010      42
+## # ℹ 390 more rows</code></pre>
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">yr_data_long</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">year</span>, values_from <span class="op">=</span> <span class="va">points</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 20 × 21
+##       id `2001` `2002` `2003` `2004` `2005` `2006` `2007` `2008` `2009` `2010`
+##    &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;
+##  1     1     59     30     52     30     73      9     56     62     71     42
+##  2     2     79     73     10     48     55     85     19     53     78     17
+##  3     3     50     20     82    100     34      8     21     10     37     39
+##  4     4     67      2     39     99     17     13     90     51     39     11
+##  5     5      7     11     36     37     47     46     52     68      7     51
+##  6     6     21     33     58     52     44     16     92     70     88     61
+##  7     7     53     33      9      1     41     14     28     80     59     11
+##  8     8     66     57     81     38     49     16      5     79     32      3
+##  9     9      2     94     62     95     96     21     56     32     85      4
+## 10    10     40      4     57     35     18     28     40     66     33     22
+## 11    11     13     17     28     27     49      7     15     13     82     44
+## 12    12     63     37     17     94     42     99     32     89     37     93
+## 13    13     37     34     40     64     46     24     78     87     77     72
+## 14    14     48     51     87     76     88     85     53     21     46     21
+## 15    15     38     78     44     48     19     63     86     15     69      5
+## 16    16     67     76     11     93     90     11      1     30     82     63
+## 17    17      9     83     29     71     75     92     81     85     65     51
+## 18    18     35     84     25     87     69      9     32     26    100     16
+## 19    19     30     42     77     96     82     18     86     52     56     68
+## 20    20     93     65     75     70     44     25     51     80     21     84
+## # ℹ 10 more variables: `2011` &lt;int&gt;, `2012` &lt;int&gt;, `2013` &lt;int&gt;, `2014` &lt;int&gt;,
+## #   `2015` &lt;int&gt;, `2016` &lt;int&gt;, `2017` &lt;int&gt;, `2018` &lt;int&gt;, `2019` &lt;int&gt;,
+## #   `2020` &lt;int&gt;</code></pre>
+</div>
+<div id="joins" class="section level3" number="14.3.3">
+<h3>
+<span class="header-section-number">14.3.3</span> joins<a class="anchor" aria-label="anchor" href="#joins"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join()</a></code>: Keeps all rows from the right data frame and matching rows from the left.</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code>: Keeps all rows from the left data frame and matching rows from the right.</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>: Keeps only rows that have matching values in both data frames.</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join()</a></code>: Keeps all rows from both data frames, filling in <code>NA</code> for missing matches.</li>
+</ul>
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data1</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">3</span>, name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"John"</span>, <span class="st">"Doe"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">data2</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, salary <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">50000</span>, <span class="fl">60000</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># right_join</span></span>
+<span><span class="va">data1</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join</a></span><span class="op">(</span><span class="va">data2</span>, by <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##      id name  salary
+##   &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
+## 1     2 John   60000
+## 2     1 &lt;NA&gt;   50000</code></pre>
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># left_join</span></span>
+<span><span class="va">data1</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">data2</span>, by <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##      id name  salary
+##   &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
+## 1     2 John   60000
+## 2     3 Doe       NA</code></pre>
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># inner_join</span></span>
+<span><span class="va">data1</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">data2</span>, by <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##      id name  salary
+##   &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
+## 1     2 John   60000</code></pre>
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># full_join</span></span>
+<span><span class="va">data1</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">data2</span>, by <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##      id name  salary
+##   &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
+## 1     2 John   60000
+## 2     3 Doe       NA
+## 3     1 &lt;NA&gt;   50000</code></pre>
+</div>
+</div>
+<div id="string-and-factor" class="section level2" number="14.4">
+<h2>
+<span class="header-section-number">14.4</span> String and Factor<a class="anchor" aria-label="anchor" href="#string-and-factor"><i class="fas fa-link"></i></a>
+</h2>
+<p>Usage of <code>stringr</code> and <code>forcats</code> package</p>
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">str_data</span> <span class="op">&lt;-</span> <span class="st">"Hello, World!"</span></span>
+<span><span class="va">str_length</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_length.html">str_length</a></span><span class="op">(</span><span class="va">str_data</span><span class="op">)</span></span>
+<span><span class="va">str_upper</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/case.html">str_to_upper</a></span><span class="op">(</span><span class="va">str_data</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fct_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>, <span class="st">"apple"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">fct_count</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_count.html">fct_count</a></span><span class="op">(</span><span class="va">fct_data</span><span class="op">)</span></span>
+<span><span class="va">fct_relevel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">fct_data</span>, <span class="st">"banana"</span>, <span class="st">"apple"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="eda" class="section level2" number="14.5">
+<h2>
+<span class="header-section-number">14.5</span> EDA<a class="anchor" aria-label="anchor" href="#eda"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<code>case_when</code>: A versatile function for creating new variables based on multiple conditions.</li>
+<li>
+<code>group_by</code>: Groups data by one or more variables for subsequent operations.</li>
+<li>
+<code>summarize</code>: Calculates summary statistics for grouped data.</li>
+</ul>
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">airbnb</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">neighbourhood_group</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>count <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>level <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>    <span class="va">count</span> <span class="op">&gt;</span> <span class="fl">10000</span> <span class="op">~</span> <span class="st">"Large"</span>,</span>
+<span>    <span class="va">count</span> <span class="op">&gt;</span> <span class="fl">2000</span> <span class="op">~</span> <span class="st">"Medium"</span>, </span>
+<span>    <span class="va">count</span> <span class="op">&gt;</span> <span class="fl">500</span> <span class="op">~</span> <span class="st">"Small"</span>,</span>
+<span>    .default <span class="op">=</span> <span class="st">"Tiny"</span></span>
+<span>  <span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 5 × 3
+##   neighbourhood_group count level 
+##   &lt;chr&gt;               &lt;int&gt; &lt;chr&gt; 
+## 1 Manhattan           19212 Large 
+## 2 Brooklyn            16810 Large 
+## 3 Queens               3821 Medium
+## 4 Bronx                 649 Small 
+## 5 Staten Island         261 Tiny</code></pre>
+<p>summary tables with the <em>gtsummary</em> package</p>
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">airbnb</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">neighbourhood_group</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div id="xwimqxkohn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xwimqxkohn table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xwimqxkohn thead, #xwimqxkohn tbody, #xwimqxkohn tfoot, #xwimqxkohn tr, #xwimqxkohn td, #xwimqxkohn th {
+  border-style: none;
+}
+
+#xwimqxkohn p {
+  margin: 0;
+  padding: 0;
+}
+
+#xwimqxkohn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xwimqxkohn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xwimqxkohn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xwimqxkohn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xwimqxkohn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xwimqxkohn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xwimqxkohn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xwimqxkohn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xwimqxkohn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xwimqxkohn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xwimqxkohn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xwimqxkohn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xwimqxkohn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xwimqxkohn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xwimqxkohn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xwimqxkohn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xwimqxkohn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xwimqxkohn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xwimqxkohn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xwimqxkohn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xwimqxkohn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xwimqxkohn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xwimqxkohn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xwimqxkohn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xwimqxkohn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xwimqxkohn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xwimqxkohn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xwimqxkohn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xwimqxkohn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xwimqxkohn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xwimqxkohn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xwimqxkohn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xwimqxkohn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xwimqxkohn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xwimqxkohn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xwimqxkohn .gt_left {
+  text-align: left;
+}
+
+#xwimqxkohn .gt_center {
+  text-align: center;
+}
+
+#xwimqxkohn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xwimqxkohn .gt_font_normal {
+  font-weight: normal;
+}
+
+#xwimqxkohn .gt_font_bold {
+  font-weight: bold;
+}
+
+#xwimqxkohn .gt_font_italic {
+  font-style: italic;
+}
+
+#xwimqxkohn .gt_super {
+  font-size: 65%;
+}
+
+#xwimqxkohn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xwimqxkohn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xwimqxkohn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xwimqxkohn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xwimqxkohn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xwimqxkohn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xwimqxkohn .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id='&lt;strong&gt;N = 40,753&lt;/strong&gt;&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;'>
+<strong>N = 40,753</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span>
+</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="label" class="gt_row gt_left">neighbourhood_group</td>
+<td headers="stat_0" class="gt_row gt_center"><br></td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    Bronx</td>
+<td headers="stat_0" class="gt_row gt_center">649 (1.6%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    Brooklyn</td>
+<td headers="stat_0" class="gt_row gt_center">16,810 (41%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    Manhattan</td>
+<td headers="stat_0" class="gt_row gt_center">19,212 (47%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    Queens</td>
+<td headers="stat_0" class="gt_row gt_center">3,821 (9.4%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    Staten Island</td>
+<td headers="stat_0" class="gt_row gt_center">261 (0.6%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">price</td>
+<td headers="stat_0" class="gt_row gt_center">100 (70, 170)</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="2">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%); Median (IQR)</td>
+    </tr></tfoot>
+</table></div>
+</div>
+</div>
+<div id="ggplot" class="section level2" number="14.6">
+<h2>
+<span class="header-section-number">14.6</span> <code>ggplot</code><a class="anchor" aria-label="anchor" href="#ggplot"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">airbnb</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>borough <span class="op">=</span> <span class="va">neighbourhood_group</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">borough</span>, y <span class="op">=</span> <span class="va">price</span>, color <span class="op">=</span> <span class="va">borough</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Boxplot of Airbnb price in different borough"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="Introduction-to-R_files/figure-html/review-ggplot1-1.png" width="672"></div>
+</div>
+<div id="control-statement" class="section level2" number="14.7">
+<h2>
+<span class="header-section-number">14.7</span> Control Statement<a class="anchor" aria-label="anchor" href="#control-statement"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><code>if-else</code></li>
+</ul>
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># if-else</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">5</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">result</span> <span class="op">&lt;-</span> <span class="st">"Greater than 5"</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>  <span class="va">result</span> <span class="op">&lt;-</span> <span class="st">"5 or less"</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<ul>
+<li>
+<code>for</code> loop</li>
+</ul>
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5</code></pre>
+<ul>
+<li>
+<code>while</code> loop</li>
+</ul>
+<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">count</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span><span class="kw">while</span> <span class="op">(</span><span class="va">count</span> <span class="op">&lt;=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span></span>
+<span>  <span class="va">count</span> <span class="op">&lt;-</span> <span class="va">count</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5</code></pre>
+</div>
+<div id="function" class="section level2" number="14.8">
+<h2>
+<span class="header-section-number">14.8</span> Function<a class="anchor" aria-label="anchor" href="#function"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">item_checkout</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">price</span>, <span class="va">n</span>, <span class="va">discount</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">price</span> <span class="op">*</span> <span class="va">discount</span> <span class="op">*</span> <span class="va">n</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">fruit_names</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Apple"</span>, <span class="st">"Banana"</span>, <span class="st">"Cherry"</span>, <span class="st">"Dragonfruit"</span>, <span class="st">"Fig"</span>, <span class="st">"Kiwi"</span>, <span class="st">"Strawberry"</span><span class="op">)</span></span>
+<span><span class="va">fruit</span> <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  name <span class="op">=</span> <span class="va">fruit_names</span>, </span>
+<span>  price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">name</span><span class="op">)</span>, <span class="fl">0</span>, <span class="fl">50</span><span class="op">)</span>,</span>
+<span>  discount <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">name</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  count <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">name</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">fruit</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>payment <span class="op">=</span> <span class="fu">item_checkout</span><span class="op">(</span><span class="va">price</span>, <span class="va">count</span>, <span class="va">discount</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 7 × 5
+##   name        price discount count payment
+##   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
+## 1 Apple        39.6   0.955     72   2725.
+## 2 Banana       13.1   0.415     23    125.
+## 3 Cherry       13.1   0.695     31    283.
+## 4 Dragonfruit  49.0   0.0762    59    220.
+## 5 Fig          42.0   0.325     56    765.
+## 6 Kiwi         13.8   0.789     99   1079.
+## 7 Strawberry   20.6   0.331     19    129.</code></pre>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="final-review.html"><span class="header-section-number">13</span> Final Review</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#final-review-1"><span class="header-section-number">14</span> Final Review</a></li>
+<li><a class="nav-link" href="#data-loading"><span class="header-section-number">14.1</span> Data Loading</a></li>
+<li><a class="nav-link" href="#pipe-operator"><span class="header-section-number">14.2</span> Pipe Operator</a></li>
+<li>
+<a class="nav-link" href="#tidyverse"><span class="header-section-number">14.3</span> tidyverse</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-functions"><span class="header-section-number">14.3.1</span> dplyr functions</a></li>
+<li><a class="nav-link" href="#pivots"><span class="header-section-number">14.3.2</span> pivots</a></li>
+<li><a class="nav-link" href="#joins"><span class="header-section-number">14.3.3</span> joins</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#string-and-factor"><span class="header-section-number">14.4</span> String and Factor</a></li>
+<li><a class="nav-link" href="#eda"><span class="header-section-number">14.5</span> EDA</a></li>
+<li><a class="nav-link" href="#ggplot"><span class="header-section-number">14.6</span> ggplot</a></li>
+<li><a class="nav-link" href="#control-statement"><span class="header-section-number">14.7</span> Control Statement</a></li>
+<li><a class="nav-link" href="#function"><span class="header-section-number">14.8</span> Function</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/Tptrix29/r-tutorials/blob/master/final_review.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Tptrix29/r-tutorials/edit/master/final_review.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-07-13.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

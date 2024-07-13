@@ -56,6 +56,9 @@
 <li><a class="" href="recitation-7.html"><span class="header-section-number">7</span> Recitation 7</a></li>
 <li><a class="" href="recitation-8.html"><span class="header-section-number">8</span> Recitation 8</a></li>
 <li><a class="" href="recitation-9.html"><span class="header-section-number">9</span> Recitation 9</a></li>
+<li><a class="" href="recitation-10.html"><span class="header-section-number">10</span> Recitation 10</a></li>
+<li><a class="" href="recitation-11.html"><span class="header-section-number">11</span> Recitation 11</a></li>
+<li><a class="" href="final-review.html"><span class="header-section-number">12</span> Final Review</a></li>
 </ul>
 
         <div class="book-extra">
@@ -83,33 +86,33 @@
 <li>Find the length of each of the following using a <code>stringr</code> function: ‘i’, ‘like’, ‘programming’, and <code>NA</code>.</li>
 </ol>
 <div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">str_length</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"i"</span>, <span class="st">"like"</span>, <span class="st">"programming"</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_length.html">str_length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"i"</span>, <span class="st">"like"</span>, <span class="st">"programming"</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1]  1  4 11 NA</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Write code that returns a logical (TRUE, FALSE) vector indicating whether ‘apple’, ‘banana’, ‘kiwi’ and ‘pineapple’ each contain the letter ‘a’.</li>
 </ol>
 <div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fruit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"kiwi"</span>, <span class="st">"pineapple"</span><span class="op">)</span></span>
-<span><span class="fu">str_detect</span><span class="op">(</span><span class="va">fruit</span>, <span class="st">"a"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">fruit</span>, <span class="st">"a"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE  TRUE</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Write code that returns a logical (TRUE, FALSE) vector indicating whether ‘apple’, ‘banana’, ‘kiwi’ and ‘pineapple’ each contain any vowels, a,e,i,o,u.</li>
 </ol>
 <div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">str_detect</span><span class="op">(</span><span class="va">fruit</span>, <span class="st">"[aeiou]"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">fruit</span>, <span class="st">"[aeiou]"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] TRUE TRUE TRUE TRUE</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Write code that replaces the first vowel in the given ‘fruits’ variable with a ‘-’.</li>
 </ol>
 <div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"one apple"</span>, <span class="st">"two pears"</span>, <span class="st">"three bananas"</span><span class="op">)</span></span>
-<span><span class="fu">str_replace</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">"[aeiou]"</span>, <span class="st">"-"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace</a></span><span class="op">(</span><span class="va">fruits</span>, <span class="st">"[aeiou]"</span>, <span class="st">"-"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "-ne apple"     "tw- pears"     "thr-e bananas"</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Write code that replaces all vowels in the given ‘fruits’ variable with a ‘-’.</li>
 </ol>
 <div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">str_replace_all</span><span class="op">(</span><span class="va">fruits</span>, <span class="st">"[aeiou]"</span>, <span class="st">"-"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">fruits</span>, <span class="st">"[aeiou]"</span>, <span class="st">"-"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "-n- -ppl-"     "tw- p--rs"     "thr-- b-n-n-s"</code></pre>
 <ol start="6" style="list-style-type: decimal">
 <li>
@@ -118,11 +121,11 @@
 <p>“a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z”</p>
 <div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Method 1</span></span>
-<span><span class="fu">str_flatten</span><span class="op">(</span><span class="va">letters</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_flatten.html">str_flatten</a></span><span class="op">(</span><span class="va">letters</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z"</code></pre>
 <div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Method 2</span></span>
-<span><span class="fu">str_c</span><span class="op">(</span><span class="va">letters</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="va">letters</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z"</code></pre>
 <ol start="7" style="list-style-type: decimal">
 <li>Write a single line of code using a <code>stringr</code> function to get the following output:</li>
@@ -139,7 +142,7 @@
 <span><span class="co">#&gt; [25] "y comes before z"</span></span></code></pre></div>
 <p>Hint: What are the outputs for letters[-1] and letters[-26]?</p>
 <div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">str_c</span><span class="op">(</span><span class="va">letters</span><span class="op">[</span><span class="op">-</span><span class="fl">26</span><span class="op">]</span>, <span class="st">" comes before "</span>, <span class="va">letters</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="va">letters</span><span class="op">[</span><span class="op">-</span><span class="fl">26</span><span class="op">]</span>, <span class="st">" comes before "</span>, <span class="va">letters</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##  [1] "a comes before b" "b comes before c" "c comes before d" "d comes before e"
 ##  [5] "e comes before f" "f comes before g" "g comes before h" "h comes before i"
 ##  [9] "i comes before j" "j comes before k" "k comes before l" "l comes before m"
@@ -185,7 +188,7 @@
 <span><span class="va">bdays_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">bdays</span>, levels <span class="op">=</span> <span class="va">month_levels</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Method 2: forcats method</span></span>
-<span><span class="va">bdays_factor2</span> <span class="op">&lt;-</span> <span class="va">bdays</span> <span class="op">%&gt;%</span> <span class="fu">as_factor</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">bdays_factor2</span> <span class="op">&lt;-</span> <span class="va">bdays</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">bdays_factor2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">month_levels</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">bdays_factor</span><span class="op">)</span></span></code></pre></div>
@@ -197,70 +200,94 @@
 </ol>
 <div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">10</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="fu">fct_count</span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## # A tibble: 21 × 2
+<span><span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_count.html">fct_count</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 19 × 2
 ##    f         n
 ##    &lt;fct&gt; &lt;int&gt;
-##  1 a         1
-##  2 b         6
-##  3 c         4
-##  4 d        69
-##  5 e        14
-##  6 f        55
-##  7 g         2
-##  8 h         1
-##  9 i        72
-## 10 j         7
-## # ℹ 11 more rows</code></pre>
+##  1 b        40
+##  2 d       127
+##  3 f        73
+##  4 g         5
+##  5 i       102
+##  6 j        83
+##  7 l        78
+##  8 m         4
+##  9 n         9
+## 10 o       100
+## 11 q        21
+## 12 r       118
+## 13 t       111
+## 14 u        54
+## 15 v         8
+## 16 w        45
+## 17 x        19
+## 18 y         2
+## 19 z         1</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Count how many of each letter was sampled and show them in decreasing order.</li>
 </ol>
 <div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">f</span> <span class="op">%&gt;%</span> <span class="fu">fct_count</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## # A tibble: 21 × 2
+<code class="sourceCode R"><span><span class="va">f</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_count.html">fct_count</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 19 × 2
 ##    f         n
 ##    &lt;fct&gt; &lt;int&gt;
-##  1 z       146
-##  2 p       124
-##  3 y       117
-##  4 o       105
-##  5 l        90
-##  6 i        72
-##  7 v        72
-##  8 d        69
-##  9 f        55
-## 10 m        42
-## # ℹ 11 more rows</code></pre>
+##  1 d       127
+##  2 r       118
+##  3 t       111
+##  4 i       102
+##  5 o       100
+##  6 j        83
+##  7 l        78
+##  8 f        73
+##  9 u        54
+## 10 w        45
+## 11 b        40
+## 12 q        21
+## 13 x        19
+## 14 n         9
+## 15 v         8
+## 16 g         5
+## 17 m         4
+## 18 y         2
+## 19 z         1</code></pre>
 <div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">fct_count</span><span class="op">(</span><span class="va">f</span>, sort <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## # A tibble: 21 × 2
+<code class="sourceCode R"><span><span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_count.html">fct_count</a></span><span class="op">(</span><span class="va">f</span>, sort <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 19 × 2
 ##    f         n
 ##    &lt;fct&gt; &lt;int&gt;
-##  1 z       146
-##  2 p       124
-##  3 y       117
-##  4 o       105
-##  5 l        90
-##  6 i        72
-##  7 v        72
-##  8 d        69
-##  9 f        55
-## 10 m        42
-## # ℹ 11 more rows</code></pre>
+##  1 d       127
+##  2 r       118
+##  3 t       111
+##  4 i       102
+##  5 o       100
+##  6 j        83
+##  7 l        78
+##  8 f        73
+##  9 u        54
+## 10 w        45
+## 11 b        40
+## 12 q        21
+## 13 x        19
+## 14 n         9
+## 15 v         8
+## 16 g         5
+## 17 m         4
+## 18 y         2
+## 19 z         1</code></pre>
 <ol start="6" style="list-style-type: decimal">
 <li>Use the <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> function in base R to show the unique letters that were sampled in <code>f</code>.</li>
 </ol>
 <div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##  [1] v d i e z l m p f o u w y g b j s c x h a
-## Levels: a b c d e f g h i j l m o p s u v w x y z</code></pre>
+<pre><code>##  [1] f d r w j u n t b i l o q x v g m z y
+## Levels: b d f g i j l m n o q r t u v w x y z</code></pre>
 <ol start="7" style="list-style-type: decimal">
 <li>Use a function in the <code>forcats</code> packages that shows the unique letters that were sampled in <code>f</code>. How is this function different from the base R function?</li>
 </ol>
 <div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">fct_unique</span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##  [1] a b c d e f g h i j l m o p s u v w x y z
-## Levels: a b c d e f g h i j l m o p s u v w x y z</code></pre>
+<code class="sourceCode R"><span><span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_unique.html">fct_unique</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##  [1] b d f g i j l m n o q r t u v w x y z
+## Levels: b d f g i j l m n o q r t u v w x y z</code></pre>
 <p><code>fct_unique</code> function is specified for the factor variable. It will sort the unique values according to the levels of factor.</p>
 
 </div>
@@ -278,8 +305,8 @@
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/Tptrix29/r-tutorials/blob/master/2-5-rec.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/Tptrix29/r-tutorials/edit/master/2-5-rec.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/Tptrix29/r-tutorials/blob/master/5_rec.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Tptrix29/r-tutorials/edit/master/5_rec.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -291,7 +318,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-07-02.</p>
+    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-07-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

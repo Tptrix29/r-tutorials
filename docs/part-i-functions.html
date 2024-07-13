@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 3 Part I: Functions | Introduction to R</title>
+<meta name="author" content="Tptrix29">
+<meta name="description" content="Create a function called drivingTest that internally saves a variable called status. status is “You can drive!” if age is &gt;= 17, “You are almost old enough to drive!” if age is &gt;= 16 and “You are...">
+<meta name="generator" content="bookdown 0.39 with bs4_book()">
+<meta property="og:title" content="Chapter 3 Part I: Functions | Introduction to R">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://bookdown.org/janedoe/bookdown-demo/part-i-functions.html">
+<meta property="og:image" content="https://bookdown.org/janedoe/bookdown-demo/_main_files/img/R_logo.png">
+<meta property="og:description" content="Create a function called drivingTest that internally saves a variable called status. status is “You can drive!” if age is &gt;= 17, “You are almost old enough to drive!” if age is &gt;= 16 and “You are...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 3 Part I: Functions | Introduction to R">
+<meta name="twitter:description" content="Create a function called drivingTest that internally saves a variable called status. status is “You can drive!” if age is &gt;= 17, “You are almost old enough to drive!” if age is &gt;= 16 and “You are...">
+<meta name="twitter:image" content="https://bookdown.org/janedoe/bookdown-demo/_main_files/img/R_logo.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Introduction to R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Home</a></li>
+<li><a class="" href="recitation-1.html"><span class="header-section-number">1</span> Recitation 1</a></li>
+<li><a class="" href="recitation-10.html"><span class="header-section-number">2</span> Recitation 10</a></li>
+<li><a class="active" href="part-i-functions.html"><span class="header-section-number">3</span> Part I: Functions</a></li>
+<li><a class="" href="recitation-11.html"><span class="header-section-number">4</span> Recitation 11</a></li>
+<li><a class="" href="recitation-2.html"><span class="header-section-number">5</span> Recitation 2</a></li>
+<li><a class="" href="recitation-3.html"><span class="header-section-number">6</span> Recitation 3</a></li>
+<li><a class="" href="recitation-4.html"><span class="header-section-number">7</span> Recitation 4</a></li>
+<li><a class="" href="recitation-5.html"><span class="header-section-number">8</span> Recitation 5</a></li>
+<li><a class="" href="recitation-6.html"><span class="header-section-number">9</span> Recitation 6</a></li>
+<li><a class="" href="recitation-7.html"><span class="header-section-number">10</span> Recitation 7</a></li>
+<li><a class="" href="recitation-8.html"><span class="header-section-number">11</span> Recitation 8</a></li>
+<li><a class="" href="recitation-9.html"><span class="header-section-number">12</span> Recitation 9</a></li>
+<li><a class="" href="final-review.html"><span class="header-section-number">13</span> Final Review</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/Tptrix29/r-tutorials">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="part-i-functions" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Part I: Functions<a class="anchor" aria-label="anchor" href="#part-i-functions"><i class="fas fa-link"></i></a>
+</h1>
+<ol style="list-style-type: decimal">
+<li>Create a function called <code>drivingTest</code> that internally saves a variable called <code>status</code>. <code>status</code> is “You can drive!” if age is &gt;= 17, “You are almost old enough to drive!” if age is &gt;= 16 and “You are not old enough to drive.”, otherwise. The function should then return an output that says something like “You are 18 years old. You can drive!” (the output will differ depending on the input).</li>
+</ol>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">drivingTest</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="kw">if</span><span class="op">(</span><span class="va">age</span> <span class="op">&gt;=</span> <span class="fl">17</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="va">status</span> <span class="op">=</span> <span class="st">"You can drive!"</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span><span class="op">(</span><span class="va">age</span> <span class="op">&gt;=</span> <span class="fl">16</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="va">status</span> <span class="op">=</span> <span class="st">"You are almost old enough to drive!"</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span><span class="op">{</span></span>
+<span>    <span class="va">status</span> <span class="op">=</span> <span class="st">"You are not old enough to drive."</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"You are "</span>, <span class="va">age</span>, <span class="st">" years old. "</span>, <span class="va">status</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="co"># Check</span></span>
+<span><span class="fu">drivingTest</span><span class="op">(</span><span class="fl">0</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "You are 0 years old. You are not old enough to drive."</code></pre>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">drivingTest</span><span class="op">(</span><span class="fl">15</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "You are 15 years old. You are not old enough to drive."</code></pre>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">drivingTest</span><span class="op">(</span><span class="fl">16</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "You are 16 years old. You are almost old enough to drive!"</code></pre>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">drivingTest</span><span class="op">(</span><span class="fl">17</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "You are 17 years old. You can drive!"</code></pre>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">drivingTest</span><span class="op">(</span><span class="fl">18</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "You are 18 years old. You can drive!"</code></pre>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">drivingTest</span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "You are -1 years old. You are not old enough to drive."</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Write a function called <code>stdev</code> that computes the sample standard deviation. Do not use the built-in R function <code>sd</code>. Then, find the sd of 10 randomly generated numbers from a Uniform(0, 1) distribution (call this <code>z</code>). You can generate <code>z</code> using <code>runif(10)</code>.</li>
+</ol>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">stdev</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">arr</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">(</span><span class="va">arr</span> <span class="op">-</span> <span class="va">m</span><span class="op">)</span> <span class="op">^</span> <span class="fl">2</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">z</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
+<span><span class="co"># Check: These two should produce the same output</span></span>
+<span><span class="fu">stdev</span><span class="op">(</span><span class="va">z</span><span class="op">)</span> </span></code></pre></div>
+<pre><code>## [1] 0.2626836</code></pre>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span> </span></code></pre></div>
+<pre><code>## [1] 0.2626836</code></pre>
+
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="recitation-10.html"><span class="header-section-number">2</span> Recitation 10</a></div>
+<div class="next"><a href="recitation-11.html"><span class="header-section-number">4</span> Recitation 11</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#part-i-functions"><span class="header-section-number">3</span> Part I: Functions</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/Tptrix29/r-tutorials/blob/master/2-10-rec.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Tptrix29/r-tutorials/edit/master/2-10-rec.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Introduction to R</strong>" was written by Tptrix29. It was last built on 2024-07-13.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

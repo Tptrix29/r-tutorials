@@ -5,3 +5,18 @@ number_sections: false
 language:
   ui:
     chapter_name: "Chapter "
+
+rmd_files:
+  - index.Rmd
+  - 1_rec-setup.Rmd
+  - 2_rec.Rmd
+  - 3_rec.Rmd
+  - 4_rec.Rmd
+  - 5_rec.Rmd
+  - 6_rec.Rmd
+  - 7_rec.Rmd
+  - 8_rec.Rmd
+  - 9_rec.Rmd
+  - 10_rec.Rmd
+  - 11_rec.Rmd
+  - final_review.Rmd

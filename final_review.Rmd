@@ -1,0 +1,208 @@
+# Final Review
+
+```{r, message=FALSE}
+# data analysis
+library(tidyverse) 
+# string
+library(stringr) 
+# factor
+library(forcats) 
+```
+
+
+## Data Loading
+* `read_csv`: load `csv` data table locally
+* `janitor::clean_names()`: tidy up the column names of dataframe, it converts names to snake_case, removes special characters, and handles duplicated names.
+
+```{r review-load-clean, message=F}
+airbnb = read.csv("./dataset/nyc_airbnb.csv") 
+airbnb = janitor::clean_names(airbnb)
+colnames(airbnb)
+```
+
+
+## Pipe Operator
+The pipe operator (`%>%` or `|>`) allows for cleaner and more readable code by chaining together a sequence of operations. Instead of nesting functions, the pipe operator allows for a left-to-right flow of data transformations.
+```{r review-pipe-operator, message=F}
+airbnb = read_csv("./dataset/nyc_airbnb.csv") %>% janitor::clean_names()
+airbnb = read_csv("./dataset/nyc_airbnb.csv") |> janitor::clean_names()
+airbnb |> head(10)
+```
+
+
+## `tidyverse`
+### `dplyr` functions
+
+- `select()`: Selects columns from a data frame.
+- `filter()`: Filters rows based on specified conditions.
+- `mutate()`: Adds new variables or transforms existing ones.
+- `arrange()`: Orders rows by specified variables.
+- `rename()`: Renames columns in a data frame. 
+```{r review-dplyr}
+airbnb |> 
+  filter(neighbourhood_group == "Queens") |> 
+  select(name:price) |>
+  mutate(price_level = if_else(price >= 500, "Expensive", "Not expensive")) |>
+  arrange(desc(price)) |>
+  rename(host = host_name) |> 
+  head(10)
+```
+
+
+### pivots
+
+- `pivot_longer()`: Converts data from wide to long format.
+- `pivot_wider()`: Converts data from long to wide format.
+```{r review-pivot-data, message=FALSE}
+year <- paste(2001:2020)
+team <- letters[1:length(year)]
+num <- sample(c(1:100), size = length(year)^2, replace = TRUE)
+
+yr_data <- data.frame(matrix(num, nrow = length(year), ncol = length(year))) |>
+  set_names(year) |> 
+  mutate(id = row_number())
+yr_data
+```
+```{r review-pivot-longer}
+yr_data_long = yr_data |> pivot_longer(cols = paste(2001:2020), 
+                                       names_to = "year", 
+                                       values_to = "points")
+yr_data_long
+```
+
+```{r review-pivot-wider}
+yr_data_long |>
+  pivot_wider(names_from = year, values_from = points)
+```
+
+
+
+
+### joins
+
+- `right_join()`: Keeps all rows from the right data frame and matching rows from the left.
+- `left_join()`: Keeps all rows from the left data frame and matching rows from the right.
+- `inner_join()`: Keeps only rows that have matching values in both data frames.
+- `full_join()`: Keeps all rows from both data frames, filling in `NA` for missing matches.
+```{r review-join}
+data1 <- tibble::tibble(id = 2:3, name = c("John", "Doe"))
+data2 <- tibble::tibble(id = 1:2, salary = c(50000, 60000))
+
+# right_join
+data1 |> right_join(data2, by = "id")
+
+# left_join
+data1 |> left_join(data2, by = "id")
+
+# inner_join
+data1 |> inner_join(data2, by = "id")
+
+# full_join
+data1 |> full_join(data2, by = "id")
+```
+
+## String and Factor
+Usage of `stringr` and `forcats` package
+```{r review-str}
+str_data <- "Hello, World!"
+str_length <- str_length(str_data)
+str_upper <- str_to_upper(str_data)
+```
+
+```{r review-fct}
+fct_data <- factor(c("apple", "banana", "cherry", "apple"))
+fct_count <- fct_count(fct_data)
+fct_relevel <- fct_relevel(fct_data, "banana", "apple")
+```
+
+
+
+## EDA
+- `case_when`: A versatile function for creating new variables based on multiple conditions.
+- `group_by`: Groups data by one or more variables for subsequent operations.
+- `summarize`: Calculates summary statistics for grouped data.
+```{r review-eda}
+airbnb |>
+  group_by(neighbourhood_group) |>
+  summarise(count = n()) |>
+  arrange(desc(count)) |>
+  mutate(level = case_when(
+    count > 10000 ~ "Large",
+    count > 2000 ~ "Medium", 
+    count > 500 ~ "Small",
+    .default = "Tiny"
+  ))
+```
+
+
+summary tables with the _gtsummary_ package
+```{r review-gt}
+airbnb |>
+  select(c(neighbourhood_group, price)) |>
+  gtsummary::tbl_summary()
+```
+
+
+## `ggplot`
+```{r review-ggplot1}
+airbnb |>
+  mutate(borough = neighbourhood_group |> factor()) |>
+  ggplot() +
+  geom_boxplot(aes(x = borough, y = price, color = borough)) +
+  theme_bw() + 
+  labs(
+    title = "Boxplot of Airbnb price in different borough"
+  ) + 
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+
+## Control Statement
+* `if-else`
+```{r review-ifelse}
+# if-else
+x <- 10
+if (x > 5) {
+  result <- "Greater than 5"
+} else {
+  result <- "5 or less"
+}
+```
+
+* `for` loop
+```{r review-for}
+for (i in 1:5) {
+  print(i)
+}
+```
+
+* `while` loop
+```{r review-while}
+count <- 1
+while (count <= 5) {
+  print(count)
+  count <- count + 1
+}
+```
+
+## Function
+```{r review-func}
+item_checkout = function(price, n, discount = 1){
+  return(price * discount * n)
+}
+
+fruit_names = c("Apple", "Banana", "Cherry", "Dragonfruit", "Fig", "Kiwi", "Strawberry")
+fruit = tibble(
+  name = fruit_names, 
+  price = runif(length(name), 0, 50),
+  discount = runif(length(name)),
+  count = sample(1:100, length(name))
+)
+
+fruit |>
+  mutate(payment = item_checkout(price, count, discount))
+```
+
+
+

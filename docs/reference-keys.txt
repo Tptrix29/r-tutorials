@@ -1,4 +1,4 @@
-tab:unnamed-chunk-22
+tab:unnamed-chunk-21
 recitation-1
 objectives
 download-softwares
@@ -52,3 +52,19 @@ part-ii-3
 recitation-9
 part-i-6
 part-ii-4
+recitation-10
+part-i-functions
+recitation-11
+part-i-iteration
+final-review
+data-loading
+pipe-operator
+tidyverse
+dplyr-functions
+pivots
+joins
+string-and-factor
+eda
+ggplot
+control-statement
+function

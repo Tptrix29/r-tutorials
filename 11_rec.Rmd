@@ -1,0 +1,99 @@
+# Recitation 11
+
+* For loops
+
+Now we'll practice with iteration.
+
+Load any necessary packages in your first chunk of code.
+
+```{r, include=FALSE}
+library(tidyverse)
+```
+
+Please work out the following exercises sequentially. There may be more than one way to code the exercises.
+
+## Part I: Iteration
+
+1. `x` is a 4x3 data frame of 12 randomly generated numbers from a Uniform(0, 1) distribution. Write a for loop that returns the standard deviation of each column of `x` in the following format:
+
+[1] "1 : 0.203624272520283"
+
+[1] "2 : 0.297398365605958"
+
+[1] "3 : 0.370973895270821"
+
+Do not hard code the indices, 1, 2, 3. 
+
+```{r}
+x <- as.data.frame(matrix(runif(12), ncol = 3))
+
+for (i in 1:ncol(x)) {
+  print(str_c(i, ": ", sd(x[,i])))
+}
+```
+
+2. Write a nested for loop (a for loop inside a for loop) that returns an output that looks something like this:
+
+[1] "Element x[1, 1] is 0.293645224068314" 
+
+[1] "Element x[1, 2] is 0.691126650897786"
+
+[1] "Element x[1, 3] is 0.803303817752749" 
+
+[1] "Element x[2, 1] is 0.385301414178684" 
+
+[1] "Element x[2, 2] is 0.128541933139786"
+
+[1] "Element x[2, 3] is 0.131027936702594" 
+
+[1] "Element x[3, 1] is 0.43460671370849" 
+
+[1] "Element x[3, 2] is 0.874724538065493" 
+
+[1] "Element x[3, 3] is 0.0957115420605987" 
+
+[1] "Element x[4, 1] is 0.826694968156517" 
+
+[1] "Element x[4, 2] is 0.826714764349163" 
+
+[1] "Element x[4, 3] is 0.900152393151075" 
+
+```{r }
+for (i in 1:nrow(x)) {
+  for (j in 1:ncol(x)) {
+    print(str_c("Element x[", i, ", ", j, "] is ", x[i, j]))
+  }
+}
+```
+
+3. *CHALLENGE* Write a function called `remove.let` that goes through each word of a string and removes the first letter. Use the given strings to test your function once it is written. `stringr` functions will be helpful here and you _must_ use iteration.
+
+My general roadmap:
+
+* Convert the string into a vector of individual words
+* Go through each word in the vector and remove the first letter, using iteration
+* Put the individual words back into one string
+* Return the string
+
+```{r}
+remove.let <- function(s) {
+  
+  s_sep <- str_split(s, pattern = " ")[[1]]
+  
+  output <- vector("character", length = length(s_sep))
+  
+  for (i in 1:length(s_sep)) {
+    output[i] <- str_sub(s_sep[i], 2, -1)
+  }
+  
+  return(str_c(output, collapse = " "))
+  
+}
+  
+# Check
+my_string <- "We love recitation"
+my_string2 <- "My favorite letter is R"
+
+remove.let(my_string) # Answer should be: "e ove ecitation
+remove.let(my_string2) # Answer should be: "y avorite etter s "
+```
